@@ -29,6 +29,7 @@
 
 Image *readData(char *filename) 
 {
+    static Image obj;
 	//YOUR CODE HERE
     FILE *fp = fopen(filename, "r");
     char *format = NULL;
@@ -39,65 +40,58 @@ Image *readData(char *filename)
     fscanf(fp, "%d", &range_max);
 
     uint8_t r,g,b;
-    Color *ptr = (Color *)malloc(sizeof(Color));
-    MALLOC_CHK(ptr);
-    Color **c_head = NULL;
-    *c_head = ptr;
+    Color *head = (Color *)malloc(sizeof(Color)*h*w);
+    Color *ptr = head;
+    Color **c_head = &head;
     while (scanf("%hhu %hhu %hhu", &r, &g, &b)==3) {
         ptr->R = r;
         ptr->G = g;
         ptr->B = b;
-        Color *new_ptr = (Color *)malloc(sizeof(Color));
-        MALLOC_CHK(new_ptr);
-        ptr->next = new_ptr;
-        ptr = new_ptr;
+        ptr++;
     }
     
-    Image *image_ptr = (Image *)malloc(sizeof(Image));
-    image_ptr->image = c_head;
-    image_ptr->rows = h;
-    image_ptr->cols = w;
+    obj.rows = h;
+    obj.cols = w;
+    obj.image = c_head;
     fclose(fp);
-    return image_ptr;
+    return &obj;
+
 }
 
 //Given an image, prints to stdout (e.g. with printf) a .ppm P3 file with the image's data.
 void writeData(Image *image)
 {
 	//YOUR CODE HERE
-    //printf("P3\n");
-    //printf("%u %u\n", image->cols, image->rows);
-    //printf("255\n");
-    //
-    //Color **tmp = image->image;
-    //Color *ptr = *tmp;
-    //uint8_t widcnt = 0;
-    //while (ptr) {
-    //    printf("%hhu %hhu %hhu", ptr->R, ptr->G, ptr->B);
-    //    widcnt++;
-    //    if (widcnt == image->cols) {
-    //        widcnt = 0;
-    //        printf("\n");
-    //    } else {
-    //        printf("   ");
-    //    }
-    //    ptr = ptr->next;
-    //}
-    //printf("\n");
+    printf("P3\n");
+    printf("%u %u\n", image->cols, image->rows);
+    printf("255\n");
+    
+    Color **tmp = image->image;
+    Color *ptr = *tmp;
+    uint8_t widcnt = 0;
+    while (ptr) {
+        printf("%hhu %hhu %hhu", ptr->R, ptr->G, ptr->B);
+        widcnt++;
+        if (widcnt == image->cols) {
+            widcnt = 0;
+            printf("\n");
+        } else {
+            printf("   ");
+        }
+        ptr++;
+    }
+    printf("\n");
     return ;
 }
 
 //Frees an image
 void freeImage(Image *image)
 {
-    Color **tmp = image->image;
-    Color *ptr = *tmp;
-    Color *nextptr = ptr->next;
-    while (ptr) {
-        free(ptr);
-        ptr = nextptr;
-        nextptr = ptr->next;
-    }
+    Color **ptr = image->image;
+    Color *pptr = *ptr;
+    free(ptr);
+    free(pptr);
+    free(image);
     return ;
 	//YOUR CODE HERE
 }

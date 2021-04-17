@@ -7,7 +7,7 @@ typedef struct Color
 	uint8_t R;
 	uint8_t G;
 	uint8_t B;
-    struct Color *next; // have to define next ptr?
+    //struct Color *next; // have to define next ptr?
 } Color;
 typedef struct Image
 {
