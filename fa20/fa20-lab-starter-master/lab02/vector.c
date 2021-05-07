@@ -134,11 +134,12 @@ void vector_set(vector_t *v, size_t loc, int value) {
         if (!new) {
             allocation_failed();
         }
-
-        for (size_t i = 0; i<(loc+1);i++) {
-            if (i < v->size) {
-                new[i] = v->data[i];
-            } else if(i!=loc) {
+        int old_size = v->size;
+        v->size = loc+1;
+        for (size_t i = 0; i<v->size;i++) {
+            if (i < old_size) {
+                new[i] = old[i];
+            } else if(i != loc) {
                 new[i] = 0;
             } else if(i==loc) {
                 new[i]=value;
