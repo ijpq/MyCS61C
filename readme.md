@@ -17,5 +17,5 @@ xxx:
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |week1||lec1|lec2|lab0 🏁 |hw1 🏁|
 |week2|lec3|lec4|lec5|lab1 🏁|<li>proj1</li> 📎 <li>hw2</li> 🏁|
-|week3|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> ⏳ |
+|week3|NULL|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> ⏳ |
 
