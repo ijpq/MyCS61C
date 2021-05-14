@@ -10,7 +10,7 @@ ketang : done 🏁 ,  lay aside 📎, processing ⏳
 
 xxx:
 
-xxx: 
+
 
 ---
 |schedule|lec|lec|lec|material|assit|
@@ -18,4 +18,13 @@ xxx:
 |week1||lec1|lec2|lab0 🏁 |hw1 🏁|
 |week2|lec3|lec4|lec5|lab1 🏁|<li>proj1</li> 📎 <li>hw2</li> 🏁|
 |week3|NULL|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> ⏳ |
+
+---
+Chrunge: No homework~
+|schedule|lec|lec|lec|material|assit|
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|week1||lec1|lec2|lab0 🏁 |
+|week2|lec3|lec4|lec5|<li>lab1 🏁</li> | <li>proj1 🏁</li> |
+|week3|NULL|lec6|lec7|<li>lab2 🏁</li> <li>disc1 🏁</li> | <li>proj2 ⏳</li> |
+|week4|lec8|lec9|lec10|<li>lab3</li> <li>disc2 🏁</li> |
 
