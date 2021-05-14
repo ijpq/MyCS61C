@@ -1,0 +1,11 @@
+.DS_Store
+.venv
+__pycache__/
+*.py[cod]
+
+.last_updated
+public
+programs
+version.json
+
+*.jar
