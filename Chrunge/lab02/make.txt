@@ -1,0 +1,8 @@
+1.Which target is part of a rule that deletes all the compiled programs? clean
+2.Which target is part of a rule that makes all the compiled programs? all
+3. gcc
+4. C17
+5.  $(Foo)
+6. Darwin is an open-source Unix-like operating system 
+7. $(LFSR_PROG): $(LFSR_OBJS)
+	$(CC) $(CFLAGS) -g -o $(LFSR_PROG) $(LFSR_OBJS) $(LDFLAGS)

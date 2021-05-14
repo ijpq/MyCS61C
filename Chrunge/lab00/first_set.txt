@@ -1,0 +1,9 @@
+Show file permissions for all files in a directory: ls -l
+Move files from one directory to the next: mv lab/origin lab2/duplicate
+Change a file’s permissions: chmod accessClass Operator accessType filename
+Show the directory you’re currently in: pwd
+Check if a host is online:ping -W 1 $ip, where -W specifies a timeout in seconds.
+Which command walks a file hierarchy in search of a keyword? find 
+Which command displays information about processes running on your machine? ps [UID]
+Which command terminates a process? kill UID
+Which command can help you find the difference between two files? diff [option] file1 file2
