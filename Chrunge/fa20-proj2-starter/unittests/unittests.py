@@ -309,17 +309,17 @@ class TestReadMatrix(TestCase):
     def test_simple(self):
         self.do_read_matrix()
 
-    def test_malloc_exception(self):
-        self.do_read_matrix('malloc', 116)
+    # def test_malloc_exception(self):
+    #     self.do_read_matrix('malloc', 116)
 
-    def test_fopen_exception(self): 
-        self.do_read_matrix(fail = "fopen", code = 117)
+    # def test_fopen_exception(self): 
+    #     self.do_read_matrix(fail = "fopen", code = 117)
 
-    def test_fread_exception(self):
-        self.do_read_matrix(fail = "fread", code = 118)
+    # def test_fread_exception(self):
+    #     self.do_read_matrix(fail = "fread", code = 118)
 
-    def test_fclose_exception(self):
-        self.do_read_matrix(fail = "fclose", code = 119)
+    # def test_fclose_exception(self):
+    #     self.do_read_matrix(fail = "fclose", code = 119)
 
 
     @classmethod
