@@ -406,22 +406,55 @@ class TestClassify(TestCase):
         t.include("write_matrix.s")
         return t
 
-    def test_simple0_input0(self):
+    
+    #ref_file = outputs/test_classify/simple{0}/bin/{output0}.bin
+    def do_classify(self, classification, input_i, simple_i, code=0, fail='', p=0):
+        #input_i is an int from [0, 1, 2]
+        #simple_i is an int from [0, 1, 2]
+
         t = self.make_test()
-        out_file = "outputs/test_basic_main/student0.bin"
-        ref_file = "outputs/test_basic_main/reference0.bin"
-        args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin",
-                "inputs/simple0/bin/inputs/input0.bin", out_file]
+        out_file = f"outputs/test_classify/OUTPUTS/simple{simple_i}_output{input_i}.bin"
+
+        ref_file = f"outputs/test_classify/simple{simple_i}/bin/output{input_i}.bin"
+
+        args = [f"inputs/simple{simple_i}/bin/m0.bin", f"inputs/simple{simple_i}/bin/m1.bin",
+                f"inputs/simple{simple_i}/bin/inputs/input{input_i}.bin", out_file]
+
+        t.input_scalar("a2", p)
         # call classify function
         t.call("classify")
         # generate assembly and pass program arguments directly to venus
-        t.execute(args=args)
+        t.execute(args=args, code=code, fail=fail)
 
         # compare the output file and
-        raise NotImplementedError("TODO")
-        # TODO
+        t.check_file_output(out_file, ref_file)
+        
         # compare the classification output with `check_stdout`
+        if code==0:
+            t.check_stdout(classification)
 
+    def test_simple0(self): 
+        for i in [0, 1, 2]:
+            self.do_classify(classification="2", input_i=i, simple_i=0)
+
+    def test_simple1_input0(self): 
+        self.do_classify(classification="1", input_i=0, simple_i=1)
+    
+    def test_simple1_input1(self): 
+        self.do_classify(classification="4", input_i=1, simple_i=1)
+
+    def test_simple1_input2(self): 
+        self.do_classify(classification="1", input_i=2, simple_i=1)
+
+    def test_simple2_input0(self): 
+        self.do_classify(classification="7", input_i=0, simple_i=2)
+    
+    def test_simple2_input1(self): 
+        self.do_classify(classification="4", input_i=1, simple_i=2)
+    
+    def test_fail_malloc(self): 
+        self.do_classify(classification="4", input_i=1, simple_i=2, fail='malloc', code=88, p=1)
+    
     @classmethod
     def tearDownClass(cls):
         print_coverage("classify.s", verbose=False)
