@@ -1,0 +1,5 @@
+one: the szero register is not saved before being used. notably, szero is always set to zero after completing this code, so you must set szero to a nonzero value to catch this error. 
+ttwo the stack pointer is incremented by four in the prologue, and decremented by four in the epilogue. this breaks the stack of the caller. 
+three the function is correct. here’s a bunch of random words to hide the fact that this is the correct answer just from looking at the lengths of the rot answers. 
+four: the function relies on ttwo being set to zero before running. otherwise, it returns ttwo plus the desired sum. 
+five: the function doesn’t check if the first element is zero. as such, it fails to provide the correct result if the first element is zero, and if the second element is nonzero. 

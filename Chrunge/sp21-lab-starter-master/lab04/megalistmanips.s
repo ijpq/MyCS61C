@@ -30,9 +30,7 @@ main:
     # issue the map call
     add a0, s0, x0      # load the address of the first node into a0
     la  a1, mystery     # load the address of the function into a1
-
     jal map
-
     # print "lists after: "
     la a1, end_msg
     li a0, 4
@@ -41,7 +39,8 @@ main:
     # print the list
     add a0, s0, x0
     jal print_list
-
+    
+    
     li a0, 10
     ecall
 
@@ -56,6 +55,7 @@ map:
     add s0, a0, x0      # save address of this node in s0
     add s1, a1, x0      # save address of function in s1
     add t0, x0, x0      # t0 is a counter
+    
 
     # remember that each node is 12 bytes long:
     # - 4 for the array pointer
@@ -66,20 +66,36 @@ map:
     # are modified by the callees, even when we know the content inside the functions 
     # we call. this is to enforce the abstraction barrier of calling convention.
 mapLoop:
-    add t1, s0, x0      # load the address of the array of current node into t1
+	# 6th mistake, not add t1, s0, x0; but lw t1, 0(s0)
+    lw t1, 0(s0)      # load the address of the array of current node into t1
     lw t2, 4(s0)        # load the size of the node's array into t2
-
-    add t1, t1, t0      # offset the array address by the count
+	
+    # 2th mistake, offest t3*4 bytes
+    li t3, 4
+    mul t3, t3, t0
+    add t1, t1, t3      # offset the array address by the count
     lw a0, 0(t1)        # load the value at that address into a0
 
+	# 5th mistake, keep t0, t1, t2 unchanged
+    addi sp, sp, -12
+    sw t0, 0(sp)
+    sw t1, 4(sp)
+    sw t2, 8(sp)
     jalr s1             # call the function on that value.
-
+	lw t0, 0(sp)
+    lw t1, 4(sp)
+    lw t2, 8(sp)
+	addi sp, sp, 12
+    
     sw a0, 0(t1)        # store the returned value back into the array
     addi t0, t0, 1      # increment the count
     bne t0, t2, mapLoop # repeat if we haven't reached the array size yet
 
-    la a0, 8(s0)        # load the address of the next node into a0
-    lw a1, 0(s1)        # put the address of the function back into a1 to prepare for the recursion
+	# 3th, not la a0, 8(s0); but lw
+    lw a0, 8(s0)        # load the address of the next node into a0
+    
+    # 4th mistake ,not lw a1, 0(s1); but 
+    add a1, s1, x0        # put the address of the function back into a1 to prepare for the recursion
 
     jal  map            # recurse
 done:
@@ -87,6 +103,9 @@ done:
     lw s1, 4(sp)
     lw ra, 0(sp)
     addi sp, sp, 12
+    
+    # 1th mistake
+    ret
 
 print_newline:
     li a1, '\n'

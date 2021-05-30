@@ -16,24 +16,34 @@
 #We have provided five versions of accumulator. Only one is correct, though all five pass the sanity test above.
 
 accumulatorone:
-	lw s0 0(a0)
-	beq s0 x0 Endone
-	addi sp sp -8
+	addi sp sp -12
 	sw s0 0(sp)
-	sw ra 4(sp)
-	addi a0 a0 4
-	jal accumulatorone
-	lw t1 0(sp)
-	lw ra 4(sp)
-	addi sp sp 8
-	add a0 a0 t1
-	jr ra
+    sw s1, 4(sp)
+	sw ra 8(sp)
+    
+	li s0, 0
+    add s1, a0, x0
+
+
+Loopone:
+    lw t0, 0(s1)
+    beq t0 x0 Endone
+    add s0 ,s0, t0
+	addi s1 s1 4
+	jal Loopone
+    
+
 Endone:
-	li a0 0
+	add a0, s0, x0
+	lw s0 0(sp)
+    lw s1, 4(sp)
+	lw ra 8(sp)
+	addi sp sp 12
 	jr ra
 
 accumulatortwo:
-	addi sp sp 4
+	# revision
+	addi sp sp -4
 	sw s0 0(sp)
 	li t0 0
 	li s0 0
@@ -48,7 +58,7 @@ Looptwo:
 Endtwo:
 	mv a0 s0
 	lw s0 0(sp)
-	addi sp sp -4
+	addi sp sp 4
 	jr ra
 
 accumulatorthree:
@@ -71,11 +81,14 @@ Epiloguethree:
 	jr ra
 
 accumulatorfour:
+    li t2, 0
+Loopfour:
 	lw t1 0(a0)
+    # revision
 	beq t1 x0 Endfour
 	add t2 t2 t1
 	addi a0 a0 4
-	j accumulatorfour
+	j Loopfour
 Endfour:
 	mv a0 t2
 	jr ra
@@ -86,11 +99,13 @@ accumulatorfive:
 	sw ra 4(sp)
 	mv s0 a0
 	lw a0 0(a0)
+	beq a0, x0, Endfive
 Loopfive:
 	addi s0 s0 4
 	lw t0 0(s0)
 	add a0 a0 t0
 	bne t0 x0 Loopfive
+Endfive:
 	lw s0 0(sp)
 	lw ra 4(sp)
 	addi sp sp 8
