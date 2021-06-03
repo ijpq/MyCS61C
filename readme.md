@@ -2,14 +2,11 @@ ucb cs61c
 ---
 labs: fa20 https://github.com/61c-teach/fa20-lab-starter
 
-proj: fa20
+proj: fa20&sp21
 
 hw/assignments: https://inst.eecs.berkeley.edu/~cs61c/sp15/
 
-ketang : done 🏁 ,  lay aside 📎, processing ⏳
-
-xxx:
-
+ketang,Chrunge : done 🏁 ,  lay aside 📎, processing ⏳
 
 
 ---
@@ -18,6 +15,8 @@ xxx:
 |week1||lec1|lec2|lab0 🏁 |hw1 🏁|
 |week2|lec3|lec4|lec5|lab1 🏁|<li>proj1</li> 📎 <li>hw2</li> 🏁|
 |week3|NULL|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> ⏳ |
+|week4|lec8|lec9|lec10|lab3 🏁 |NULL|
+|week5|lec11|lec12|lec13|<li>lab4</li> <li>discussion4</li>|NULL|
 
 ---
 Chrunge: No homework~
