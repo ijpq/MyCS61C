@@ -1,0 +1,141 @@
+.globl read_matrix
+
+.text
+# ==============================================================================
+# FUNCTION: Allocates memory and reads in a binary file as a matrix of integers
+#
+# FILE FORMAT:
+#   The first 8 bytes are two 4 byte ints representing the # of rows and columns
+#   in the matrix. Every 4 bytes afterwards is an element of the matrix in
+#   row-major order.
+# Arguments:
+#   a0 (char*) is the pointer to string representing the filename
+#   a1 (int*)  is a pointer to an integer, we will set it to the number of rows
+#   a2 (int*)  is a pointer to an integer, we will set it to the number of columns
+# Returns:
+#   a0 (int*)  is the pointer to the matrix in memory
+# Exceptions:
+# - If malloc returns an error,
+#   this function terminates the program with error code 116.
+# - If you receive an fopen error or eof, 
+#   this function terminates the program with error code 117.
+# - If you receive an fread error or eof,
+#   this function terminates the program with error code 118.
+# - If you receive an fclose error or eof,
+#   this function terminates the program with error code 119.
+# ==============================================================================
+read_matrix:
+
+    # Prologue
+    add x5, x0, x0 # file descriptor
+    addi sp, sp, -24
+    sw a1, 0(sp)
+    sw a2, 8(sp)
+    sw a0, 16(sp)
+    add a1, a0, x0 # argument filepath
+    add a2, x0, x0 # argument permission
+
+    # call fopen
+    jal x1, fopen
+    add x5, a0, x0 # get return val
+    lw a0, 16(sp)
+    lw a1, 0(sp)
+    lw a2, 8(sp)
+    addi sp, sp, 24
+
+    addi x5, x5, 1
+    beq x5, x0, error_117
+    addi x5, x5, -1
+
+    addi x6, x0, 1 # fread retval
+
+    # get rows and cols
+    # prepare malloc
+    addi a0, x0, 4
+    jal x1, malloc
+    add x28, a0, x0 # x28 : start addr return from malloc
+    beq x28, x0, error_116
+
+    #prepare fread
+    add a1, x0, x5
+    add a2, x28, x0
+    addi a3, x0, 4
+    jal x1, fread # call fread to get rows
+    bne a0, a3, error_118 #fread error
+    addi sp, sp, -8
+    sw s1, 0(sp)
+    lw s1, 0(x28)
+    add a1, x0, s1
+    lw s1, 0(sp)
+    addi sp, sp, 8
+    
+    addi a0, x0, 4
+    jal x1, malloc
+    add x29, a0, x0 # x29 store width
+    beq x29, x0, error_116
+    add a1, x0, x5
+    add a2, x29, x0
+    addi a3, x0, 4
+    jal x1, fread
+    bne a0, a3, error_118
+    addi sp, sp, -8
+    sw s1, 0(sp)
+    lw s1, 0(x29)
+    add a2, x0, s1
+    lw s1, 0(sp)
+    addi sp, sp, 8
+    
+    # call malloc for buffer
+    mul x30, a1, a2 # num of int
+    slli x30, x30, 2 # num of bytes
+    add a0, x30, x0
+    jal x1, malloc
+    add x31, a0, x0 # x31 points to the buffer
+    beq x31, x0, error_116
+	
+read_loop:
+    # fread paras
+    add a1, x0, x5
+    add a2, x31, x0
+    addi a3, x0, 4
+    jal x1, fread
+    bne a0, x6, error_118 
+    # TODO how to tell eof from error
+    # fread cannot tell eof from freaderror, callers must use feof and ferror to determine
+
+    addi x31, x0, 4
+    j read_loop
+
+read_loop_end:
+    add a1, x5, x0
+    jal x1, fclose
+    addi a0, x0, 1
+    beq a0, x0, error_119
+    addi a0, x0, -1
+
+error_116:
+    addi a1, x0, 116
+    j exit2
+
+error_117:
+    addi a1, x0, 117
+    j exit2
+
+error_118:
+    addi sp, sp, -8
+    sw a1, 0(sp)
+    add a1, x5, x0
+    jal x1, ferror
+    addi sp, sp, 8
+    lw a1, 0(sp)
+    bne a0, x0, exit
+    addi a1, x0, 118
+    j exit2
+
+error_119:
+    addi a1, x0, 119
+    j exit2
+    # Epilogue
+
+exit:
+    ret

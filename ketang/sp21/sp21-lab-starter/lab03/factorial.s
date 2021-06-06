@@ -1,7 +1,7 @@
 .globl factorial
 
 .data
-n: .word 8
+n: .word 7
 
 .text
 main:
@@ -22,3 +22,26 @@ main:
 
 factorial:
     # YOUR CODE HERE
+    addi sp, sp, -24
+    sw ra, 0(sp)
+    sw s0, 8(sp)
+    sw s1, 16(sp)
+    mv s0, a0 # save a
+    addi t0, x0, 1
+    beq s0, t0, end
+    addi a0, a0, -1 # call f(a-1)
+    jal ra, factorial
+    mv s1, a0 # save callee return val
+    mul t1, s0, s1
+    mv a0, t1
+    lw ra, 0(sp)
+    lw s0, 8(sp)
+    lw s1, 16(sp)
+    addi sp, sp, 24
+    ret
+end:
+    add a0, x0, t0
+    ret
+
+    
+

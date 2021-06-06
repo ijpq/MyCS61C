@@ -139,6 +139,7 @@ fopen:
     ret
 
 
+
 #================================================================
 # int fread(int a1, void *a2, size_t a3)
 # Reads a3 bytes of the file into the buffer a2.
@@ -188,7 +189,7 @@ fclose:
     ecall
     #FCLOSE_RETURN_HOOK
     ret
-
+#TODO 
 
 #================================================================
 # void noreturn exit2(int a1)

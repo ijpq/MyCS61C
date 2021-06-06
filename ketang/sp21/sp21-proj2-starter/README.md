@@ -26,3 +26,5 @@
 
 
 ## Here's what I did in project 2:
+
+1. when debugging ReadMatirx, have to copy .bin used for read to assembly folder. And set filepath in unittest.py to ".bin"
