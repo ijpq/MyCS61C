@@ -181,9 +181,9 @@ class TestMatmul(TestCase):
 
     def test_simple(self):
         self.do_matmul(
-            [1, 2, 3, 4, 5, 6], 3, 2,
-            [4, 5, 6, 7, 8, 9], 2, 3,
-            [18, 21, 24, 40, 47, 54, 62, 73, 84]
+            [1, 2, 3, 4, 5, 6, 7, 8, 9], 3, 3,
+            [1,1,1], 3, 1,
+            [6,15,24]
         )
 
     @classmethod
@@ -225,7 +225,7 @@ class TestReadMatrix(TestCase):
     def do_read_matrix2(self, fail='', code=0):
         t = AssemblyTest(self, "read_matrix.s")
         # load address to the name of the input file into register a0
-        t.input_read_filename("a0", "inputs/test_read_matrix/test_input1.bin")
+        t.input_read_filename("a0", "inputs/simple0/bin/m0.bin")
         # t.input_read_filename("a0", "test_input.bin")
 
 
@@ -245,15 +245,15 @@ class TestReadMatrix(TestCase):
         # check the output from the function
         # TODO
         t.check_array(rows, [3])
-        t.check_array(cols, [4])
-        t.check_array_pointer("a0", [-1,-2,-3,-4,5,6,7,8,9,10,11,12])
+        t.check_array(cols, [3])
+        t.check_array_pointer("a0", [1,3,5,7,9,11,13,15,17])
 
         # generate assembly and run it through venus
         t.execute(fail=fail, code=code)
     def test_simple(self):
         self.do_read_matrix()
 
-    def test2(self):
+    def test_read_Main(self):
         self.do_read_matrix2()
 
     def test_malloc(self):
@@ -321,14 +321,18 @@ class TestClassify(TestCase):
         args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin",
                 "inputs/simple0/bin/inputs/input0.bin", out_file]
         # call classify function
+        t.input_scalar("a2", 0) # printout
         t.call("classify")
         # generate assembly and pass program arguments directly to venus
         t.execute(args=args)
 
         # compare the output file and
-        raise NotImplementedError("TODO")
+        #raise NotImplementedError("TODO")
+
         # TODO
         # compare the classification output with `check_stdout`
+        t.check_file_output(out_file, ref_file)
+        t.check_stdout("4")
 
     @classmethod
     def tearDownClass(cls):

@@ -28,3 +28,5 @@
 ## Here's what I did in project 2:
 
 1. when debugging ReadMatirx, have to copy .bin used for read to assembly folder. And set filepath in unittest.py to ".bin"
+
+2. [ref](https://cs61c.org/resources/venus-reference) would help if you have any question about Venus, such as "how to pass in commadline argument when debugging"

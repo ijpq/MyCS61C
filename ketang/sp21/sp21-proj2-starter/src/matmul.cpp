@@ -1,23 +1,27 @@
 #include <cstdlib>
 #include <cstdio>
+// perform matrix multipliation at M,N * N,K
+#define M 3
+#define N 3
+#define K 1
 
 int main(void) {
-    int a[] = {1,2,3,4,5,6};
-    int b[] = {4,5,6,7,8,9};
-    int *c = (int *)malloc(sizeof(int)*9);
+    int a[] = {1,2,3,4,5,6,7,8,9};
+    int b[] = {1,1,1};
+    int *c = (int *)malloc(sizeof(int)*M*K);
     
-    for (int i =0; i < 3; i++) {
-        for (int j =0; j < 3;j++) {
+    for (int i =0; i < M; i++) {
+        for (int j =0; j < K;j++) {
             int rval = 0;
-            for (int k = 0; k < 2;k++) {
-                rval += *(a+i*2+k) * *(b+j+k*3);
+            for (int k = 0; k < N;k++) {
+                rval += *(a+i*N+k) * *(b+j+k*K);
                 
             }
-            *(c+i*3+j) = rval;
+            *(c+i*K+j) = rval;
         }
     }
 
-    for (int i =0; i < 9; i++)
+    for (int i =0; i < M*K; i++)
         printf("%d ", c[i]);
     printf("\n");
 
