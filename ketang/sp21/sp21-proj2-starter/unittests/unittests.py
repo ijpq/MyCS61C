@@ -57,7 +57,7 @@ class TestArgmax(TestCase):
     def test_simple(self):
         t = AssemblyTest(self, "argmax.s")
         # create an array in the data section
-        array0 = t.array([1, -2, 3, -4, 5, -6, 7, -8, 9])
+        array0 = t.array([1, -2, 3, -4, 5, 100, 100, -8, 9])
         # TODO
         # load address of the array into register a0
         t.input_array("a0", array0)
@@ -69,7 +69,7 @@ class TestArgmax(TestCase):
         t.call("argmax")
         # TODO
         # check that the register a0 contains the correct output
-        t.check_scalar("a0", 8)
+        t.check_scalar("a0", 5)
         # TODO
         # generate the `assembly/TestArgmax_test_simple.s` file and run it through venus
         t.execute()
@@ -181,8 +181,8 @@ class TestMatmul(TestCase):
 
     def test_simple(self):
         self.do_matmul(
-            [1, 2, 3, 4, 5, 6, 7, 8, 9], 3, 3,
-            [1,1,1], 3, 1,
+            [1,3,5,7,9,11,13,15,17], 3,3,
+            [6,15,24], 3,1,
             [6,15,24]
         )
 

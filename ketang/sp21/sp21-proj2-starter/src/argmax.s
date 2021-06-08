@@ -17,32 +17,29 @@
 argmax:
 
     # Prologue
-    # x28 is iteration i
-    # x29 is var t
-    # x30 is var r
-    # x31 ptr
-    add x31, a0, x0
-    add x28, x0, x0
-    add x29, x0, x0
-    add x30, x0, x0
-    add x5, x0, x0
-    
+    mv t0, a0
+    mv t1, a1
+    li t2, 0
+    li t3, 0 # current element
+    li t4, 0 # max element
+    li t5, 0 # max element index
 loop_start:
-    lw x29, 0(a0)
-    add x30, x28, x0
-
+    beq t2, t1, loop_end
+    lw t3, 0(t0)
+    blt t4, t3, markmax
+    j loop_continue
+markmax:
+    mv t4, t3
+    mv t5, t2
 
 loop_continue:
-    addi x31, x31, 4
-    addi x28, x28, 1
-    bge x28, a1, loop_end
-    lw x5, 0(x31)
-    bge x5, x29, loop_start
-    j loop_continue
+    addi t2, t2, 1
+    addi t0, t0, 4
+    j loop_start
 
 
 loop_end:
-    add a0, x30, x0
+    mv a0, t5
     
 
     # Epilogue

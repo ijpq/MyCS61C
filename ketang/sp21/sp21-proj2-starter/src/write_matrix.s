@@ -84,7 +84,7 @@ write_loop:
     beq s1, s0, loop_end
     lw s5, 0(s4)
     mv a1, s5
-    jal ra, print_int
+    #jal ra, print_int
 
     mv a1, s2
     mv a2, s4
