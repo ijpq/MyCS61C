@@ -1,0 +1,12 @@
+Test:
+python3 tools/create-test.py tests/part-b/custom/inputs/sll-slli.s tests/part-b/custom/inputs/beq.s
+python3 tools/create-test.py tests/part-b/custom/inputs/*.s
+
+python3 test.py tests/part-b/custom/sll-slli.circ
+python3 test.py tests/part-b/custom/
+
+$ python3 tools/create-test.py --cycles <NUMBER_OF_CYCLES> <ASM_PATH>
+
+Start:
+java -jar tools/venus.jar . -dm
+java -jar ../tools/logisim-evolution.jar    # If in a different folder, use the corresponding relative path 
