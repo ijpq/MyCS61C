@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 7 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%207%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%207%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%207%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%207%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%207%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%207%20-%20CS%2061C_files/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%207%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#goals" class="nav-link node-name--H2  active">Goals</a></li><li class="nav-item"><a href="#review-hit-and-miss-policies" class="nav-link node-name--H2 ">Review - Hit and Miss Policies</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#tools-for-cache-visualization-in-venus" class="nav-link node-name--H2 ">Tools for Cache Visualization in Venus</a></li><li class="nav-item"><a href="#exercise-1-memory-accesses" class="nav-link node-name--H2 ">Exercise 1 - Memory Accesses</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#scenario-1" class="nav-link node-name--H3 ">Scenario 1</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#tasks" class="nav-link node-name--H4 ">Tasks</a></li></ul></li><li class="nav-item"><a href="#scenario-2" class="nav-link node-name--H3 ">Scenario 2</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#tasks-1" class="nav-link node-name--H4 ">Tasks</a></li></ul></li><li class="nav-item"><a href="#scenario-3" class="nav-link node-name--H3 ">Scenario 3</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#tasks-2" class="nav-link node-name--H4 ">Tasks</a></li></ul></li></ul></li><li class="nav-item"><a href="#exercise-2-loop-ordering-and-matrix-multiplication" class="nav-link node-name--H2 ">Exercise 2 - Loop Ordering and Matrix Multiplication</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#tasks-3" class="nav-link node-name--H3 ">Tasks</a></li></ul></li><li class="nav-item"><a href="#exercise-3-cache-blocking-and-matrix-transposition" class="nav-link node-name--H2 ">Exercise 3 - Cache Blocking and Matrix Transposition</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#matrix-transposition" class="nav-link node-name--H3 ">Matrix Transposition</a></li><li class="nav-item"><a href="#cache-blocking" class="nav-link node-name--H3 ">Cache Blocking</a></li><li class="nav-item"><a href="#tasks-4" class="nav-link node-name--H3 ">Tasks</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#part-1-changing-array-sizes" class="nav-link node-name--H4 ">Part 1 - Changing Array Sizes</a></li><li class="nav-item"><a href="#part-2-changing-block-size" class="nav-link node-name--H4 ">Part 2 - Changing Block Size</a></li></ul></li></ul></li><li class="nav-item"><a href="#checkoff" class="nav-link node-name--H2 ">Checkoff</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 7: Caches</h1>
+    
+      <p class="subtitle">Deadline: Monday, July 26, 11:59:59 PM PT</p>
+    
+    
+    <h2 id="goals">Goals</h2>
+<ul>
+<li>Analyze how memory access patterns determine cache hit rates</li>
+<li>Analyze and discover which memory access patterns produce <strong>GOOD</strong> hit rates</li>
+<li>Analyze hit rates for caches and be able to optimize code accesses to produce good hit rates</li>
+</ul>
+<h2 id="review-hit-and-miss-policies">Review - Hit and Miss Policies</h2>
+<p>The Venus cache simulator currently simulates a <strong>write-through, write-allocate</strong> cache. Here's a reminder about the three different cache hit policies you should know about:</p>
+<ul>
+<li><strong>Write-back</strong> means that on a write hit, data is 
+written to the cache only, and when this write happens, the dirty bit 
+for the block that was written becomes 1. Writing to the cache is fast, 
+so write latency in write-back caches is usually quite small. However, 
+when a block is evicted from a write-back cache, and its dirty bit is 1,
+ memory must be updated with the contents of that block, as it contains 
+changes that are not yet reflected in memory. This makes write-back 
+caches more difficult to implement in hardware.</li>
+<li><strong>Write-through</strong> means that on a write hit, data is 
+written to both the cache and main memory. Writing to the cache is fast,
+ but writing to main memory is slow; this makes write latency in 
+write-through caches slower than in a write-back cache. However, 
+write-through caches mean simpler hardware, since we can assume in 
+write-through caches that memory always has the most up-to-date data.</li>
+<li><strong>Write-around</strong> means that in every situation, data is
+ written to main memory only; if we have the block we're writing in the 
+cache, the valid bit of the block is changed to invalid. Essentially, 
+there is no such thing as a write hit in a write-around cache; a write 
+"hit" does the same thing as a write miss.</li>
+</ul>
+<p>There are also two miss policies you should know about:</p>
+<ul>
+<li><strong>Write-allocate</strong> means that on a write miss, you pull
+ the block you missed on into the cache. For write-back, write-allocate 
+caches, this means that memory is never written to directly; instead, 
+writes are always to the cache and memory is updated upon eviction.</li>
+<li><strong>No write-allocate</strong> means that on a write miss, you do not pull the block you missed on into the cache. Only memory is updated.</li>
+</ul>
+<p>There are two common combinations of cache hit/miss policies:</p>
+<ul>
+<li><strong>Write-through/no-write allocate:</strong> on hits, it writes back to cache <strong>and</strong>
+ main memory; on write misses, the block gets updated in main memory as 
+the main memory access has to occur anyways. The block is not brought 
+back into the cache as subsequent writes always write to main memory 
+regardless of cache status. This situation applies solely for writes; 
+upon read hits and misses, the cache behaves as usual. With this setup, 
+should a read of the same block occur after the write-miss, the no-write
+ allocate would cause an unnecessary miss.</li>
+<li><strong>Write-back/write allocate:</strong> on hits, it writes back 
+to the cache, setting the dirty bit without updating main memory; on 
+misses, the corresponding block is brought into the cache. Subsequent 
+writes, if the same block is accessed, would be hits and the dirty bit 
+would be set until the block is evicted, at which point it would be 
+moved back to main memory. Efficiency-wise in comparison to 
+write-through/write allocate, it eliminates all write hit main memory 
+accesses.</li>
+</ul>
+<p>Additionally, in this course, we talk about several replacement policies, in order from most useful to least useful (normally):</p>
+<ul>
+<li><strong>LRU</strong> - Least recently used - when we decide to evict
+ a cache block to make space, we select the block that has been used 
+farthest back in time of all the blocks.</li>
+<li><strong>Random</strong> - When we decide to evict a cache block to make space, we randomly select one of the blocks in the cache to evict.</li>
+<li><strong>MRU</strong> - Most recently used - when we decide to evict a
+ cache block to make space, we select the block that has been used most 
+recently of all the blocks.</li>
+</ul>
+<p>The important takeaway concerning Venus here: <strong>in a 
+write-through cache (like in Venus), even though you are updating memory
+ on writes, because we also write to the cache, we consider writes to 
+blocks we have in the cache to be write hits.</strong></p>
+<p>Common question(s):</p>
+<ol>
+<li><strong>Don't we usually pair write-back with write-allocate and write-through with no write-allocate?</strong>
+ Yes, we learned in class that the ordinary pairing of hit policy/miss 
+policy is write-back/write-allocate and write-through/no write-allocate.
+ However, with respect to the cache, write-through and write-back caches
+ behave similarly on hits (both write to the cache), so the hit/miss 
+patterns you see in the Venus cache simulator would be the same even if 
+Venus simulated a write-back cache.</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<p>Pull the lab 7 files from the lab starter repository with</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">git pull starter main
+</span></code></pre>
+<p>For this lab, record your answers to the Tasks questions in <a href="https://docs.google.com/forms/d/e/1FAIpQLSfC9A5_siMyNtPq6sYkSKzlDhSK4AwiJLcohNqPpcJFZ52g0A/viewform?usp=sf_link">the Lab 7 Google Form</a>. </p>
+<ul>
+<li>The Tasks questions are shown on the spec and the form for your convenience.</li>
+<li>The Google Form is very simple and thus incapable of recognizing typos or misformatted answers.</li>
+<li>However, it features response validation and the ability to view your score. Please use these to verify your submission.</li>
+<li>You also have the ability to edit your response, in case you leave 
+answers blank, but wish to save your progress and return to them later.</li>
+<li>We suggest you have a single tab with this form open alongside the spec as you work on Lab 7.</li>
+</ul>
+<h2 id="tools-for-cache-visualization-in-venus">Tools for Cache Visualization in Venus</h2>
+<p>Working of caches is one of the most conceptually involved topics in 
+61C. This exercise will use some cool cache visualization tools to get 
+you more familiar with cache behavior and performance terminology with 
+the help of the file <code>cache.s</code> provided in the starter files. <strong>This is not an actual exercise, but more of an explanation on how to use Venus as a cache visualization tool</strong>!</p>
+<p>At this point, read through <code>cache.s</code> to get a rough idea 
+of what the program does. Make sure you go through what the pseudocode 
+does and what the argument registers hold before you proceed to analyze 
+cache configurations on it.</p>
+<!-- Here's the magic link of <a target = "_blank" href="https://venus.cs61c.org/?target=https%3A%2F%2Fraw.githubusercontent.com%2F61c-teach%2Ffa19-lab-starter%2Ftree%2Flab09%2Flab09%2Fcache.s">`cache.s`</a> -->
+<ul>
+<li>The most important thing to understand is the section labeled "PSEUDOCODE" at the top of the file. When you run <code>cache.s</code>,
+ instructions that perform this pseudocode will be executed. Basically, 
+you'll just either zero out some elements of some array (option 0) or 
+you'll increment them (option 1).</li>
+<li><em>Which</em> elements you access is determined by the <em>Step Size</em> (<code>a1</code>) and <em>how many times you do so</em> is determined by the <em>Rep Count</em> (<code>a2</code>). <strong>These two parameters will most directly affect how many cache hits vs. misses will occur</strong>. The <em>Option</em> (<code>a3</code>) will also change stuff, and of course the cache parameters themselves will too.</li>
+</ul>
+<p>For <strong>each</strong> of the scenarios below, you'll be repeating these steps:</p>
+<ol>
+<li>Paste the contents of cache.s into <a href="https://venus.cs61c.org/">Venus</a></li>
+<li>In the code for <code>cache.s</code>, set the appropriate Program 
+Parameters as indicated at the beginning of each scenario (by changing 
+the immediates of the commented <code>li</code> instructions in <code>main</code>)</li>
+<li>Simulator--&gt;Cache.</li>
+<li>Set the appropriate Cache Parameters as indicated at the beginning of each scenario.</li>
+<li>As you execute code in Venus, any DATA memory access (load or store)
+ will show up (instruction fetches not shown because instructions are 
+loaded into a separate instruction cache that is not shown in Venus).</li>
+</ol>
+<p>The Cache Simulator will show the state of your data cache. If you 
+reset your code, you will also reset the cache hit/miss rate as well!</p>
+<p><strong>IMPORTANT</strong>: If you run the code all at once, you will
+ get the final state of the cache and hit rate. You will probably 
+benefit the most from setting a <strong>breakpoint</strong> in the <strong>loop</strong> <code>wordLoop</code> right before or after each memory access to see exactly where the hits and misses are coming from.</p>
+<h1 id="exercises">Exercises</h1>
+<h2 id="exercise-1-memory-accesses">Exercise 1 - Memory Accesses</h2>
+<p><strong>Action Item</strong>: Simulate the following scenarios in Venus and record the final cache hit rates with the program in <code>cache.s</code>. Try to reason out what the hit rate will be BEFORE running the code. After running each simulation, make sure you understand <em>WHY</em> you see what you see!</p>
+<p><strong>Submission</strong>: Your answers should go into the corresponding section of the Lab 7 Google Form; all answers should be lowercased.</p>
+<p><strong>Do not hesitate to ask questions</strong> if you feel confused! This is perfectly <strong>normal</strong> and the staff is there to help you out!</p>
+<p><strong>THE FOLLOWING</strong> are good questions to ask yourself as you do these exercises:</p>
+<ul>
+<li>How big is your cache block?</li>
+<li>How many consecutive accesses (taking into account the step size) fit within a single block?</li>
+<li>How much data fits in the WHOLE cache?</li>
+<li>How far apart in memory are blocks that map to the same set (and could create conflicts)?</li>
+<li>What is your cache's associativity?</li>
+<li>Where in the cache does a particular block map to?</li>
+<li>When considering why a specific access is a miss or hit: Have you 
+accessed this piece of data before? If so, is it still in the cache or 
+not?</li>
+</ul>
+<h3 id="scenario-1">Scenario 1</h3>
+<p><strong>Program Parameters</strong>: (set these by initializing the a registers in the code)</p>
+<ul>
+<li><strong>Array Size (<code>a0</code>)</strong>: 128 (bytes)</li>
+<li><strong>Step Size (<code>a1</code>)</strong>: 8</li>
+<li><strong>Rep Count (<code>a2</code>)</strong>: 4</li>
+<li><strong>Option (<code>a3</code>)</strong>: 0</li>
+</ul>
+<p><strong>Cache Parameters</strong>: (set these in the Cache tab)</p>
+<ul>
+<li><strong>Cache Levels</strong>: 1</li>
+<li><strong>Block Size</strong>: 8</li>
+<li><strong>Number of Blocks</strong>: 4</li>
+<li><strong>Enable?</strong>: Should be green</li>
+<li><strong>Placement Policy</strong>: Direct Mapped</li>
+<li><strong>Associativity</strong>: 1 (Venus won't let you change this with your placement policy, why?)</li>
+<li><strong>Block Replacement Policy</strong>: LRU</li>
+</ul>
+<p><strong>Tip</strong>: If it's hard for you to visualize what's 
+getting pulled into the cache on each memory access just from staring at
+ the code, try getting out some paper and a pencil. Write down what the 
+tag:index:offset breakdown of the 32-bit addresses would be, figure out 
+which memory addresses map to which set in the cache with the index 
+bits, and see if that helps.</p>
+<h4 id="tasks">Tasks</h4>
+<ol>
+<li>What combination of parameters is producing the hit rate you 
+observe? Write your answer in the form “[parameter A], [parameter B]” 
+where [parameter A] and [parameter B] complete the following response: 
+"Because [parameter A] in bytes is exactly equal to [parameter B] in 
+bytes." <strong>Note:</strong> Don't forget that 'cache size' is a valid parameter that you implicitly set by choosing the block size and the # of blocks.</li>
+<li>What is the hit rate if we increase Rep Count arbitrarily? Write your answer as a decimal (e.g. "1.0" if the HR is 100%).</li>
+<li><code>[PRACTICE]</code> How could we modify one program parameter to
+ get an increased hit rate? Write your answer in the form “[parameter], 
+[value]” where [parameter] is the program parameter you want to change 
+and [value] is the value you want to change it to. <strong>Note</strong>:
+ We don't care if we access the same array elements. Just give us a 
+program parameter modification that would increase the hit rate. 
+However, do make sure that your proposed value is valid.</li>
+</ol>
+<h3 id="scenario-2">Scenario 2</h3>
+<p><strong>Program Parameters</strong>: (set these by initializing the a registers in the code)</p>
+<ul>
+<li><strong>Array Size (<code>a0</code>)</strong>: 256 (bytes)</li>
+<li><strong>Step Size (<code>a1</code>)</strong>: 2</li>
+<li><strong>Rep Count (<code>a2</code>)</strong>: 1</li>
+<li><strong>Option (<code>a3</code>)</strong>: 1</li>
+</ul>
+<p><strong>Cache Parameters</strong>: (set these in the Cache tab)</p>
+<ul>
+<li><strong>Cache Levels</strong>: 1</li>
+<li><strong>Block Size</strong>: 16</li>
+<li><strong>Number of Blocks</strong>: 16</li>
+<li><strong>Enable?</strong>: Should be green</li>
+<li><strong>Placement Policy</strong>: N-Way Set Associative</li>
+<li><strong>Associativity</strong>: 4</li>
+<li><strong>Block Replacement Policy</strong>: LRU</li>
+</ul>
+<h4 id="tasks-1">Tasks</h4>
+<ol>
+<li>How many <strong>memory accesses</strong> are there per iteration of the <strong>inner loop</strong> (not the one involving Rep Count)?</li>
+<li>What is the <strong>repeating hit/miss pattern</strong>? Write your answer in the form "mmhhmh" and so on, where your response is the <strong>shortest</strong> pattern that gets repeated.</li>
+<li>Keeping everything else the same, what does our hit rate approach as
+ Rep Count goes to infinity? Try it out by changing the appropriate 
+program parameter and letting the code run! Write your answer as a 
+decimal.</li>
+</ol>
+<p>You should have noticed that our hit rate was pretty high for this 
+scenario, and your answer to the previous question should give you a 
+good understanding of why. If you are not sure why, consider the size of
+ the array and compare it to the size of the cache. Now, consider the 
+following:</p>
+<p>Suppose we have a program that iterates through a very large array 
+(i.e. way bigger than the size of the cache) Rep Count times. During 
+each Rep, we map a different function to the elements of our array (e.g.
+ if Rep Count = 1024, we map 1024 different functions onto each of the 
+array elements, one per Rep). For reference, in this scenario, we just 
+had one function (incrementation) and one Rep.</p>
+<p><strong>HINT</strong>: You <strong>do not</strong> want to iterate 
+through the entire array at once because it's much bigger than your 
+cache. Doing so would reduce the amount of temporal locality your 
+program exhibits, which makes cache hit rate suffer. We want to exhibit 
+more locality so that our caches can take advantage of our predictable 
+behavior. <strong>SO</strong>, instead, we should try to access <strong>_____</strong> of the array at a time and apply all of the <strong>_____</strong> to that <strong>_____</strong> so we can be completely done with it before moving on, thereby keeping that <strong>_____</strong>
+ hot in the cache and not having to circle back to it later on! (The 
+1st, 3rd, and 4th blanks should be the same. It's not some vocabulary 
+term you should use to fill them in. It's more of an idea that you 
+should have.)</p>
+<h3 id="scenario-3">Scenario 3</h3>
+<p><strong>Program Parameters</strong>: (set these by initializing the a registers in the code)</p>
+<ul>
+<li><strong>Array Size (<code>a0</code>)</strong>: 128 (bytes)</li>
+<li><strong>Step Size (<code>a1</code>)</strong>: 1</li>
+<li><strong>Rep Count (<code>a2</code>)</strong>: 1</li>
+<li><strong>Option (<code>a3</code>)</strong>: 0</li>
+</ul>
+<p><strong>Cache Parameters</strong>: (set these in the Cache tab)</p>
+<ul>
+<li><strong>Cache Levels</strong>: 2</li>
+</ul>
+<p><strong>NOTE</strong>: Make sure the following parameters are for the L1 cache! (Select L1 in the dropdown right next to the replacement policy)</p>
+<ul>
+<li><strong>Block Size</strong>: 8</li>
+<li><strong>Number of Blocks</strong>: 8</li>
+<li><strong>Enable?</strong>: Should be green</li>
+<li><strong>Placement Policy</strong>: Direct Mapped</li>
+<li><strong>Associativity</strong>: 1</li>
+<li><strong>Block Replacement Policy</strong>: LRU</li>
+</ul>
+<p><strong>NOTE</strong>: Make sure the following parameters are for the L2 cache! (Select L2 in the dropdown right next to the replacement policy)</p>
+<ul>
+<li><strong>Block Size</strong>: 8</li>
+<li><strong>Number of Blocks</strong>: 16</li>
+<li><strong>Enable?</strong>: Should be green</li>
+<li><strong>Placement Policy</strong>: Direct Mapped</li>
+<li><strong>Associativity</strong>: 1</li>
+<li><strong>Block Replacement Policy</strong>: LRU</li>
+</ul>
+<h4 id="tasks-2">Tasks</h4>
+<ol>
+<li>What is the hit rate of the L1 cache? The L2 cache? Overall? Each hit rate is a decimal rounded to two places. </li>
+<li>How many accesses do we have to the L1 cache total? How many of them are misses? </li>
+<li>How many accesses do we have to the L2 cache total? <strong>HINT:</strong> Think about what the L1 cache has to do in order to make us access the L2 cache.</li>
+<li>What program parameter would allow us to increase the L2 hit rate, but keep the L1 hit rate the same?</li>
+<li>Do our L1 and L2 hit rates decrease (-), stay the same (=), or 
+increase (+) as we (1) increase the number of blocks in L1, or (2) 
+increase the L1 block size?</li>
+</ol>
+<h2 id="exercise-2-loop-ordering-and-matrix-multiplication">Exercise 2 - Loop Ordering and Matrix Multiplication</h2>
+<p>If you recall, matrices are 2-dimensional data structures wherein 
+each data element is accessed via two indices. To multiply two matrices,
+ we can simply use 3 nested loops, assuming that matrices A, B, and C 
+are all n-by-n and stored in one-dimensional column-major arrays:</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">for (int i = 0; i &lt; n; i++)
+    for (int j = 0; j &lt; n; j++)
+        for (int k = 0; k &lt; n; k++)
+            C[i+j*n] += A[i+k*n] * B[k+j*n];
+</span></code></pre>
+<p>Matrix multiplication operations are at the heart of many linear 
+algebra algorithms, and efficient matrix multiplication is critical for 
+many applications within the applied sciences.</p>
+<p>In the above code, note that the loops are ordered <code>i</code>, <code>j</code>, <code>k</code>. If we examine the innermost loop (the one that increments <code>k</code>), we see that it...</p>
+<ul>
+<li>moves through B with stride 1</li>
+<li>moves through A with stride n</li>
+<li>moves through C with stride 0</li>
+</ul>
+<p>Remember: To compute the matrix multiplication correctly, <strong>the loop order doesn't matter</strong>.</p>
+<p><strong>BUT</strong>, the order in which we choose to access the elements of the matrices can have a <strong>large impact on performance</strong>.
+ Caches perform better (more cache hits, fewer cache misses) when memory
+ accesses take advantage of spatial and temporal locality, utilizing 
+blocks already contained within our cache. Optimizing a program's memory
+ access patterns is essential to obtaining good performance from the 
+memory hierarchy.</p>
+<p>Take a glance at <code>matrixMultiply.c</code>. You'll notice that the file contains multiple implementations of matrix multiply with 3 nested loops.</p>
+<p><strong>Action Item</strong>: Think about what the strides are for the nested loops in the other five implementations.</p>
+<p>Note that the compilation command in the Makefile uses the '-O3' 
+flag. It is important here that we use the '-O3' flag to turn on 
+compiler optimizations. Compile and run the code with the following 
+command, and then answer the questions below:</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">make ex2
+</span></code></pre>
+<p>This will run some matrix multiplications according to the six 
+different implementations in the file, and it will tell you the speed at
+ which each implementation executed the operation. The unit "Gflops/s" 
+reads, "Giga-floating-point-operations per second." <strong><em>THE BIGGER THE NUMBER THE FASTER IT IS RUNNING!</em></strong></p>
+<h3 id="tasks-3">Tasks</h3>
+<p>Your answers to the following questions should go into the 
+corresponding section of the Lab 7 Google Form; all answers should be 
+lowercased.</p>
+<ol>
+<li>Which 2 orderings perform best for these 1000-by-1000 matrices? 
+Write your answer in the form "[Ordering1], [Ordering2]" (e.g. "ijk, 
+ikj").</li>
+<li>Which 2 orderings perform the worst?</li>
+</ol>
+<h2 id="exercise-3-cache-blocking-and-matrix-transposition">Exercise 3 - Cache Blocking and Matrix Transposition</h2>
+<p><strong>NOTE</strong>: For this exercise, using the <strong>hive machines</strong> is recommended! This is because the hive machines have historically run the tests twice as fast.</p>
+<h3 id="matrix-transposition">Matrix Transposition</h3>
+<p>Sometimes, we wish to swap the rows and columns of a matrix. This 
+operation is called a "transposition" and an efficient implementation 
+can be quite helpful while performing more complicated linear algebra 
+operations. The transpose of matrix A is often denoted as A<sup>T</sup>.</p>
+<img src="Lab%207%20-%20CS%2061C_files/matTnorm.png" width="500">
+<h3 id="cache-blocking">Cache Blocking</h3>
+<p>In the above code for matrix multiplication, note that we are 
+striding across the entire A and B matrices to compute a single value of
+ C. As such, we are constantly accessing new values from memory and 
+obtain very little reuse of cached data! We can improve the amount of 
+data reuse in the caches by implementing a technique called cache 
+blocking. More formally, cache blocking is a technique that attempts to 
+reduce the cache miss rate by further improving the temporal and/or 
+spatial locality of memory accesses. In the case of matrix 
+transposition, we consider performing the transposition one block at a 
+time.</p>
+<img src="Lab%207%20-%20CS%2061C_files/matTblock.png" width="500">
+<p><strong>Things to note</strong>: In the above image, we transpose each submatrix A<sub>ij</sub>
+ of matrix A into its final location in the output matrix, one submatrix
+ at a time. It is important to note that transposing each individual 
+subsection is equivalent to tranposing the entire matrix.</p>
+<p>Since we operate on and finish transposing each submatrix one at a 
+time, we consolidate our memory accesses to that smaller chunk of memory
+ when transposing that particular submatrix, which increases the degree 
+of spatiallocality that we exhibit, which makes our cache performance 
+better, which makes our program run faster.</p>
+<p>This (if implemented correctly) will result in a substantial 
+improvement in performance. For this lab, you will implement a cache 
+blocking scheme for matrix transposition and analyze its performance.</p>
+<p>Your task is to implement cache blocking in the <code>transpose_blocking()</code> function inside <code>transpose.c</code>. <strong>You may NOT assume that the matrix width (<code>n</code>) is a multiple of the block size</strong>.
+ By default, the function does nothing, so the benchmark function will 
+report an error. After you have implemented cache blocking, you can run 
+your code by typing:</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">make ex3
+./transpose &lt;n&gt; &lt;block size&gt;
+</span></code></pre>
+<p>where <code>n</code>, the width of the matrix, and <code>blocksize</code> are parameters that you will specify. You can verify that your code is working by setting <code>n</code>=10000 and <code>blocksize</code>=33. The blocked version should finish significantly faster.</p>
+<p>The following section is meant to serve as a guideline for if you 
+have no idea how to start. If you think you know how to use the 
+parameter <code>blocksize</code>, then just jump right in and get started.</p>
+<p>Some tips to get started:</p>
+<p>Start by looking at the <code>transpose_naive</code> function included in the file. Notice that the index <code>y</code> strides vertically across the WHOLE <code>src</code> matrix in one iteration of the outer loop before resetting to 0. Another way to say this is that the index <code>x</code> only updates after <code>y</code> is done going from 0 all the way to <code>n</code>. This is the behavior which we want to change. We want to step not stride across the array indices.</p>
+<p>TL;DR: fill out <code>dst</code> square chunks at a time, where each square chunk is of dimension <code>blocksize</code> by <code>blocksize</code>.</p>
+<p>Instead of updating <code>x</code> only when <code>y</code> goes through ALL of 0 through <code>n</code>, we want to jump down to the next row of <code>dst</code>
+ after we stride across the width (horizontal axis) of just a single 
+block. How big is a block? Exactly the number of integers specified by 
+the parameter <code>blocksize</code>.
+In addition, we only want to stride vertically through the height 
+(vertical axis) of a block before we move on to the next block. We don't
+ want to make <code>x</code> stride all the way down <code>n</code> rows of <code>dst</code> before we move on to the next block.</p>
+<p><strong>Hint</strong>: A standard solution needs 4 (four) for loops.</p>
+<p>Finally, since we can't assume that <code>n</code> is a multiple of <code>blocksize</code>, the final block column for each block row will be a little bit cut-off, i.e. it won't be a full <code>blocksize</code> by <code>blocksize</code> square. In addition, the final block row will all be truncated. To fix this problem, you can do the exercise assuming that <code>n</code> is a multiple of the <code>blocksize</code> and then add in a special case somewhere to do nothing when your indices reach out of bounds of the array.</p>
+<p>Once your code is working, complete the following exercises and record your answers.</p>
+<h3 id="tasks-4">Tasks</h3>
+<p>Record your results and responses to the questions below in the 
+corresponding section of the Lab 7 Google Form, but note that responses 
+to the following questions are not autograded.</p>
+<h4 id="part-1-changing-array-sizes">Part 1 - Changing Array Sizes</h4>
+<p>Fix the <code>blocksize</code> to be 20, and run your code with <code>n</code> equal to 100, 1000, 2000, 5000, and 10000. </p>
+<p><strong>Question 1</strong>: At what point does cache blocked version of transpose become faster than the non-cache blocked version?</p>
+<p><strong>Question 2</strong>: Why does cache blocking require the matrix to be a certain size before it outperforms the non-cache blocked code?</p>
+<p>(Sanity check: the blocked version isn't faster than the naive version until the matrix size is sufficiently big.)</p>
+<h4 id="part-2-changing-block-size">Part 2 - Changing Block Size</h4>
+<p>Fix <code>n</code> to be 10000, and run your code with <code>blocksize</code> equal to 50, 100, 500, 1000, 5000. </p>
+<p><strong>Question 3</strong>: How does performance change as <code>blocksize</code> increases? Why is this the case?</p>
+<p>(Sanity check: as you increase <code>blocksize</code>, the amount of speedup should change in one direction, then change in the other direction.)</p>
+<p>Notice that in neither of the last two exercises did we actually know
+ the cache parameters of our machine. We just made the code exhibit a 
+higher degree of locality, and this magically made things go faster! 
+This tells us that caches, regardless of their specific parameters, will
+ always benefit from operating on code which exhibits a high degree of 
+locality.</p>
+<h2 id="checkoff">Checkoff</h2>
+<p>Please submit the <strong>Lab 7 Google Form</strong> and then submit to the <strong>Lab Autograder</strong> assignment.</p>
+<p>The autograder looks for <code>transpose.c</code> and an unmodified <code>transpose.h</code>.</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

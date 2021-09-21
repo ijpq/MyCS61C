@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 5 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%205%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%205%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%205%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%205%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%205%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%205%20-%20CS%2061C_files/main.js"></script>
+<link rel="prefetch" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/"></head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%205%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#goals" class="nav-link node-name--H2  active">Goals</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#exercise-1-introduction" class="nav-link node-name--H2 ">Exercise 1: Introduction</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#list-of-wire-colors-and-values" class="nav-link node-name--H3 ">List of Wire Colors and Values</a></li></ul></li><li class="nav-item"><a href="#exercise-2-sub-circuits" class="nav-link node-name--H2 ">Exercise 2: Sub-Circuits</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#testing" class="nav-link node-name--H3 ">Testing</a></li><li class="nav-item"><a href="#checkpoint" class="nav-link node-name--H3 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-3-storing-state" class="nav-link node-name--H2 ">Exercise 3: Storing State</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-1" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#checkpoint-1" class="nav-link node-name--H3 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#advanced-logisim-features" class="nav-link node-name--H2 ">Advanced Logisim Features</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#splitters" class="nav-link node-name--H3 ">Splitters</a></li><li class="nav-item"><a href="#tunnels" class="nav-link node-name--H3 ">Tunnels</a></li><li class="nav-item"><a href="#extenders" class="nav-link node-name--H3 ">Extenders</a></li></ul></li><li class="nav-item"><a href="#exercise-4-fsms-to-digital-logic" class="nav-link node-name--H2 ">Exercise 4: FSMs to Digital Logic</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-2" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#checkpoint-2" class="nav-link node-name--H3 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-5-practice-with-splitters" class="nav-link node-name--H2 ">Exercise 5: Practice with Splitters</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-3" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#checkpoint-3" class="nav-link node-name--H3 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-6-rotate-right" class="nav-link node-name--H2 ">Exercise 6: Rotate Right</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-4" class="nav-link node-name--H3 ">Action Item</a></li></ul></li><li class="nav-item"><a href="#exercise-7-buggy-traffic-lights" class="nav-link node-name--H2 ">Exercise 7: Buggy Traffic Lights</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-5" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#checkpoint-4" class="nav-link node-name--H3 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-8" class="nav-link node-name--H2 ">Exercise 8</a></li><li class="nav-item"><a href="#submission" class="nav-link node-name--H2 ">Submission</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 5: Logisim</h1>
+    
+      <p class="subtitle">Deadline: Thursday, July 15, 11:59:59 PM PT</p>
+    
+    
+    <p>This lab introduces Logisim - an educational tool for designing 
+and simulating digital logic circuits. It is critical prep for Project 
+3. Hence, it is also slightly longer than the rest of the labs you've 
+seen so far. To make up for this, no lab will be released next Monday 
+(7/12). <strong>We strongly recommend starting early!</strong></p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Learn how to design and debug basic digital logic circuits in Logisim</li>
+<li>Design FSMs and implement them as digital logic</li>
+<li>Gain more experience designing and debugging circuits with both combinational logic and state elements</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>To get the starter files for this lab, run the following command in your <code>labs</code> directory.</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">git pull starter main
+</span></code></pre>
+<p>All the work in this lab will be done using <strong>Logisim Evolution</strong>.</p>
+<p>Some important warnings before you begin:</p>
+<ul>
+<li>Logisim is a GUI program, so it can't easily be used in a headless 
+environment (WSL, Hive SSH, other SSH server, etc.). We recommend 
+running it in a <strong>local environment</strong> with a GUI, Java 9+, 
+and Python 3.6+. If your local system is macOS or Linux you're probably 
+all set. If you're on Windows, use <code>Git Bash</code>, which runs on Windows with GUI support.</li>
+<li>Please use the version of Logisim that we distribute, since it is 
+different from other versions on the internet (bugfixes and 
+course-specific stuff)</li>
+<li>Don't move the staff-provided input/output pins; your circuit can't 
+be tested properly if the pins move. If your circuit doesn't pass the 
+tests and you think it is correct, check that your circuit fits in the 
+corresponding harness in <code>tests/ex#_test.circ</code></li>
+<li>Logisim doesn't auto-save your work. Remember to save (and commit) frequently as you work!</li>
+</ul>
+<details>
+<summary>Possible Setup Errors</summary>
+<ul>
+<li>“Permission Denied” trying to run Python on Windows 10
+<ol>
+<li>Search for "app execution alias" in the Windows search prompt. Click
+ on "Manage app execution aliases" which is a part of "System Setting"</li>
+<li>Disable the store versions of Python by toggling the corresponding executables off. <img src="Lab%205%20-%20CS%2061C_files/setup-error-app-exec-aliases.png" alt=""></li>
+</ol>
+</li>
+<li>Java Runtime<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">Exception in thread "main" java.lang.UnsupportedClassVersionError: com/cburch/logisim/Main has been compiled by a more recent version of the Java Runtime (class file version 53.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+</span></code></pre>You need to update to Java 9+. Follow the <a href="https://inst.eecs.berkeley.edu/%7Ecs61c/su21/labs/lab00/#os-specific-setup">setup instructions from Lab 0</a>.</li>
+</ul>
+</details>
+<h2 id="exercise-1-introduction">Exercise 1: Introduction</h2>
+<p>Like Venus, you can run Logisim from inside the <code>lab05</code> folder with,</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">java -jar ../tools/logisim-evolution.jar    # If in a different folder, use the corresponding relative path 
+</span></code></pre>
+<p>After a short startup sequence, a slightly ancient-looking window should appear. If not, check for errors in your terminal.</p>
+<p>We'll begin by creating a very simple circuit just to get the feel 
+for placing gates and wires. Before you start, take note of a <strong>useful feature: the zoom function!</strong> It's in the bottom left corner, and will make your life much easier for the next few weeks. Zoom Zoom Zoom.</p>
+<img src="Lab%205%20-%20CS%2061C_files/interface-emphasize-zoom.png" title="Zoom... Zoom... ENHANCE!" width="512">
+<details>
+<summary>video</summary>
+<p><a href="https://www.youtube.com/watch?v=qVPL46GbPwg&amp;ab_channel=CS61CDepartmental">Click here to watch the video</a></p>
+</details>
+<details>
+<summary>text</summary>
+<ol>
+<li>
+<p><img src="Lab%205%20-%20CS%2061C_files/icon-and.png" alt=""> Start by clicking the <code>AND</code> gate button. This will cause the shadow of an <code>AND</code> gate to follow your cursor around. Click once within the main schematic window to place an <code>AND</code> gate.</p>
+</li>
+<li>
+<p><img src="Lab%205%20-%20CS%2061C_files/icon-pin-input.png" alt=""> Click the <code>Input Pin</code> button. Now, place two input pins somewhere to the left of your <code>AND</code> gate.</p>
+</li>
+<li>
+<p><img src="Lab%205%20-%20CS%2061C_files/icon-pin-output.png" alt=""> Click the <code>Output Pin</code> button. Then place an output pin somewhere to the right of your <code>AND</code> gate. Your schematic should look something like this at this point:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-and-disconnected.png" width="256">
+</li>
+<li>
+<p><img src="Lab%205%20-%20CS%2061C_files/icon-select.png" alt=""> Click the <code>Select tool</code> button. Click and drag to connect the 2 input pins to the 2 inputs on the left side of the <code>AND</code>
+ gate. This will take several steps, as you can only draw vertical and 
+horizontal wires. Just draw a wire horizontally, release the mouse 
+button, then click and drag starting from the end of the wire to 
+continue vertically. Repeat the same procedure to connect the output on 
+the right side of the <code>AND</code> Gate to the output pin. After completing these steps your schematic should look similar to this:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-and-connected.png" width="256">
+</li>
+<li>
+<p><img src="Lab%205%20-%20CS%2061C_files/icon-poke.png" alt=""> Finally, click the <code>Poke</code> tool and try clicking on the input pins in your schematic. Observe what happens. Does the output match with what you think an <code>AND</code>
+ Gate should do? Now, try poking a wire directly. The current value on 
+that wire should pop up; this will be very useful later when you build 
+more complex circuits.</p>
+</li>
+<li>
+<p>Now, delete the wires, and try wiring each input pin to the <em>other</em> pin on the <code>AND</code> gate, in such a way that the wires cross over. An extreme example:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-and-crossover.png" title="- Gred and Forge" width="256">
+<p>If you're creating a wire and drag it <strong>over</strong> another wire without stopping, the wires won't connect. If you're creating a wire and stop dragging while <strong>on top</strong>
+ of another wire, a junction (big circle) will be created, and the wires
+ will connect. Make sure to pay attention to junctions when you're 
+designing your circuits!</p>
+</li>
+</ol>
+</details>    
+<h3 id="list-of-wire-colors-and-values">List of Wire Colors and Values</h3>
+<p>Please take a look at this list. It may help to try re-creating each color on your own.</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-wire-errors.png" width="512">
+<table><thead><tr><th>Color</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Dark green</td><td>1-bit wire has a value of 0</td></tr>
+<tr><td>Bright green</td><td>1-bit wire has a value of 1</td></tr>
+<tr><td>Black</td><td>Multi-bit wire (many components have bit width attributes which can be configured in the attributes menu on the bottom left)</td></tr>
+<tr><td>Red (values with <code>EEEE</code>)</td><td>The wire has multiple values on it (in this case, a <code>0</code> and <code>1</code> from the 2 inputs). Also, remember that a big circle appears at wire junctions.</td></tr>
+<tr><td>Blue (values with <code>UUUU</code>)</td><td>The wire is floating (i.e. has no known value)</td></tr>
+<tr><td>Orange</td><td>The wire is connected to components that have 
+different bit widths. A simple example is a 1-bit input pin connected to
+ a 2-bit output pin. In the shown example, there's a slightly hidden 
+wire behind the <code>MUX</code> connecting the 2-bit lower data line to the 1-bit select line. Watch out for these!</td></tr>
+</tbody></table>
+<div class="alert alert-info">
+  <b>Accessibility Note</b>: In case you have a disability and find it 
+difficult to identify these colors, please feel free to use a more 
+convenient set of colors. To do this, go to <code>File -&gt; Preferences -&gt; Simulation Tab</code>.
+ Please inform course staff of this change when you show circuits during
+ OH or on Ed as we often use colors as a debugging tool.
+</div>
+<h2 id="exercise-2-sub-circuits">Exercise 2: Sub-Circuits</h2>
+<p>Just as C programs can contain helper functions, a schematic can 
+contain helper subcircuits. In this part of the lab, we will create 
+several subcircuits to demonstrate their use.</p>
+<p>Note: Logisim Evolution generally doesn't permit names with spaces or
+ symbols, names starting with numbers, or names that conflict with 
+keywords (e.g. <code>NAND</code>).</p>
+<h3 id="action-item">Action Item</h3>
+<p>Follow the steps below. Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>.</p>
+<ol>
+<li>
+<p>Open up the Exercise 2 schematic (<code>File -&gt; Open -&gt; lab05/ex2.circ</code>).</p>
+</li>
+<li>
+<p>Open up the <code>AND2</code> sample subcircuit by double-clicking <code>AND2</code> in the circuit selector on the left side. </p>
+<img src="Lab%205%20-%20CS%2061C_files/interface-circuit-selector.png" width="256">  
+<p>Note the <code>2</code> at the end; because there is a component called <code>AND</code>, we can't call it <code>AND</code>. 
+We've created a demo circuit for your reference. It has 2 1-bit input pins, <code>A</code> and <code>B</code>, and sends the result of <code>A &amp; B</code> to the <code>RESULT</code> output pin. This should look very similar to the practice circuit you just made.</p>
+</li>
+<li>
+<p>Now, open up the <code>NAND2</code> subcircuit. It's time to make your own circuit! Fill in this circuit <strong>without</strong> using the built-in <code>NAND</code> gate from the Gates library on the left (i.e. only use the <code>AND</code>, <code>OR</code>, and <code>NOT</code>
+ gates; they're available as little icons in the toolbar at the top of 
+the window, or in the Gates library in the circuit selector). When 
+you're done, similarly fill in the <code>NOR2</code>, <code>XOR2</code>, <code>MUX2</code> (2-to-1 MUX), and <code>MUX4</code> (4-to-1 MUX).</p>
+<ul>
+<li>Please do not change the names of the subcircuits or create new ones, or your circuit may not work properly</li>
+<li>Don't use any built-in gates other than <code>AND</code>, <code>OR</code>, and <code>NOT</code>. However, once you've built a subcircuit, you may (and are encouraged to) <strong>use it to build others</strong>. You can do this by single-clicking a subcircuit in the circuit selector, and placing it like you did for the <code>AND</code>/<code>NOT</code>/<code>OR</code> gates</li>
+<li>It helps to write out a truth table for each circuit. You might also
+ find it useful to review the lecture slides on how to build these gates</li>
+<li>For the <code>4-to-1 MUX</code>, <code>SEL0</code> and <code>SEL1</code> correspond to the 0th and 1st bits of the 2-bit selector, respectively. Make sure not to switch them!</li>
+</ul>
+</li>
+</ol>
+<h3 id="testing">Testing</h3>
+<p>Open a terminal session and go to the <code>lab05</code> folder. We've provided tests for each exercise, which you can run with <code>python3 test.py</code>. For each test, your circuit is run in a test harness circuit (<code>tests/ex2-test.circ</code>), and its output is compared against the reference output for that test (<code>tests/reference-output/ex2-test.out</code>).
+ In the output file, each column corresponds to an input/output pin on 
+the main circuit, and each row shows a set of inputs and the 
+corresponding outputs the circuit produced. If your circuit output (<code>tests/student-output/ex2-test.out</code>) is different, you can check it against the reference output file; the <code>diff</code> command may help.</p>
+<ul>
+<li>Note that the output files are "formatted" by adding tab characters (<code>\t</code>)
+ between each value, and they look best when tabs are displayed as 8 
+spaces wide. Values and column headers that are 8+ characters might mess
+ up the alignment, so watch out for those!</li>
+<li>Don't modify the reference output files, or local tests might produce incorrect results</li>
+<li>You shouldn't need to edit the test harness circuits for this lab. 
+However, it might be useful to take a look; we'll be doing similar 
+things in the next lab and project 3!</li>
+</ul>
+<h3 id="checkpoint">Checkpoint</h3>
+<p>At this point, make sure that you are comfortable with the Logisim 
+environment, creating sub-circuits, and re-using such circuits in other 
+circuits.</p>
+<h2 id="exercise-3-storing-state">Exercise 3: Storing State</h2>
+<p>Let's implement a circuit that increments a value repeatedly. The 
+difference between this circuit and the circuits you've built for lab so
+ far is that it will <strong>store</strong> this value in the <strong>state</strong> of a <strong>register</strong>.</p>
+<h3 id="action-item-1">Action Item</h3>
+<p>Follow the steps below. Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>.</p>
+<ol>
+<li>
+<p>Open up the Exercise 3 schematic (<code>File -&gt; Open -&gt; lab05/ex3.circ</code>) and go to the empty <code>AddMachine</code> circuit.</p>
+</li>
+<li>
+<p>Select the <code>Adder</code> subcircuit from the <code>Arithmetic</code> library (circuit selector on the left side) and place the adder into your <code>AddMachine</code> subcircuit.</p>
+<img src="Lab%205%20-%20CS%2061C_files/interface-library-emphasize-adder.png" width="128">
+</li>
+<li>
+<p>Select the <code>Register</code> from the <code>Memory</code> library and place one register into your subcircuit. Below is an image illustrating the parts of a register.</p>
+<img src="Lab%205%20-%20CS%2061C_files/diagram-register.png" width="128">
+</li>
+<li>
+<p>Wire up the <code>clk</code> input pin to the clock pin on your 
+register. It's generally better to have all components in a circuit use 
+the same clock so that everything is in sync. In this case, the testing 
+harness uses a clock for its register, so it passes that clock signal in
+ through the <code>clk</code> pin here for your circuit's registers.  In
+ the future, if you're working on a circuit that doesn't have an 
+existing clock signal though, feel free to make your own by using a new <code>Clock</code> from the <code>Wiring</code> library.</p>
+</li>
+<li>
+<p>Connect the output of the adder to the input of the register, and the output of the register to the input of the adder.</p>
+<ul>
+<li>You may get an "Incompatible widths" error when you try to connect 
+components. This means that your wire is trying to connect two pins with
+ different bit widths. If you click on a component with the <code>Selection</code> tool (mouse pointer icon on the toolbar at the top), you will notice that there is a <code>Data Bits</code>
+ property in the bottom left field of the window. This value determines 
+the number of bits the component's input and output have. Make sure that
+ both the adder and register have a data bit width of <code>8</code>, and the "Incompatible widths" error should be resolved.</li>
+</ul>
+</li>
+<li>
+<p>Wire an 8-bit constant with a value of <code>1</code> to the second input of the adder. You can find the <code>Constant</code> circuit element in the <code>Wiring</code> library. To change it's value to <code>1</code>, simply type <code>1</code> for the <code>Value</code> property and hit <code>Enter</code>. You should now see the value as <code>0x1</code> (Logisim automatically converts the decimal value you enter to hex).</p>
+</li>
+<li>
+<p>Connect the two output pins to your circuit so that you may monitor 
+what comes out of the adder and the register. The output of the adder 
+should be connected to <code>ADD_OUT</code> and the output of the register to <code>REG_OUT</code>. Thus, by the end, your circuit should look similar to:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-add-machine.png" width="512">
+</li>
+<li>
+<p>Now, open up the test circuit for this exercise (<code>lab05/tests/ex3-test.circ</code>). At the top left, we have a small circuit (like your <code>AddMachine</code>) keeping track of the current cycle. Below that, you should see your <code>AddMachine</code> circuit hooked up to the clock and some output pins. </p>
+</li>
+<li>
+<p>Tick your circuit once by going to <code>Simulate -&gt; Tick Half Cycle</code> (<code>Command/Control + T</code>). The outputs from your <code>AddMachine</code> should have gone up! Additionally, the clock should now be bright green. </p>
+<img src="Lab%205%20-%20CS%2061C_files/half-tick.png" width="512">
+<p>If you <code>Tick Half Cycle</code> again, you'll notice that the 
+clock goes back to dark green, but the numbers don't change. This is 
+because the registers, by default, are rising-edge triggered (i.e. 
+triggered when going from a low clock signal to a high signal). </p>
+<p>If you're not particularly interested in seeing changes for half cycles, you can also use <code>Simulate -&gt; Tick Full Cycle</code> (<code>F2</code>).</p>
+<img src="Lab%205%20-%20CS%2061C_files/full-tick.png" width="512">
+</li>
+<li>
+<p>Ticking the circuit manually can be pretty tiring. Good news: Logisim can tick your circuit for you! Go to <code>Simulate -&gt; Ticks Enabled/Enable Clock Ticks</code> (<code>Command/Control + K</code>). Your circuit should now be counting up, hands-free! </p>
+<img src="Lab%205%20-%20CS%2061C_files/ticks-enabled.gif" width="512">
+<p>If you want to run your circuit faster, you can change the tick frequency in <code>Simulate -&gt; Tick Frequency</code>. To stop, click <code>Ticks Enabled//Enable Clock Ticks</code> (<code>Command/Control + K</code>) again. If you want to reset the circuit, <code>Simulate -&gt; Reset Simulation</code> (<code>Command/Control + R</code>).</p>
+</li>
+<li>
+<p>When you're done, try running the provided tests (<a href="https://inst.eecs.berkeley.edu/%7Ecs61c/su21/labs/lab05/#testing">using <code>python3 test.py</code></a>).</p>
+</li>
+</ol>
+<h3 id="checkpoint-1">Checkpoint</h3>
+<p>At this point, make sure that you are comfortable with designing and 
+simulating simple digital logic circuits in Logisim environment that use
+ a mix of <em>combinational logic</em> and <em>state elements</em> (registers).</p>
+<h2 id="advanced-logisim-features">Advanced Logisim Features</h2>
+<p>Here are three Logisim features that should both save you a lot of time and make your circuits look much cleaner.</p>
+<h3 id="splitters">Splitters</h3>
+<p>Splitters allow you to take a multi-bit value and split it up into 
+smaller parts, or (despite the name) combine multiple values that are 
+one or more bits into a single value. Here, we split the 4-bit binary 
+number <code>1001</code> into <code>10</code> and <code>01</code>, then recombine it with <code>11</code> into the final 6-bit number <code>111001</code>:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-splitter-demo.png" width="256">
+<p>Click on a splitter (using the <code>Select</code> tool) to get its 
+attributes in the sidebar (lower left). You can configure attributes 
+like the number of arms on your splitter and the bits present on each 
+arm. For the circuit above, the left and right splitters' attributes 
+looks like this:</p>
+<p><img src="Lab%205%20-%20CS%2061C_files/interface-attributes-splitter-demo-left.png" width="256"> <img src="Lab%205%20-%20CS%2061C_files/interface-attributes-splitter-demo-right.png" width="256"></p>
+<p>Notice that there's an attribute called <code>Facing</code>. You can use this to rotate your splitter. In the above example, the splitter on the right is facing <code>West</code> while the splitter on the left is facing <code>East</code>.</p>
+<p>If you see an error wire that is orange, this means that your bit 
+width in does not match your bit width out. Make sure that if you're 
+connecting two components with a wire, you correctly set the bit width 
+in that component's menu.</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-splitter-error-width.png" width="128">
+<h3 id="tunnels">Tunnels</h3>
+<p>A tunnel allows you draw an "invisible wire" to bind two points 
+together. Tunnels are grouped by case-sensitive labels give to a wire. 
+They are used to connect wires like so:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-tunnel-demo-working.png" width="256">
+<p>which effectively is:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-tunnel-demo-working-revealed.png" width="256">
+<p>Some care should be taken as to which wires are connected with tunnels to which other wires, such as in this case:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-tunnel-demo-error.png" width="256">
+<p>which effectively is:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-tunnel-demo-error-revealed.png" width="256">
+<p>We <em>strongly</em> recommend you use tunnels with Logisim, because 
+they make your circuits look much cleaner (less wiring spaghetti), which
+ means easier debugging.</p>
+<h3 id="extenders">Extenders</h3>
+<p>When changing the width of a wire, you should use a bit extender for 
+clarity. For example, consider the following implementation of 
+zero-extending an 8-bit wire into a 16-bit wire:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-extender-demo-wider.png" width="256">
+<p>Compared to the splitter, the extender is easier to understand at a 
+glance. This becomes especially helpful when working with complex 
+circuits.</p>
+<p>Additionally, consider the case of throwing out bits. Despite its name, an extender can also perform this operation:</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-extender-demo-narrower.png" width="256">
+<p>While the splitter is more minimalistic, it's also slightly harder to read.</p>
+<h2 id="exercise-4-fsms-to-digital-logic">Exercise 4: FSMs to Digital Logic</h2>
+<p>Now we're ready to do something really cool: translate an FSM into a 
+digital logic circuit. FSM stands for Finite State Machine. FSMs keep 
+track of inputs given, moves between states based on these inputs, and 
+output something everytime they receive is input.</p>
+<p>We use a register to store the state of the FSM we're currently in, 
+and combinational logic to map FSM input &amp; current register state to
+ FSM output &amp; next register state.</p>
+<h3 id="action-item-2">Action Item</h3>
+<p>You'll be implementing the following FSM:</p>
+<blockquote>
+<p><strong>If two ones in a row or two zeroes in a row have ever been seen, output zeros forever. Otherwise, output a one.</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>Note that the FSM is implemented by the following diagram (the four state names <code>00</code>, <code>01</code>, <code>10</code>, <code>11</code>
+ are just names written in binary - they have no direct relationship 
+with the actual zeros and ones of the FSM input/output). Take some time 
+to understand how this diagram implements the FSM:</p>
+<p><img src="Lab%205%20-%20CS%2061C_files/diagram-fsm-ex3.png" alt=""></p>
+</li>
+<li>
+<p>Below is a truth table for the FSM (convince yourself of this). Note 
+that since we're working with a binary number, "bit 0" is the less 
+significant bit (i.e. right digit) and "bit 1" is the more significant 
+bit (i.e. left digit).</p>
+<table>
+      <thead>
+          <tr>
+              <th>&nbsp;CurrentStateBit1&nbsp;</th>
+              <th>&nbsp;CurrentStateBit0&nbsp;</th>
+              <th>&nbsp;Input&nbsp;</th>
+              <th>&nbsp;NewStateBit1&nbsp;</th>
+              <th>&nbsp;NewStateBit0&nbsp;</th>
+              <th>&nbsp;Output&nbsp;</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+      </tbody>
+  </table>
+</li>
+</ul>
+<p>Follow the steps below. Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>.</p>
+<ol>
+<li>
+<p>Open up <code>ex4.circ</code> in Logisim. Note that the top level <code>FSM</code> circuit looks almost exactly the same as our previous adder circuit, but now there's a <code>FSMLogic</code> block instead of an adder block. <code>FSMLogic</code>
+ is the combinational logic block for this FSM. We have handled the 
+output bit for you, as it's the most complicated to simplify and 
+implement.</p>
+</li>
+<li>
+<p>Complete the <code>StateBit0</code> and <code>StateBit1</code> subcircuits, which produce the 0th and 1st bits of the <strong>next</strong> state using the input bit and current state.</p>
+</li>
+<li>
+<p>When you're done, try running the provided tests.</p>
+</li>
+</ol>
+<h3 id="checkpoint-2">Checkpoint</h3>
+<p>At this point, you should have more familiarity with designing and 
+implementing FSMs, and see the close relationship between FSMs and 
+digital logic.</p>
+<h2 id="exercise-5-practice-with-splitters">Exercise 5: Practice with Splitters</h2>
+<p>We're going to construct a circuit that manipulates an 8-bit number.</p>
+<h3 id="action-item-3">Action Item</h3>
+<p>Follow the steps below. Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>.</p>
+<ol>
+<li>
+<p>Open up <code>ex5.circ</code> and go to the empty SplitThing circuit.</p>
+</li>
+<li>
+<p>Go to the <code>Wiring</code> library and select the <code>Splitter</code>
+ circuit. This circuit will take a wire and split it into a set of wires
+ of smaller width. Conversely, it can also take many sets of wires and 
+combine them into one.</p>
+</li>
+<li>
+<p>Change the <code>Bit Width In</code> property (bus width) to <code>8</code>, and <code>Fan Out</code> property (# of branches) to <code>3</code>. Now, select which bits to send out to which part of your fan. The least significant bit is bit <code>0</code> and the most significant bit is bit <code>7</code>. Bit <code>0</code> should come out on fan arm <code>0</code>, bits <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code> and <code>6</code> should come out on fan arm <code>1</code>, and bit <code>7</code> should come out on fan arm <code>2</code>.</p>
+<ul>
+<li>The <code>None</code> option means that the selected bit will not come out on ANY of the fan arms.</li>
+<li>If you want to change many consecutive bits at once, click the name of the first one (not the arm #), hold <code>Shift</code>, and click the name of the last one. All the rows in-between should be highlighted. Now, change the arm # of <em>one</em> of the bits, and all the bits should be updated at once.</li>
+</ul>
+</li>
+<li>
+<p>Route <code>INPUT0</code> to the splitter. Attach a 2-input <code>AND</code> gate to fan arms <code>0</code> and <code>2</code> and route the output of the <code>AND</code> gate to <code>OUTPUT0</code>.</p>
+</li>
+<li>
+<p>Now, interpreting the input as a "sign and magnitude" number, place logic gates and other circuits so that <code>OUTPUT1</code> receives the negative "sign and magnitude" value of the input. <a href="https://en.wikipedia.org/wiki/Signed_number_representations#Signed_magnitude_representation">Sign and magnitude</a>
+ is an alternate way of representing signed values - like 2's 
+complement, but simpler! The combinational logic should be somewhat 
+straightforward.</p>
+</li>
+<li>
+<p>We will need another splitter to recombine the fans into a single 
+8-bit bus. Place another splitter with the proper properties (Bit Width 
+In: 8, Fan Out: 3, correct fan widths). Play with the <code>Facing</code> and <code>Appearance</code> properties to make your final circuit as clean-looking as possible.  At this point, <code>OUTPUT1</code> should be the negation of the input (when interpreting the <code>INPUT0</code> and <code>OUTPUT1</code> as "sign and magnitude" values).</p>
+</li>
+<li>
+<p>When you're done, try running the provided tests</p>
+</li>
+</ol>
+<h3 id="checkpoint-3">Checkpoint</h3>
+<p>If we decide to take the input and interpret it as a 2's Complement number, what inputs would produce <code>OUTPUT0 = 1</code>? <em>Hint: What do the first and last bits of a 2's complement number being 1 tell you about the number?</em></p>
+<h2 id="exercise-6-rotate-right">Exercise 6: Rotate Right</h2>
+<p>With your knowledge of splitters and your knowledge and experience 
+with multiplexers, you are ready to implement a non-trivial 
+combinational logic block: <code>RotRight</code>, which stands for "Rotate Right". The idea is that <code>RotRight</code> will "rotate" the bit pattern of input <code>INPUT0</code> to the right by <code>AMOUNT</code> bits. So, if <code>INPUT0</code> were <code>0b1000000000000101</code> and <code>AMOUNT</code> were <code>0b0011</code> (<code>3</code> in decimal), the output of the block would be <code>0b1011000000000000</code>. Notice that the rightmost <code>3</code> bits were rotated off the right end of the value and back onto the left end. This can be represented as a bitwise operation by <code>R = A &gt;&gt; B | A &lt;&lt; (16 - B)</code>.</p>
+<h3 id="action-item-4">Action Item</h3>
+<p>Implement a subcircuit named <code>RotRight</code> with the following inputs:</p>
+<ul>
+<li><code>INPUT0</code> (16-bit), the 16-bit input to be rotated</li>
+<li><code>AMOUNT</code> (4-bit), the rotation amount (why 4 bits?)</li>
+</ul>
+<p>You can find the starter subcircuit in <code>ex6.circ</code>.  Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>.</p>
+<p>The output should be <code>INPUT0</code> rotated right by <code>AMOUNT</code> bit positions, as outlined above. You are <strong>NOT</strong>
+ allowed to use Logisim shifters in your solution, though all other 
+combinational logic (MUXes, constants, gates, adders, etc.) is allowed. 
+Logisim's built-in MUXes (find them under the <code>Plexers</code> menu) might be especialy helpful. Your solution shouldn't involve a clock or any clocked elements, like registers.</p>
+<ul>
+<li>Before you start wiring, you should think very carefully about how 
+you might decompose this problem into smaller ones and join them 
+together. You should feel very free to <strong>use subcircuits</strong> when implementing <code>RotRight</code> (we've provided <code>rot1</code>, <code>rot2</code>, <code>rot4</code>, and <code>rot8</code>, why?). If you don't, things might get complicated.</li>
+<li>Just because we gave you a bitwise operation doesn't mean it's the 
+best way to look at this problem. Think about the input bits of <code>B</code>
+ and think about how to effectively use splitters! Can you do something 
+with the binary form? Remember why binary is good for use in computers: a
+ <code>1</code> is easy to represent as an <code>ON</code> signal, and a <code>0</code> is easy to represent as an <code>OFF</code> signal. Let's say we want to rotate <code>9</code> times. <code>9</code> is <code>1001</code> in binary, or <code>1*8 + 0*4 + 0*2 + 1*1</code>.
+ Can you use this to make a cleaner circuit? Making use of the rot* 
+circuits we have provided is a good idea that will keep things clean!</li>
+</ul>
+<p>When you're done, try running the provided tests.</p>
+<h2 id="exercise-7-buggy-traffic-lights">Exercise 7: Buggy Traffic Lights</h2>
+<p>An FSM is a highly versatile and simple tool to understand and 
+develop systems for all kinds of applications. In this exercise, we 
+model real-world traffic lights as an FSM.</p>
+<p>Like Exercise 4, we use a register to store the state of the FSM 
+we're currently in, and combinational logic to map FSM input &amp; 
+current register state to FSM output &amp; next register state. However,
+ the interesting bit about this exercise is that we've provided you with
+ a buggy implementation of the traffic light FSM, and you must debug it 
+such that it works correctly.</p>
+<ul>
+<li>
+<p>The FSM has 3 states:</p>
+<ol>
+<li><code>RED</code> encoded as <code>00</code></li>
+<li><code>GREEN</code> encoded as <code>01</code></li>
+<li><code>YELLOW</code> endcoded as <code>10</code></li>
+</ol>
+</li>
+<li>
+<p>The input is a 'trigger signal'. When high (<code>1</code>), the FSM moves to the next corresponding state, i.e., our traffic light changes color. When low (<code>0</code>),
+ the FSM loops in the current state, i.e., our traffic light maintains 
+the same color. Such a trigger signal could be periodic, controlled 
+manually, or controlled by another system (such as a traffic monitoring 
+system).</p>
+</li>
+<li>
+<p>The output of this FSM is same as as its next state (see diagram below).</p>
+</li>
+<li>
+<p>The traffic lights switch as follows: <code>RED</code> -&gt; <code>GREEN</code> -&gt; <code>YELLOW</code> -&gt; <code>RED</code> and so on.</p>
+</li>
+<li>
+<p>The FSM is implemented by the following diagram. Take some time to understand how this diagram implements the FSM:</p>
+<img src="Lab%205%20-%20CS%2061C_files/diagram-fsm-ex7.png" width="256">
+</li>
+<li>
+<p>Below is a truth table for the FSM (convince yourself of this). Note 
+that since we're working with a binary number, "bit 0" is the less 
+significant bit (i.e. right digit) and "bit 1" is the more significant 
+bit (i.e. left digit).</p>
+<table>
+      <thead>
+          <tr>
+              <th>CurrentStateBit1</th>
+              <th>CurrentStateBit0</th>
+              <th>Input</th>
+              <th>NewStateBit1</th>
+              <th>NewStateBit0</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+          </tr>
+      </tbody>
+  </table>
+</li>
+</ul>
+<h3 id="action-item-5">Action Item</h3>
+<p>You can find the starter circuit in <code>ex7.circ</code>.  Remember to <strong>save often</strong>, and <strong>avoid moving or editing the provided input/output pins</strong>. </p>
+<p>Keep in mind that tunnels are different from input/output pins. A 
+tunnel has a label inside it whereas an input/output pin has a value 
+inside it and a label beside it.</p>
+<img src="Lab%205%20-%20CS%2061C_files/circuit-pin-v-tunnel.png" width="256">
+<p>Three bugs have been planted into the <code>ex7.circ</code> file, in the folllowing subcircuits:</p>
+<ol>
+<li><code>StateBit0</code>: Observe the wire colors and see if something is amiss here. </li>
+<li><code>StateBit1</code>: Again, look at the wire colors. Does a 
+connection seem off? Think about the truth table to help guide you to 
+the right answer. </li>
+<li><code>FSM</code>: The <code>clk</code> input pin carries the clock signal from the test harness. We can manually simulate this signal by using the <code>Poke</code> tool and toggling the value of the <code>clk</code>
+ input pin. Poke around other wires and pins to observe their values for
+ each (manual) clock tick. This should help you see why the FSM deviates
+ from expected behavior.</li>
+</ol>
+<p>Your job is to fix <code>ex7.circ</code> so it behaves correctly, as shown below:</p>
+<img src="Lab%205%20-%20CS%2061C_files/traffic-lights.gif" width="512">
+<p>Please note that there are <strong>no errors in <code>FSMLogic</code> or <code>Helper</code></strong>. (The <code>Helper</code>
+ subcircuit is used to map the FSM states to the LEDs and to provide a 
+trigger signal. You don't need to look at it for this exercise, but feel
+ free to poke around :).</p>
+<p>To undo all of your changes to the file, from inside the <code>lab05</code> directory, run</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">git checkout starter/main -- ex7.circ
+</span></code></pre>
+<p>When you're done, try running the provided tests.</p>
+<h3 id="checkpoint-4">Checkpoint</h3>
+<p>At this point, you should have more familiarity with debugging Logisim circuits and the working of FSMs.</p>
+<h2 id="exercise-8">Exercise 8</h2>
+<p>Please submit this short <strong>required</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7cj3YKXcDEteXp_-UmolcI5J7pyB6D-scgTsPu4MIXPtYVA/viewform?usp=sf_link">survey</a>
+ about your experience with the lab. It should take you &lt;3 minutes. 
+Your responses will be used to improve the lab in the future. The survey
+ will be collecting your email to verify that you have submitted it, but
+ your responses will be anonymized when the data is analyzed. Thank you!</p>
+<h2 id="submission">Submission</h2>
+<p>Save, commit, and push your work, then submit to the <code>Lab05</code> assignment on Gradescope.</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

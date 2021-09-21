@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 6 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%206%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%206%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%206%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%206%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%206%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%206%20-%20CS%2061C_files/main.js"></script>
+<link rel="prefetch" href="https://inst.eecs.berkeley.edu/~cs61c/su21/"></head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%206%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#goals" class="nav-link node-name--H2  active">Goals</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#exercise-1-inefficiencies-everywhere" class="nav-link node-name--H2 ">Exercise 1 - Inefficiencies Everywhere</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item" class="nav-link node-name--H3 ">Action Item</a></li></ul></li><li class="nav-item"><a href="#exercise-2-pipe-that-line" class="nav-link node-name--H2 ">Exercise 2 - Pipe that Line</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-item-1" class="nav-link node-name--H3 ">Action Item</a></li><li class="nav-item"><a href="#testing" class="nav-link node-name--H3 ">Testing</a></li></ul></li><li class="nav-item"><a href="#exercise-3-mid-semester-survey" class="nav-link node-name--H2 ">Exercise 3 - Mid Semester Survey</a></li><li class="nav-item"><a href="#submission" class="nav-link node-name--H2 ">Submission</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 6: Pipelining, CPU</h1>
+    
+      <p class="subtitle">Deadline: Monday, July 19, 11:59:59 PM PT</p>
+    
+    
+    <h2 id="goals">Goals</h2>
+<ul>
+<li>Learn how to analyze timing for circuits.</li>
+<li>Better understand the motivation behind pipelining and the 5 stages in a classic RISC-V CPU.</li>
+<li>Design a pipelined circuit.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>Pull the Lab 6 files from the lab starter repository with</p>
+<pre style="background-color:#2b303b;"><code><span style="color:#c0c5ce;">git pull starter main
+</span></code></pre>
+<p>Like Lab 5, all the work in this lab will be done using the digital logic simulation program <strong>Logisim Evolution</strong>.</p>
+<p>Some important warnings before you begin:</p>
+<ul>
+<li>Logisim is a GUI program, so it can't easily be used in a headless 
+environment (WSL, Hive SSH, other SSH server, etc.). We recommend 
+running it in a <strong>local environment</strong> with a GUI, Java 9+, 
+and Python 3.6+. If your local system is macOS or Linux you're probably 
+all set. If you're on Windows, use <code>Git Bash</code>, which runs on Windows with GUI support.</li>
+<li>Please use the version of Logisim that we distribute, since it is 
+different from other versions on the internet (bugfixes and 
+course-specific stuff)</li>
+<li>Don't move the staff-provided input/output pins; your circuit can't 
+be tested properly if the pins move. If your circuit doesn't pass the 
+tests and you think it is correct, check that your circuit fits in the 
+corresponding harness in <code>tests/ex#_test.circ</code></li>
+<li>Logisim doesn't auto-save your work. Remember to save (and commit) frequently as you work!</li>
+</ul>
+<h2 id="exercise-1-inefficiencies-everywhere">Exercise 1 - Inefficiencies Everywhere</h2>
+<p>For this exercise, we can assume that registers initially carry the value zero. We will be using the lab file <code>ex1.circ</code>, which should have a subcircuit called <code>non_pipelined</code> which looks something like this:</p>
+<img src="Lab%206%20-%20CS%2061C_files/exercise1.png" width="500">
+<p>This circuit simply takes two inputs, multiplies them together, and 
+then adds the result to the current state value. For this circuit, let 
+the propagation delay of an adder block be 45ns and the propagation 
+delay of a multiplication block be 60ns. The register has a CLK-to-Q 
+delay of 10ns, setup time of 10ns, and hold time of 5ns. Assume that 
+both inputs receive their data from registers (so the inputs arrive 
+CLK-to-Q after the rising edge).</p>
+<h3 id="action-item">Action Item</h3>
+<ul>
+<li>Calculate the length of the critical path of this circuit  in <strong>ns</strong>. Put this number in <strong>ex1.txt</strong> without units.</li>
+</ul>
+<h2 id="exercise-2-pipe-that-line">Exercise 2 - Pipe that Line</h2>
+<p>We want to improve the performance of this circuit and let it operate
+ at a higher clock rate. In order to accomplish this, we want to have 
+two stages in our pipeline: a multiplication stage and an addition 
+stage, in that order.</p>
+<p>To pipeline the circuit, we need a register to hold the intermediate 
+value of the computation between pipeline stages. This is a general 
+theme with pipelining.</p>
+<p>In order to check that your pipelining still produces correct 
+outputs, we will consider the outputs from the circuit “correct” if and 
+only if it corresponds to the sequence of outputs the non-pipelined 
+version would emit, bar some leadings zeroes. </p>
+<p>In your <code>ex1.circ</code> file, the main circuit is set up to produce the output sequence <code>[3, 5, 1, 2, 4, -1, 0, 0, …]</code> from the non-pipelined version of the circuit. Thus, the correct pipelined circuit should emit the sequence <code>[0, 3, 5, 1, 2, 4, -1, 0, 0, …]</code>
+ for the same sequence of inputs. You can check this by simulating the 
+circuit (using the "Simulate" menu dropdown) and either ticking the 
+clock manually or enabling continuous ticks. </p>
+<h3 id="action-item-1">Action Item</h3>
+<ol>
+<li>Complete the sub-circuit <code>pipelined</code>. You will need to add a register to divide the multiplication and addition stages up.</li>
+<li><details>
+ <summary>We discussed that if an instruction depends on the output of a
+ previous instruction, it’s difficult to pipeline them and we often need
+ to insert a pipeline “bubble” (or several) to ensure that the output of
+ the first instruction is ready to be an input to the second. As a 
+reminder a bubble purposely delays an instruction in the pipeline.Why 
+are such “bubbles” unnecessary for this particular circuit?
+ </summary>
+ <br>For this exercise, one instruction consists of BOTH an addition and
+ a multiplication. The addition and multiplication are not two separate 
+instructions. 
+  <br>Instead, they are two separate stages in the pipeline, similar to 
+how EX and MEM are two separate stages in a pipeline that operate on the
+ same instruction with EX operating on the instruction first and MEM 
+operating on the instruction second. 
+ <br>We do not have any bubbles in this particular circuit because none of the individual instructions depend on each other.
+ </details>
+</li>
+<li>Calculate the critical path of this pipelined circuit in <strong>ns</strong>. Put this number on the first line of <strong>ex2.txt</strong> without units.</li>
+<li>Calculate the maximum clock rate for this pipelined circuit in <strong>MHz</strong>. Put this number on the second line of <strong>ex2.txt</strong> without units.</li>
+</ol>
+<h3 id="testing">Testing</h3>
+<p>Open a local terminal session and go to the <code>lab06</code> folder. We've provided tests for Exercise 2, which you can run with <code>python3 test.py</code>. Your Exercise 2 circuit is run in a test harness circuit (<code>tests/ex2-test.circ</code>), and its output is compared against the reference output for that test (<code>tests/reference-output/ex2-test.out</code>).
+ In the output file, each column corresponds to an input/output pin on 
+the main circuit, and each row shows a set of inputs and the 
+corresponding outputs the circuit produced. If your circuit output (<code>tests/student-output/ex2-test.out</code>) is different, you can check it against the reference output file; the <code>diff</code> command may help.</p>
+<h2 id="exercise-3-mid-semester-survey">Exercise 3 - Mid Semester Survey</h2>
+<p>Congratulations on making it halfway through 61C! We request you to 
+provide feedback on how the course is being run so we can better meet 
+your learning needs for the remainder of the course.  This survey is 
+only collecting emails to verify that you have completed it. When the 
+results are analyzed, the data will be anonymized. The content of your 
+responses will not affect your grade. You can find the survey <a href="https://docs.google.com/forms/d/e/1FAIpQLSeh3L3Of3JqnBFt5CpKGuWIkQehvNxUqkwOuFwTFggWj5By2w/viewform?usp=sf_link">here</a>.</p>
+<h2 id="submission">Submission</h2>
+<p>Save, commit, and push your work, then submit to the <code>Lab06</code> assignment on Gradescope.</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

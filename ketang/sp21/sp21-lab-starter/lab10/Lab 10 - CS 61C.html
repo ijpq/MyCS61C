@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 10 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%2010%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%2010%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%2010%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%2010%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%2010%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%2010%20-%20CS%2061C_files/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%2010%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#objectives" class="nav-link node-name--H2  active">Objectives:</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#info" class="nav-link node-name--H2 ">Info</a></li><li class="nav-item"><a href="#exercise-0-sanity-check" class="nav-link node-name--H2 ">Exercise 0 - Sanity Check</a></li><li class="nav-item"><a href="#exercise-1-working-with-camera" class="nav-link node-name--H2 ">Exercise 1 - Working with CAMERA</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#checkpoint" class="nav-link node-name--H4 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-2-misses" class="nav-link node-name--H2 ">Exercise 2 - Misses</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#checkpoint-1" class="nav-link node-name--H4 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-3-fixing-our-faults" class="nav-link node-name--H2 ">Exercise 3 - Fixing our Faults</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#checkpoint-2" class="nav-link node-name--H4 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#exercise-4-bringing-it-all-together" class="nav-link node-name--H2 ">Exercise 4 - Bringing it All Together</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#checkpoint-3" class="nav-link node-name--H4 ">Checkpoint</a></li></ul></li><li class="nav-item"><a href="#submission" class="nav-link node-name--H2 ">Submission</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 10: OS, Virtual Memory</h1>
+    
+      <p class="subtitle">Deadline: Monday, August 9, 11:59:59 PM PT</p>
+    
+    
+    <p>Deadline: EOD (11:59:59PM PT) Monday, August 9th</p>
+<h2 id="objectives">Objectives:</h2>
+<ul>
+<li>Explore the workings of virtual memory, specifically the TLB and the Page Table.</li>
+<li>Analyze TLB hit rate and Page Table hit rate and determine what accesses optimize these values.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>Pull the lab 10 files from the lab starter repository with</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> pull starter main
+</span></code></pre><h2 id="info">Info</h2>
+<p><strong>V</strong>irtual <strong>M</strong>emory is an important 
+concept in computer architecture and operating systems. It provides the 
+needed abstraction for more than a single process to be run on a system 
+at once. Though at this point, we don't yet have direct support to 
+simulate what accesses might look like <strong>without</strong> virtual memory, we can visualise it through memory address breakdown.</p>
+<p>The way in which virtual memory addresses are broken down looks 
+arbitrary, but they follow a precise structure. Each component of the 
+address breakdown addresses how large the corresponding target is; as we
+ increment the addresses, we cross each until we reach the next block at
+ which point it is indexed separately. It functions very similarly to 
+how caches work in the cache TIO breakdown; in virtual addresses, its 
+broken down as different levels of index bits before we reach the <strong>O</strong>ffset bits.</p>
+<h2 id="exercise-0-sanity-check">Exercise 0 - Sanity Check</h2>
+<p>Write your answers in the provided <code>answers.txt</code> file. For
+ numerical answers, write the number instead of spelling it out (e.g. 
+"7" instead of "seven"). The autograder assumes that the original 
+formatting will not be changed, so please don't add additional lines, 
+switch existing lines, or otherwise modify the current formatting.</p>
+<p>For this lab we will mostly be using the virtual memory simulation 
+features of Camera, a cache and virtual memory simulator. You may also 
+find the cache simulations interesting, however we won't be working with
+ those here. Unfortunately, Camera is known to have issues when trying 
+to run it on the Hive or Linux machines, so it's recommend to download 
+Camera from <a href="https://inst.eecs.berkeley.edu/su21/lab10resources/Camera.jar">here</a>,
+ and simply double click on the jar file to run it on your own 
+(non-Linux) laptop. If you're on a Mac, you may need to go to "Security 
+&amp; Privacy" in your settings and click "Open Anyway" to allow Camera 
+to run. Some displays don't seem to play nice with the standard Camera 
+app. If the values in memory are all squished together, try running this
+ version of <a href="https://inst.eecs.berkeley.edu/su21/lab10resources/CameraHDPI.jar">Camera</a>. If you are unable to find a way to get Camera working on a machine, please partner up with someone who does.</p>
+<p>Once Camera opens up, select the virtual memory option to open a 
+visualization of the virtual memory system. In the top left you can see 
+the contents of physical memory. Just below that is a listing of all the
+ pages of virtual memory for this process. To the right of these items 
+are the contents of the TLB and the Page Table. At this point these 
+should all be empty as we haven't done anything yet. Read about the 
+statistics of your memory system in the "PROGRESS UPDATE" box at the 
+bottom of the window. This area will keep you updated on your status 
+through the simulation as it progresses. You can move the simulation 
+forward, backward or start it over from the beginning using the buttons 
+to the right of the "PROGRESS UPDATE" box.</p>
+<p>Before you continue, <strong>MAKE SURE THAT YOU OPENED THE VM SIMULATOR AND NOT THE CACHE SIMULATOR</strong>.</p>
+<h2 id="exercise-1-working-with-camera">Exercise 1 - Working with CAMERA</h2>
+<p>Click the button labeled "Auto Generate Add. Ref. Str." at the 
+right-hand side of the window. This will generate a set of ten address 
+references. You can think of these as a series of RISC-V "load word" 
+instructions reading from the memory address specified. Click the button
+ labeled "Next" to begin the simulation.</p>
+<p>For the rest of this exercise you are at the mercy of the "PROGRESS 
+UPDATE" box. After each click of the "Next" button examine the contents 
+of the box and the current state of the memory system. Try to really get
+ an understanding of what is going on in the TLB, the Page Table, and 
+Physical Memory at each step.</p>
+<h4 id="checkpoint">Checkpoint</h4>
+<ol>
+<li>Given the way the address was broken down, how big (in words) are 
+the pages in this model? Leave out the units in your answer (e.g. 4 
+instead of 4 words).</li>
+<li>How many TLB Hits and Misses did we have for the randomly generated 
+set of ten addresses? What about for Page Hits and Page Faults? Your 
+answer should be a comma separated list (e.g. 1, 2, 3, 4). </li>
+<li>Did you have any Page Hits? (Why?) Can you think of a set of ten 
+addresses that would result in a Page Hit? Your answer should be two 
+[yes/no]'s separated by a comma.</li>
+<li>What is the process by which we access memory given a virtual 
+address on the very first access assuming a page fault? Order the steps 
+given below. Give your answer as numbers delimited by by a comma with a 
+space, i.e. [num], [num], ... for example, <code>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</code>.
+<ol>
+<li>We update the page table to map the corresponding VPN to the PPN.</li>
+<li>Calculate number of virtual page number (VPN) bits through $$VA_{bits} - offset_{bits}$$.</li>
+<li>TLB does not contain the VPN so we access the page table for the corresponding VPN.</li>
+<li>We access the corresponding byte using the offset.</li>
+<li>We bring the corresponding virtual page into physical memory from disk.</li>
+<li>The page table's entry for VPN has a valid bit of 0.</li>
+<li>Get VPN by taking <code>VA[address bits - 1 : offset bits]</code>.</li>
+<li>Calculate number of offset bits by taking log 2 of page size.</li>
+<li>We update the TLB with the corresponding PT entry.</li>
+<li>Get offset by taking <code>VA[offset bits - 1 ; 0]</code>.</li>
+<li>Access TLB for corresponding VPN.</li>
+<li>Access given virtual address.</li>
+</ol>
+</li>
+<li>How many PPN and VPN bits are there respectively? Format your answer as <code>NUM\_PPN\_BITS, NUM\_VPN\_BITS</code>.</li>
+<li>How many physical and virtual pages are there respectively? Format your answer as <code>NUM\_PHYSICAL\PAGES, NUM\_VIRTUAL\_PAGES</code>.</li>
+</ol>
+<h2 id="exercise-2-misses">Exercise 2 - Misses</h2>
+<p>Now that you've seen what a random workload looks like in the VM 
+system let's try creating a custom workload with a specific property. 
+Your goal for this exercise is to create a workload of ten memory 
+accesses that will cause ten TLB misses and ten Page Faults. You should 
+be able to come up with such a workload on paper, but then you should 
+run it in CAMERA to verify your work. You can specify a custom workload 
+in CAMERA by clicking the button labeled "Self Generate Add. Ref. Str." 
+and entering in the addresses you want to reference one at a time.</p>
+<h4 id="checkpoint-1">Checkpoint</h4>
+<ol>
+<li>Write down your ten memory accesses. The answer should be formatted 
+as a comma separated list of hex values (e.g. 00, 01, 02, 03, 04, 05, 
+06, 07, 08, 09).</li>
+</ol>
+<h2 id="exercise-3-fixing-our-faults">Exercise 3 - Fixing our Faults</h2>
+<p>Given your sequence of memory accesses from Exercise 2, can you find a
+ change to a single parameter (e.g. TLB Size, Physical Memory Size, 
+Virtual Memory Size, Page Size) that would result in the same number 
+(ten) of TLB misses but result in fewer than ten page faults?</p>
+<h4 id="checkpoint-2">Checkpoint</h4>
+<ol>
+<li>Write down two parameters for which if each got individually changed
+ (while all other parameters stay the same) would result in ten TLB 
+misses but <strong>fewer</strong> than ten page faults. Format your two answers in alphabetical order as such: <code>A_ANS, B_ANS</code>. For example, if your answers are <code>daisy, cotton ball</code>, write it as <code>cotton ball, daisy</code>.</li>
+</ol>
+<h2 id="exercise-4-bringing-it-all-together">Exercise 4 - Bringing it All Together</h2>
+<p>We used VMSIM, another Virtual Memory simulator, to create this question. You have two options for this exercise.</p>
+<ul>
+<li>Watch this <a href="https://inst.eecs.berkeley.edu/su21/lab10resources/vm.webm">webm</a> of a VMSIM simulation.</li>
+</ul>
+<p>Observe what is happnening and answer the following questions:</p>
+<p>What is different about the setup of the system in this question as 
+compared to the setup in CAMERA? In particular, what are P1, P2, P3, and
+ P4? If you watch closely you'll see that this simulation reports a much
+ higher percentage of TLB misses than random runs on CAMERA did. Why 
+might this be? (If you have trouble following the simulation, use the <code>appletviewer</code> and turn down the speed using the slider on the bottom right.)</p>
+<h4 id="checkpoint-3">Checkpoint</h4>
+<ol>
+<li>Select all factors that would cause the <code>.webm</code> 
+simulation to show a lower TLB hit rate than our original model. Give 
+your answer in numerical order delimited by by a comma with a space, 
+i.e. [num], [num], ... an example would be <code>1, 2, 3</code>.
+<ol>
+<li>A single process is running in <code>.webm</code>.</li>
+<li>Multiple processes are running in <code>.webm</code>.</li>
+<li>Running multiple processes requires the system to context switch.</li>
+<li>Running a single process requires context switches.</li>
+<li>Context switches preserve TLB state.</li>
+<li>Context switches invalidate the TLB.</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="submission">Submission</h2>
+<p>Please submit to the <strong>Lab 10: OS, I/O</strong> assignment.</p>
+<p>Note that the autograder is whitespace and case insensitive, but 
+otherwise very simple and thus incapable of recognizing typos or 
+misformatted answers.</p>
+<p>The autograder looks for the <code>answers.txt</code> file.</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

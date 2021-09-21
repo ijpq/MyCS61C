@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 8 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%208%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%208%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%208%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%208%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%208%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%208%20-%20CS%2061C_files/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%208%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#objectives" class="nav-link node-name--H2  active">Objectives</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#exercise-1-familiarize-yourself-with-the-simd-functions" class="nav-link node-name--H2 ">Exercise 1: Familiarize Yourself with the SIMD Functions</a></li><li class="nav-item"><a href="#exercise-2-loop-unrolling-example" class="nav-link node-name--H2 ">Exercise 2: Loop Unrolling Example</a></li><li class="nav-item"><a href="#exercise-3-writing-simd-code" class="nav-link node-name--H2 ">Exercise 3: Writing SIMD Code</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#general-advice" class="nav-link node-name--H3 ">General Advice</a></li><li class="nav-item"><a href="#action-item" class="nav-link node-name--H3 ">Action Item</a></li></ul></li><li class="nav-item"><a href="#exercise-4-unrolling-loops" class="nav-link node-name--H2 ">Exercise 4: Unrolling Loops</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#task" class="nav-link node-name--H3 ">Task</a></li></ul></li><li class="nav-item"><a href="#submission" class="nav-link node-name--H2 ">Submission</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 8: Data-Level Parallelism</h1>
+    
+      <p class="subtitle">Deadline: Friday, July 30, 11:59:59 PM PT</p>
+    
+    
+    <h2 id="objectives">Objectives</h2>
+<ul>
+<li>Learn about and use various SIMD functions to perform data level parallelism</li>
+<li>Write code to SIMD-ize certain functions</li>
+<li>Learn about loop-unrolling and why it works</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>Pull the lab files from the starter:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> pull starter main
+</span></code></pre><div class="alert alert-warning">
+  We strongly recommend working on the Hive machines for this lab. Many 
+older processors don't support SSE intrinsics. Even if your processor 
+does support SSE intrinsics, it may produce different results on Hive 
+and your computer due to differing characteristics (cache size, clock 
+speed, etc.).
+</div>
+<h2 id="exercise-1-familiarize-yourself-with-the-simd-functions">Exercise 1: Familiarize Yourself with the SIMD Functions</h2>
+<p>Given the large number of available SIMD intrinsics we want you to 
+learn how to find the ones that you'll need in your application.</p>
+<p>For this mini-exercise, we ask you to look at the <a href="https://software.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/intrinsics/naming-and-usage-syntax.html">Intrinsics Naming and Usage documentation</a>. Then, visit the <a href="https://software.intel.com/sites/landingpage/IntrinsicsGuide/">Intel Intrinsics Guide</a>.
+ The Hive machines support SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, AVX, 
+and AVX2, so you can check those boxes in the filters list. Some of the 
+other instruction sets are also supported, but we can ignore those for 
+the purposes of this lab.</p>
+<p>There isn't an autograded task for this exercise, but try looking 
+through the various instructions in the guide and familiarize yourself 
+with the syntax used. As an example, <code>__m128 _mm_add_ps (__m128 a, __m128 b)</code> <strong>add</strong>s <strong>128</strong>-bit vectors of <code>float</code>s (<code>ps</code> suffix), processing <code>128 / 32 = 4</code> floats per operation.</p>
+<h2 id="exercise-2-loop-unrolling-example">Exercise 2: Loop Unrolling Example</h2>
+<p>The <code>sum()</code> function in <code>simd.c</code> is an un-optimized implementation of the sum the elements of a really big array (roughly <code>2^16</code>
+ elements). This doesn't take long enough to take decent speedup 
+measurements, so we use an outer loop to repeat the sum OUTER_ITERATIONS
+ (roughly <code>2^14</code>) times. We also time the execution of the code by finding the difference between the start and end timestamps (using <code>clock()</code>). The file <code>test_simd.c</code> is the one which will have a <code>main</code> function to run the various <code>sum</code> functions.</p>
+<p>Let's look at <code>sum_unrolled()</code>. The inner loop processes 4 elements per iteration, whereas the inner loop in <code>sum()</code>
+ processes 1 element per iteration. By performing more operations per 
+iteration of the for loop, we have to loop less and not have to waste as
+ many cycles -- remember the effects and hazards related to pipelining 
+and branching! Note the extra loop after the primary loop -- since the 
+primary loop advances through the array in groups of 4 elements, we need
+ a tail case loop to handle arrays with lengths that are not multiples 
+of 4.</p>
+<details>
+  <summary><b>Code Example</b>: RISC-V visualization of unrolling a sum function</summary>
+<p>For example, consider this very simple example that adds together the first n elements of an array <code>arr</code>:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> total = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; n; i++) {
+</span><span style="color:#c0c5ce;">  total += arr[i];
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
+<p>The corresponding assembly code might look something like this:</p>
+<pre style="background-color:#2b303b;"><code class="language-asm" data-lang="asm"><span style="color:#8fa1b3;">    </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0
+</span><span style="color:#8fa1b3;">    </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0 // Initialize </span><span style="color:#b48ead;">loop </span><span style="color:#8fa1b3;">counter
+</span><span style="color:#b48ead;">loop</span><span style="color:#8fa1b3;">:   beq t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">a1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">end // Assume register a1 contains the size n of the array
+</span><span style="color:#8fa1b3;">    slli t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2
+</span><span style="color:#8fa1b3;">    </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">a0 // Assume register a0 contains a pointer to the beginning of the array
+</span><span style="color:#8fa1b3;">    lw t3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0</span><span style="color:#8fa1b3;">(t2) // Load arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i</span><span style="color:#c0c5ce;">] </span><span style="color:#b48ead;">into </span><span style="color:#8fa1b3;">t3
+</span><span style="color:#8fa1b3;">    </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t3</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0 // total </span><span style="color:#c0c5ce;">+</span><span style="color:#8fa1b3;">= arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i</span><span style="color:#c0c5ce;">]
+</span><span style="color:#8fa1b3;">    addi t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1 </span><span style="color:#8fa1b3;">// Increment the </span><span style="color:#b48ead;">loop </span><span style="color:#8fa1b3;">counter
+</span><span style="color:#8fa1b3;">    jal x0</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">loop
+</span><span style="color:#8fa1b3;">end:  ...
+</span></code></pre>
+<p>If we unroll the loop 4 times, this would be our equivalent code, 
+with a tail case for the situations where n is not a multiple of 4:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> total = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i &lt; n / </span><span style="color:#d08770;">4 </span><span style="color:#c0c5ce;">* </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">; i+=</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">) {
+</span><span style="color:#c0c5ce;">  total += arr[i];
+</span><span style="color:#c0c5ce;">  total += arr[i + </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">  total += arr[i + </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">  total += arr[i + </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">}
+
+</span><span style="color:#b48ead;">for </span><span style="color:#c0c5ce;">(i = n / </span><span style="color:#d08770;">4 </span><span style="color:#c0c5ce;">* </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">; i &lt; n; i++) {
+</span><span style="color:#c0c5ce;">  total += arr[i];
+</span><span style="color:#c0c5ce;">}
+</span></code></pre>
+<p>For the unrolled code, the corresponding assembly code might look something like this:</p>
+<pre style="background-color:#2b303b;"><code class="language-asm" data-lang="asm"><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">a1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0 // Assume register a1 contains the size n of the array
+</span><span style="color:#8fa1b3;">      srli t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2
+</span><span style="color:#8fa1b3;">      slli t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2 </span><span style="color:#8fa1b3;">// Find largest of multiple </span><span style="color:#d08770;">4 </span><span style="color:#8fa1b3;">&lt;= n
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">x0 // Initialize </span><span style="color:#b48ead;">loop </span><span style="color:#8fa1b3;">counter
+</span><span style="color:#b48ead;">loop</span><span style="color:#8fa1b3;">: beq t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">tail
+</span><span style="color:#8fa1b3;">      slli t3</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t3</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t3</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">a0 // Assume register a0 contains a pointer to the beginning of the array
+</span><span style="color:#8fa1b3;">      lw t4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0</span><span style="color:#8fa1b3;">(t3) // Load arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i</span><span style="color:#c0c5ce;">] </span><span style="color:#b48ead;">into </span><span style="color:#8fa1b3;">t4
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t4</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0 // total </span><span style="color:#c0c5ce;">+</span><span style="color:#8fa1b3;">= arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i</span><span style="color:#c0c5ce;">]
+</span><span style="color:#8fa1b3;">      lw t4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">4</span><span style="color:#8fa1b3;">(t3) // Load arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">] </span><span style="color:#b48ead;">into </span><span style="color:#8fa1b3;">t4
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t4</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0
+</span><span style="color:#8fa1b3;">      lw t4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">8</span><span style="color:#8fa1b3;">(t3)</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0 // Load arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">] </span><span style="color:#b48ead;">into </span><span style="color:#8fa1b3;">t4
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t4</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0
+</span><span style="color:#8fa1b3;">      lw t4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">12</span><span style="color:#8fa1b3;">(t3)</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">// Load arr</span><span style="color:#c0c5ce;">[</span><span style="color:#8fa1b3;">i </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">] </span><span style="color:#b48ead;">into </span><span style="color:#8fa1b3;">t4
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t4</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0
+</span><span style="color:#8fa1b3;">      addi t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">4 </span><span style="color:#8fa1b3;">// Increment the </span><span style="color:#b48ead;">loop </span><span style="color:#8fa1b3;">counter
+</span><span style="color:#8fa1b3;">      jal x0</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">loop
+</span><span style="color:#8fa1b3;">tail: beq t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">a1</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">end
+</span><span style="color:#8fa1b3;">      slli t3</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2
+</span><span style="color:#8fa1b3;">      lw t4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0</span><span style="color:#8fa1b3;">(t3)
+</span><span style="color:#8fa1b3;">      </span><span style="color:#b48ead;">add </span><span style="color:#8fa1b3;">t0</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t4</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t0
+</span><span style="color:#8fa1b3;">      addi t2</span><span style="color:#c0c5ce;">, </span><span style="color:#8fa1b3;">t2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1
+</span><span style="color:#8fa1b3;">end: ...
+</span></code></pre></details>
+<p>Try compiling and running the code:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> make simd
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> ./simd
+</span></code></pre>
+<p>The unrolled function should be slightly faster, although not by much. But faster programs are always nice to have!</p>
+<p>Question: if loop unrolling helps, why don't we unroll everything?</p>
+<ul>
+<li>Loop unrolling means more instructions, which means larger programs and potentially worse caching behavior!</li>
+<li>Our simplified examples in <code>simd.c</code> use a known array 
+size. If you don't know the size of the array you're working on, your 
+unrolled loop might not be a good fit for the array!</li>
+<li>The unrolled code is harder to read and write. Unless you plan to 
+never look at the code again, code readability may outweigh the benefits
+ of loop unrolling!</li>
+<li>Sometimes, the compiler will automatically unroll your naive loops for you! Emphasis on <em>sometimes</em>
+ -- it can be difficult to figure out what magic tricks a modern 
+compiler performs (see Godbolt in the next paragraph). For demonstration
+ purposes, we've disabled compiler optimizations in this lab.</li>
+</ul>
+<p>Optional: you can visualize how the vectors and the different 
+functions work together by inputting your code into the code environment
+ at this <a href="https://piotte13.github.io/SIMD-Visualiser/#/">link</a>!
+Another interesting tool that might help you understand the behavior of SIMD instructions is the <a href="https://godbolt.org/z/J7HXBk">Godbolt Compiler Explorer</a> project. It can also provide a lot of insights when you need to optimize any code in the future.</p>
+<h2 id="exercise-3-writing-simd-code">Exercise 3: Writing SIMD Code</h2>
+<h3 id="general-advice">General Advice</h3>
+<p>Some general advice on working with SIMD instructions:</p>
+<ul>
+<li>Be cautious of memory alignment. For example, <code>_m256d _mm256_load_pd (double const * mem_addr)</code> would not work with unaligned data -- you would need <code>_m256d _mm256_loadu_pd</code>.
+ Meanwhile, if you have control over memory allocation, is almost always
+ desireable to keep your data aligned (can be achieved using special 
+memory allocation APIs). Aligned loads can be folded into other 
+operations as a memory operand which reduces code size and throughput 
+slightly. Modern CPUs have very good support for unaligned loads, but 
+there's still a significant performance hit when a load crosses a 
+cache-line boundary.</li>
+<li>Recall various CPU pipeline hazards you have learned earlier this 
+semester. Data hazards can drastically hurt performance. That being 
+said, you may want to check data dependencies in adjacent SIMD 
+operations if not getting the desired performance.</li>
+</ul>
+<p>Additionally, below are common bugs that the staff have noticed in 
+implementations for this exercise. Some of it may not make sense yet, 
+but feel free to refer back as you're working on the code:</p>
+<ul>
+<li><strong>Forgetting the CONDITIONAL in the tail case</strong>: what condition have we been checking before adding something to the sum?</li>
+<li><strong>Adding to an UNINITIALIZED array</strong>: if you add stuff 
+to your result array without initializing it, you are adding stuff to 
+garbage, which makes the array still garbage! Using <code>storeu</code> before adding stuff is okay though.</li>
+<li><strong>Re-initializing your sum vector</strong>: make sure <strong>you are not</strong> creating a new sum vector for every iteration of the inner loop!</li>
+<li><strong>Trying to store your sum vector into a <code>long long int</code> array</strong>: use an int array. The return value of this function is indeed a <code>long long int</code>, but that's because an <code>int</code> isn't big enough to hold the sum of all the values across all iterations of the outer loop. <code>long long int</code> and <code>int</code> have different bit widths, so storing an <code>int</code> array into a <code>long long int</code> will produce different numbers!</li>
+</ul>
+<h3 id="action-item">Action Item</h3>
+<p>Now, let's implement <code>sum_simd()</code>, a vectorized version of the naive <code>sum()</code> implementation!</p>
+<p>You only need to vectorize the inner loop with SIMD. Implementation can be done with the following intrinsics:</p>
+<ul>
+<li><code>__m128i _mm_setzero_si128()</code> - returns a 128-bit zero vector</li>
+<li><code>__m128i _mm_loadu_si128(__m128i *p)</code> - returns 128-bit vector stored at pointer p</li>
+<li><code>__m128i _mm_add_epi32(__m128i a, __m128i b)</code> - returns vector (a_0 + b_0, a_1 + b_1, a_2 + b_2, a_3 + b_3)</li>
+<li><code>void _mm_storeu_si128(__m128i *p, __m128i a)</code> - stores 128-bit vector a into pointer p</li>
+<li><code>__m128i _mm_cmpgt_epi32(__m128i a, __m128i b)</code> - returns the vector (a_i &gt; b_i ? <code>0xffffffff : 0x0</code> for <code>i</code> from 0 to 3). AKA a 32-bit all-1s mask if a_i &gt; b_i and a 32-bit all-0s mask otherwise</li>
+<li><code>__m128i _mm_and_si128(__m128i a, __m128i b)</code> - returns vector (a_0 &amp; b_0, a_1 &amp; b_1, a_2 &amp; b_2, a_3 &amp; b_3), where &amp; represents the bit-wise and operator</li>
+</ul>
+<details>
+  <summary><b>Code Example</b>: vectorizing the sum of an 8-element array</summary>
+<p>Note that the following examples demonstrate how to approach 
+vectorizing functions with SIMD. The array is too short for SIMD 
+performance benefits</p>
+<p>Consider an 8-element integer array. We can add its elements without SIMD (ignoring the existence of for loops):</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> arr = {</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">};
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> sum = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum += arr[</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">];
+</span></code></pre>
+<p>Let's break it down a little more:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> arr = {</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">};
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> sum = </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">;
+
+</span><span style="color:#65737e;">// Group 1
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">];
+
+</span><span style="color:#65737e;">// Group 2
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">];
+</span><span style="color:#c0c5ce;">sum = sum + arr[</span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">];
+</span></code></pre>
+<p>With SIMD:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> arr[</span><span style="color:#d08770;">8</span><span style="color:#c0c5ce;">] = {</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">6</span><span style="color:#c0c5ce;">};
+</span><span style="color:#65737e;">// Initialize sum vector of {0, 0, 0, 0}
+</span><span style="color:#c0c5ce;">__m128i sum_vec = </span><span style="color:#bf616a;">_mm_setzero_si128</span><span style="color:#c0c5ce;">();
+</span><span style="color:#c0c5ce;">__m128i tmp;
+
+</span><span style="color:#65737e;">// Group 1
+</span><span style="color:#65737e;">// Load array elements 0-3 into a temporary vector register
+</span><span style="color:#c0c5ce;">tmp = </span><span style="color:#bf616a;">_mm_loadu_si128</span><span style="color:#c0c5ce;">((__m128i *) arr);
+</span><span style="color:#65737e;">// Add to existing sum vector
+</span><span style="color:#c0c5ce;">sum_vec = </span><span style="color:#bf616a;">_mm_add_epi32</span><span style="color:#c0c5ce;">(sum_vec, tmp);
+</span><span style="color:#65737e;">// sum_vec = {3, 1, 4, 1}
+
+</span><span style="color:#65737e;">// Group 2
+</span><span style="color:#65737e;">// Load array elements 4-7 into a temporary vector register
+</span><span style="color:#c0c5ce;">tmp = </span><span style="color:#bf616a;">_mm_loadu_si128</span><span style="color:#c0c5ce;">((__m128i *) (arr + </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">));
+</span><span style="color:#65737e;">// Add to existing sum vector
+</span><span style="color:#c0c5ce;">sum_vec = </span><span style="color:#bf616a;">_mm_add_epi32</span><span style="color:#c0c5ce;">(sum_vec, tmp);
+</span><span style="color:#65737e;">// sum_vec = {3 + 5, 1 + 9, 4 + 2, 1 + 6}
+
+</span><span style="color:#65737e;">// Create temporary array to hold values from sum_vec
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> tmp_arr[</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">];
+</span><span style="color:#bf616a;">_mm_storeu_si128</span><span style="color:#c0c5ce;">((__m128i *) tmp_arr, sum_vec);
+</span><span style="color:#65737e;">// Collect values from sum_vec in a single integer
+</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> sum = tmp_arr[</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">] + tmp_arr[</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">] + tmp_arr[</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">] + tmp_arr[</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">];
+</span></code></pre></details>
+<p>Let's use <code>sum_unrolled()</code> as a reference, and use SSE 
+intrinsics to re-implement the inner loop. Recall that the vector 
+instructions perform operations on multiple pieces of data (in a vector)
+ in parallel. This turns out to be faster than running through a for 
+loop and performing one operation on one piece of data per iteration.</p>
+<p>In <code>sum_unrolled()</code>, we process 4 array elements in each 
+iteration. Similarly, the vector functions listed above allow you to 
+perform one operation on 4 integers at once, so the 4 sets of operations
+ can be merged into 1 set of SIMD operations! When implementing <code>sum_simd()</code>,
+ you should add a few array elements to a sum vector in parallel and 
+then consolidate the individual values of the sum vector into our 
+desired sum at the end.</p>
+<ul>
+<li>Hint 1: <code>__m128i</code> is the data type for Intel's special 128-bit vector. We'll be using them to encode 4 (four) 32-bit ints.</li>
+<li>Hint 2: We've left you a vector called <code>_127</code> which 
+contains four copies of the number 127. You should use this to compare 
+with some stuff when you implement the condition within the sum loop.</li>
+<li>Hint 3: DON'T use the store function (<code>_mm_storeu_si128</code>)
+ until after completing the inner loop! It turns out that storing is 
+very costly and performing a store in every iteration will actually 
+cause your code to slow down. However, if you wait until after the outer
+ loop completes you may have overflow issues.</li>
+<li>Hint 4: It's bad practice to index into the <code>__m128i</code> vector like they are arrays. You should store them into arrays first with the <code>storeu</code> function, and then access the integers elementwise by indexing into the array.</li>
+<li>Hint 5: READ the function declarations in the above table carefully! You'll notice that the loadu and storeu take <code>__m128i*</code> type arguments. You can just cast an int array to a <code>__m128i</code> pointer.</li>
+</ul>
+<p>To compile and run your code, run the following commands:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> make simd
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> ./simd
+</span></code></pre>
+<p>Sanity check: The naive version runs at about 7 seconds on the Hive 
+machines, and your SIMDized version should run in about 1-2 seconds.</p>
+<h2 id="exercise-4-unrolling-loops">Exercise 4: Unrolling Loops</h2>
+<p>To obtain even more performance improvement, carefully unroll the 
+SIMD vector sum code that you created in the previous exercise to create
+ <code>sum_simd_unrolled()</code>. This should get you a little more increase in performance from <code>sum_simd</code> (a few fractions of a second). As an example of loop unrolling, consider the difference between <code>sum()</code> and <code>sum_unrolled()</code>.</p>
+<h3 id="task">Task</h3>
+<p>Within <code>simd.c</code>, copy your <code>sum_simd()</code> code into <code>sum_simd_unrolled()</code> and unroll it 4 (four) times. Don't forget about your tail case!</p>
+<p>To compile and run your code, run the following commands:</p>
+<pre style="background-color:#2b303b;"><code class="language-console" data-lang="console"><span style="color:#c0c5ce;">$ make simd
+$ ./simd
+</span></code></pre><h2 id="submission">Submission</h2>
+<p>Please submit to the Lab 8 autograder on Gradescope. The autograder tests are similar to those in <code>test_simd.c</code>, but with potentially different constants (<code>NUM_ELEMS</code> and <code>OUTER_ITERATIONS</code>) and reduced speedup requirements (to compensate for more variability in autograder resources).</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

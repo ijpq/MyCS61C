@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Lab 9 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Lab%209%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Lab%209%20-%20CS%2061C_files/main.css">
+
+  
+
+
+
+  <script defer="defer" src="Lab%209%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script defer="defer" src="Lab%209%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Lab%209%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Lab%209%20-%20CS%2061C_files/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Lab%209%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+<div class="row spec">
+  
+    <div id="toc-wrapper" class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#objectives" class="nav-link node-name--H2  active">Objectives</a></li><li class="nav-item"><a href="#setup" class="nav-link node-name--H2 ">Setup</a></li><li class="nav-item"><a href="#info-openmp" class="nav-link node-name--H2 ">Info: OpenMP</a></li><li class="nav-item"><a href="#exercise-1-openmp-hello-world" class="nav-link node-name--H2 ">Exercise 1: OpenMP Hello World</a></li><li class="nav-item"><a href="#exercise-2-vector-addition" class="nav-link node-name--H2 ">Exercise 2: Vector Addition</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-items" class="nav-link node-name--H3 ">Action Items</a></li><li class="nav-item"><a href="#questions" class="nav-link node-name--H3 ">Questions</a></li></ul></li><li class="nav-item"><a href="#exercise-3-dot-product" class="nav-link node-name--H2 ">Exercise 3: Dot Product</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="#action-items-1" class="nav-link node-name--H3 ">Action Items</a></li></ul></li><li class="nav-item"><a href="#submission" class="nav-link node-name--H2 ">Submission</a></li></ul></div>
+  
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1 class="title">Lab 9: Thread-Level Parallelism</h1>
+    
+      <p class="subtitle">Deadline: Monday, August 2, 11:59:59 PM PT</p>
+    
+    
+    <h2 id="objectives">Objectives</h2>
+<ul>
+<li>Learn about basic OpenMP directives.</li>
+<li>Write code to learn two ways of how <code>#pragma omp for</code> could be implemented. Learn about false sharing.</li>
+<li>Learn about basic multi-processing programming.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>Pull the lab files from the starter:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">git</span><span style="color:#c0c5ce;"> pull starter main
+</span></code></pre><h2 id="info-openmp">Info: OpenMP</h2>
+<p>OpenMP stands for <strong>O</strong>pen specification for <strong>M</strong>ulti-<strong>P</strong>rocessing.
+ It is a framework that offers a C interface. It is not a built-in part 
+of the C language -- most OpenMP features are compiler directives.</p>
+<p>Benefits of multi-threaded programming using OpenMP include:</p>
+<ul>
+<li>Very simple interface allows a programmer to separate a program into serial regions and parallel regions.</li>
+<li>Convenient synchronization control (data race bugs in threads are very hard to trace).</li>
+</ul>
+<p>In this lab, we will practice some basic usage of OpenMP. OpenMP is 
+already installed on Hive machines, so we strongly recommend that you 
+work on the Hive machines for this lab.</p>
+<h2 id="exercise-1-openmp-hello-world">Exercise 1: OpenMP Hello World</h2>
+<p>Consider the sample hello world program (<code>hello.c</code>), which prints <code>"hello world from thread #"</code> from each thread:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span style="color:#c0c5ce;">() {
+    </span><span style="color:#b48ead;">#pragma</span><span style="color:#c0c5ce;"> omp parallel
+    {
+        </span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> thread_id = </span><span style="color:#bf616a;">omp_get_thread_num</span><span style="color:#c0c5ce;">();
+        </span><span style="color:#96b5b4;">printf</span><span style="color:#c0c5ce;">("</span><span style="color:#a3be8c;">hello world from thread </span><span style="color:#d08770;">%d</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">", thread_id);
+    }
+}
+</span></code></pre>
+<p>This program will create a team of parallel threads. Each thread 
+prints out a hello world message, along with its own thread number. You 
+can change the number of OpenMP threads by setting the environment 
+variable <code>OMP_NUM_THREADS</code> or by using the <a href="https://gcc.gnu.org/onlinedocs/libgomp/omp_005fset_005fnum_005fthreads.html"><code>omp_set_num_threads</code></a> function (before the parallel section) in your program. The <code>#pragma</code> tells the compiler that the rest of the line is a directive. <code>omp</code> declares that it is for OpenMP, and <code>parallel</code> says that the following block statement (the part inside the curly braces (<code>{</code>/<code>}</code>)) should be executed in parallel. Try running the program:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">make</span><span style="color:#c0c5ce;"> hello
+</span><span style="color:#bf616a;">./hello
+</span></code></pre>
+<p>If you run <code>./hello</code> a couple of times, you may notice 
+that the printed numbers are not always in increasing order and will 
+most likely vary across runs. This is because we didn't specify any sort
+ of synchronization options, so OpenMP will not enforce any execution 
+order. More on that later. It is also vital to note that the variable <code>thread_id</code>
+ is defined inside the parallel block, so it is local to each thread and
+ not shared across all threads. In general with OpenMP, variables 
+declared inside the parallel block will be private to each thread, but 
+variables declared outside a parallel block will be shared across all 
+threads. Again, there are ways to override this, but more on that later.</p>
+<h2 id="exercise-2-vector-addition">Exercise 2: Vector Addition</h2>
+<p>Vector addition is a naturally parallel computation (element <code>i</code> does not depend on elements <code>j != i</code>), so it makes for a good first exercise. The <code>v_add()</code> functions inside <code>omp_apps.c</code> will store the sum of input vectors <code>x</code> and <code>y</code> into the result vector <code>z</code>. A first attempt at this might look like:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">v_add</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">x</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">y</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">z</span><span style="color:#c0c5ce;">) {
+    </span><span style="color:#b48ead;">#pragma</span><span style="color:#c0c5ce;"> omp parallel
+    {
+        </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i&lt;ARRAY_SIZE; i++)
+        {
+            z[i] = x[i] + y[i];
+        }
+    }
+}
+</span></code></pre>
+<p>Try running the tests:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">make</span><span style="color:#c0c5ce;"> v_add
+</span><span style="color:#bf616a;">./v_add
+</span></code></pre>
+<p>The testing framework will time the function execution for different 
+thread counts. You should observe that this implementation performs 
+worse as we increase the number of threads! Why?</p>
+<p>The issue is that each thread is executing all of the code within the <code>omp parallel</code>
+ block, meaning if we have 8 threads, we will actually be performing the
+ same vector addition 8 times! Not only that, but various threads 
+writing to the same variables in memory may cause a decrease in 
+performance due to cache synchronization! Rather than have each thread 
+run every iteration of the <code>for</code> loop, we need to split the <code>for</code> loop iterations across all the threads so each thread does only a portion of the work.</p>
+<p>OpenMP has built-in functionality for dividing up the work of <code>for</code>
+ loops. Before we take advantage of it in the next exercise, let's try 
+to understand some ways of dividing the work, and the benefits/drawbacks
+ of each way. You must not use the OpenMP <code>for</code> directive for this exercise, but a sample is:</p>
+<pre style="background-color:#2b303b;"><code class="language-c" data-lang="c"><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">v_add</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">x</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">y</span><span style="color:#c0c5ce;">, </span><span style="color:#b48ead;">double</span><span style="color:#c0c5ce;">* </span><span style="color:#bf616a;">z</span><span style="color:#c0c5ce;">) {
+    </span><span style="color:#b48ead;">#pragma</span><span style="color:#c0c5ce;"> omp parallel for
+    </span><span style="color:#b48ead;">for</span><span style="color:#c0c5ce;">(</span><span style="color:#b48ead;">int</span><span style="color:#c0c5ce;"> i=</span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">; i&lt;ARRAY_SIZE; i++)
+    {
+        z[i] = x[i] + y[i];
+    }
+}
+</span></code></pre>
+<p>Your task is to optimize <code>v_add()</code>. Remember that speedup 
+may increase slower after a certain number of threads, since part of the
+ whole program is not parallelizable. Your implementations should use 
+the following 2 functions -- don't hardcode thread counts or thread IDs:</p>
+<ul>
+<li><code>int omp_get_num_threads()</code> - returns the current <strong>total</strong> number of OpenMP threads. Note that this will be <code>1</code> outside of an OpenMP <code>parallel</code> section.</li>
+<li><code>int omp_get_thread_num()</code> - returns the thread number of the current thread, commonly used as thread ID</li>
+</ul>
+<h3 id="action-items">Action Items</h3>
+<p>The methods you'll be implementing are in <code>omp_apps.c</code>.</p>
+<p>Start with implementing <code>v_add_optimized_adjacent()</code>, which separates the vectors into element-wise <strong>slices</strong>. Each thread handles adjacent sums; in other words, thread 0 will add the elements at indices where <code>i % num_threads == 0</code>, thread 1 will add the elements at indices where <code>i % num_threads == 1</code>, and so on.</p>
+<p>Then, implementing <code>v_add_optimized_chunks()</code>, which separates the vectors into contiguous <strong>chunks</strong>.
+ As an example, if we have 4 threads, thread 0 will handle the first 
+quarter of the elements in the array, thread 1 will handle the second 
+quarter, and so on. Remember to handle the "tail case" -- depending on 
+your chunking logic, the last chunk may have slightly more or less 
+elements than the others.</p>
+<h3 id="questions">Questions</h3>
+<ol>
+<li>Which version of your code runs faster, chunks or adjacent? Put your answer (either "chunks" or "adjacent") in <code>answers/ex2.txt</code>. Try to relate your answer to cache coherency, false sharing, and/or other memory considerations.</li>
+</ol>
+<h2 id="exercise-3-dot-product">Exercise 3: Dot Product</h2>
+<p>The next task is to compute the dot product of two vectors. At first 
+glance, implementing this might seem not too different from <code>v_add</code>,
+ but the challenge is how to sum up all of the products into the same 
+variable (reduction). A sloppy handling of reduction may lead to <strong>data races</strong>: all the threads are trying to read and write to the same address simultaneously.</p>
+<p>One solution is to use a <strong>critical section</strong>. The code 
+in a critical section can only be executed by a single thread at any 
+given time. Thus, having a critical section naturally prevents multiple 
+threads from reading and writing to the same data, a problem that would 
+otherwise lead to data races. One way to avoid data races is to use the <code>critical</code> primitive provided by OpenMP. An implementation, <code>dotp_naive()</code> in <code>omp_apps.c</code>, protects the sum with a critical section.</p>
+<p>Try running the tests:</p>
+<pre style="background-color:#2b303b;"><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">make</span><span style="color:#c0c5ce;"> dotp
+</span><span style="color:#bf616a;">./dotp
+</span></code></pre>
+<p>Notice how the performance gets much worse as the number of threads 
+goes up? By putting all of the work of reduction in a critical section, 
+we have flattened the parallelism and made it so only one thread can do 
+useful work at a time (not exactly the idea behind thread-level 
+parallelism). This contention is problematic; each thread is constantly 
+fighting for the critical section and only one is making any progress at
+ any given time. As the number of threads goes up, so does the 
+contention, and the performance pays the price. Can we reduce the number
+ of times that each thread needs to use a critical section?</p>
+<h3 id="action-items-1">Action Items</h3>
+<p>The methods you'll be implementing are in <code>omp_apps.c</code>.</p>
+<p>First, let's fix this performance problem <strong>without</strong> using the <code>reduction</code> keyword. Write your implementation in <code>dotp_manual_optimized()</code>. Remember that we want to reduce the number of times each thread enters the <code>critical</code> section.</p>
+<p>Next, let's fix this problem using OpenMP's built-in <code>reduction</code> keyword. Write your implementation in <code>dotp_reduction_optimized()</code>. Note that your code should no longer contain <code>#pragma omp critical</code>.</p>
+<h2 id="submission">Submission</h2>
+<p>Please submit to the Gradescope autograder.</p>
+<p>The lab autograder tests are slightly modified versions of the tests 
+you have locally. In addition to correctness, it looks for some basic 
+improvements in performance. In particular:</p>
+<ul>
+<li>A <strong>2x</strong> speedup from the naive benchmark to the fastest adjacent/chunks runtime (out of all different number of threads) for <code>v_add</code>.</li>
+<li>A <strong>9x</strong> speedup from the naive benchmark to the fastest manual/reduction runtime (out of all different number of threads) for <code>dotp</code>.</li>
+</ul>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      initToC();
+    });
+  
+</script>
+
+
+
+
+</body></html>

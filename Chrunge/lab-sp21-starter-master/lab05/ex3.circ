@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.4.3-61c.7ae7f66" version="1.0">
+<project source="3.4.3-61c.cc0f4a6" version="1.0">
   This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
@@ -318,6 +318,9 @@
     <comp lib="1" loc="(330,150)" name="NOT Gate"/>
     <comp lib="1" loc="(330,210)" name="NOT Gate"/>
     <comp lib="1" loc="(330,90)" name="NOT Gate"/>
+    <comp lib="1" loc="(460,100)" name="XOR Gate"/>
+    <comp lib="1" loc="(500,100)" name="NOT Gate"/>
+    <comp lib="1" loc="(590,150)" name="OR Gate"/>
     <wire from="(220,170)" to="(240,170)"/>
     <wire from="(220,80)" to="(290,80)"/>
     <wire from="(260,160)" to="(270,160)"/>
@@ -330,11 +333,18 @@
     <wire from="(290,140)" to="(330,140)"/>
     <wire from="(290,150)" to="(300,150)"/>
     <wire from="(290,200)" to="(290,210)"/>
-    <wire from="(290,200)" to="(330,200)"/>
+    <wire from="(290,200)" to="(400,200)"/>
     <wire from="(290,210)" to="(300,210)"/>
     <wire from="(290,80)" to="(290,90)"/>
-    <wire from="(290,80)" to="(330,80)"/>
+    <wire from="(290,80)" to="(400,80)"/>
     <wire from="(290,90)" to="(300,90)"/>
+    <wire from="(400,120)" to="(400,200)"/>
+    <wire from="(400,200)" to="(540,200)"/>
+    <wire from="(460,100)" to="(470,100)"/>
+    <wire from="(500,100)" to="(540,100)"/>
+    <wire from="(540,100)" to="(540,130)"/>
+    <wire from="(540,170)" to="(540,200)"/>
+    <wire from="(590,150)" to="(680,150)"/>
   </circuit>
   <circuit name="StateBit1">
     <a name="appearance" val="logisim_evolution"/>
@@ -368,6 +378,7 @@
     <comp lib="1" loc="(330,150)" name="NOT Gate"/>
     <comp lib="1" loc="(330,210)" name="NOT Gate"/>
     <comp lib="1" loc="(330,90)" name="NOT Gate"/>
+    <comp lib="1" loc="(420,100)" name="OR Gate"/>
     <wire from="(220,170)" to="(240,170)"/>
     <wire from="(220,80)" to="(290,80)"/>
     <wire from="(260,160)" to="(270,160)"/>
@@ -383,7 +394,11 @@
     <wire from="(290,200)" to="(330,200)"/>
     <wire from="(290,210)" to="(300,210)"/>
     <wire from="(290,80)" to="(290,90)"/>
-    <wire from="(290,80)" to="(330,80)"/>
+    <wire from="(290,80)" to="(370,80)"/>
     <wire from="(290,90)" to="(300,90)"/>
+    <wire from="(330,120)" to="(330,140)"/>
+    <wire from="(330,120)" to="(370,120)"/>
+    <wire from="(420,100)" to="(680,100)"/>
+    <wire from="(680,100)" to="(680,150)"/>
   </circuit>
 </project>

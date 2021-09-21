@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="language" content="english">
+  <title>Project 3 - CS 61C</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="https://inst.eecs.berkeley.edu/~cs61c/su21/img/favicon.png">
+  <link rel="stylesheet" href="Project%203%20-%20CS%2061C_files/bootstrap.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Project%203%20-%20CS%2061C_files/main.css">
+
+  
+
+
+<script defer="defer" src="Project%203%20-%20CS%2061C_files/tocbot.js" integrity="sha512-8u1QblAcGUuhEv26YgTYO3+OtPL7l37qiYoPQtahVTaiLn/H3Z/K16TOXJ3U7PDYBiJWCWKM0a+ELUDGDgED2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script defer="defer" src="Project%203%20-%20CS%2061C_files/bootstrap.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer="defer" src="Project%203%20-%20CS%2061C_files/instantpage.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+  <script defer="defer" type="text/javascript" src="Project%203%20-%20CS%2061C_files/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="https://inst.eecs.berkeley.edu/~cs61c/su21/">
+          <img class="d-inline-block me-2 rounded" src="Project%203%20-%20CS%2061C_files/icon-small.png" alt="logo" height="48">
+          <span class="align-middle">CS 61C</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/calendar/">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/staff/">Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/policies/">Policies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://edstem.org/us/courses/6509/discussion/">Ed</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://oh.cs61c.org/">OH Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://venus.cs61c.org/">Venus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/resources/">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/archives.html">Semesters</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        
+
+        
+
+  
+
+<div class="row spec">
+  <div class="col-md-3 d-none d-md-block d-print-none sticky-top nav-wrapper">
+    
+  
+    
+  
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/projects/proj3/">Project 3: CS61CPU</a>
+      
+        <div id="toc-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="#overview" class="nav-link node-name--H2  active">Overview</a></li><li class="nav-item"><a href="#tips-and-guidelines" class="nav-link node-name--H2 ">Tips and Guidelines</a></li><li class="nav-item"><a href="#getting-started" class="nav-link node-name--H2 ">Getting Started</a></li></ul></div>
+      
+    </li>
+    
+      
+  <li class="nav-item">
+    <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/projects/proj3/part-a/">Part A</a>
+    
+  </li>
+
+    
+      
+  <li class="nav-item">
+    <a class="nav-link" href="https://inst.eecs.berkeley.edu/~cs61c/su21/projects/proj3/part-b/">Part B</a>
+    
+  </li>
+
+    
+    
+  </ul>
+
+  </div>
+  <div id="toc-content-wrapper" class="content col-md-9">
+    <h1>Project 3: CS61CPU</h1>
+    
+      <p class="subtitle">Part A Deadline: Monday, July 19, 11:59:59 PM PT</p>
+      <p class="subtitle">Part B Deadline: Thursday, July 29, 11:59:59 PM PT</p>
+    
+    
+    <h2 id="overview">Overview</h2>
+<p>You're probably curious about that "Sea Pea You" thing in your 
+computer. How exactly does a CPU execute those RISC-V instructions 
+you've been writing? It's time to uncover another piece of that black 
+box: welcome to Project 3!</p>
+<p>In Part A (Tasks 1-4), you'll be wiring up the ALU and RegFile for a 
+basic RISC-V CPU, as well as implementing the CPU datapath for executing
+ <code>addi</code> instructions. In Part B (Tasks 5-6), you'll use these
+ components (and others) to wire up a working CPU that runs actual 
+RISC-V instructions!</p>
+<hr>
+<h2 id="tips-and-guidelines">Tips and Guidelines</h2>
+<ul>
+<li>You are only allowed to use Logisim’s built-in components from the following libraries for all parts of this project: <code>Wiring</code> (except <code>Transistor</code>, <code>Transmission Gate</code>, <code>POR</code>, <code>Pull Resistor</code>, <code>Power</code>, <code>Ground</code>, <code>POR</code>, <code>Do not connect</code>), <code>Gates</code> (except <code>PLA</code>), <code>Plexers</code>, <code>Arithmetic</code> (except <code>Divider</code>), <code>Memory</code> (except <code>RAM</code>, <code>Random Generator</code>).</li>
+<li>Save frequently and commit frequently! Try to save your circuits 
+every 5 minutes or so, and commit every time you produce a new feature, 
+even if it is small.</li>
+<li><code>.circ</code> files use the XML format, which makes it hard for
+ Git to automerge. We recommend working on a single computer at a time; 
+if you use multiple computers, make sure that you have pushed and pulled
+ your code before switching devices.</li>
+<li><strong>Do not</strong> move or edit the locked input/output pins in
+ your circuits, since this could knock the pins out of alignment (in 
+other words, autograder tests will fail)! Check the harness circuits, as
+ well as <code>cpu.circ</code>, to make sure your circuits fit in the testing harnesses. You can add pins in subcircuits you create, but <strong>avoid</strong> making new pins in circuits with the provided, locked pins.</li>
+<li>You may make new subcircuits, but they must be located in the <code>.circ</code> files given in the <code>cpu/</code> folder in the starter code. You may not make new <code>.circ</code> files; the autograder will fail you if you do this!</li>
+<li>You must use unique names for each subcircuit across all <code>.circ</code>
+ files. Failing to do this will result in reduced autograder points. You
+ may not change the names of any circuits provided in the starter files.</li>
+<li>For Part A, the project starter code includes all tests  (i.e., there are no hidden tests). </li>
+<li><span class="badge bg-info text-dark">Update</span> For Part B:
+<ul>
+<li>The project starter code includes sanity tests. <del>and those unit tests that are also visible on the Gradescope autograder.</del></li>
+<li>The Gradescope autograder has visible unit tests, <del>hidden unit tests,</del> visible <del>hidden</del> integration tests, hidden edge tests, and a visible test coverage metric to help you build a comprehensive test suite.</li>
+<li>However, we're revealing the names of the hidden edge case tests 
+(see Part B spec) to help you re-create a close approximation of them 
+with the tools we provide.</li>
+<li>These updates have been made to make the learning experience less stressful while developing your testing skills.</li>
+</ul>
+</li>
+<li><span class="badge bg-info text-dark">Update</span> Across both 
+parts, we have made 80% of your score visible with a description/name of
+ the visible tests. We will not be releasing the tests because we want 
+to encourage you to write your own tests. If you are passing your own 
+local test, but you are not passing the autograder test, this means that
+ your local test needs improvement.</li>
+<li>More information is available under the Testing sections of the spec.</li>
+<li>We expect you have completed Lab 5 before starting on Part A of the 
+project and Lab 6 before starting on Part B of this project. Both labs 
+cover many Logisim basics that will be useful for the respective parts 
+of the project.</li>
+<li>A Logisim library reference can be found by going to <code>Help -&gt; Library Reference</code> within Logisim.</li>
+</ul>
+<p>Some common sources of Logisim errors, for your debugging convenience:</p>
+<img src="Project%203%20-%20CS%2061C_files/common-wire-errors.png" width="512">
+<hr>
+<h2 id="getting-started">Getting Started</h2>
+<p>Please visit <a href="https://galloc.cs61c.org/">https://galloc.cs61c.org/</a> and get your <code>proj3</code> repository. Then, clone your repository locally and add the starter remote:</p>
+<pre style="background-color:#2b303b;"><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> git clone YOUR_REPO_URL
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> cd YOUR_REPO_NAME
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> git remote add starter https://github.com/61c-teach/su21-proj3-starter.git
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> git pull starter main
+</span></code></pre>
+<p>If we make changes to the starter code, you can update your repository with <code>git pull starter main</code>.</p>
+<p>Please click <code>Part A</code> on the sidebar to the left to access the spec for Part A.</p>
+
+  </div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  
+<script>
+  
+
+  document.addEventListener("DOMContentLoaded", function() {
+    initToC();
+  });
+</script>
+
+
+
+
+</body></html>

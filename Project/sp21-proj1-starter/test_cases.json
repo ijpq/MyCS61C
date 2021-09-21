@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Sanity",
-        "description": "A test for your sanity",
-        "input": "tests/sanity/test",
-        "replace": "tests/sanity/replace",
-        "reference": "tests/sanity/reference"
-    }
-]
