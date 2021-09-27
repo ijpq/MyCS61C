@@ -1,0 +1,5 @@
+Time ALUSel A        B        Result  
+00   U      00002020 00000f0f 00002f2f
+01   U      ffffdead ffffbeef ffff9d9c
+02   U      00007fff 00000001 00008000
+03   U      00000000 00000000 00000000
