@@ -125,6 +125,45 @@ class TestDot(TestCase):
         t.check_scalar("a0",-285)
         t.execute()
 
+    def test_exce123(self):
+        t = AssemblyTest(self, "dot.s")
+        array1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        array2 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a0", array1)
+        t.input_array("a1", array2)
+        t.input_scalar("a2", 0)
+        t.input_scalar("a3", 1)
+        t.input_scalar("a4", 2)
+        t.call("dot")
+        t.check_scalar("a1", 123)
+        t.execute()
+
+    def test_exce124(self):
+        t = AssemblyTest(self, "dot.s")
+        array1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        array2 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a0", array1)
+        t.input_array("a1", array2)
+        t.input_scalar("a2", 3)
+        t.input_scalar("a3", 0)
+        t.input_scalar("a4", 2)
+        t.call("dot")
+        t.check_scalar("a1", 124)
+        t.execute()
+
+    def test_exce124_2(self):
+        t = AssemblyTest(self, "dot.s")
+        array1 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        array2 = t.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+        t.input_array("a0", array1)
+        t.input_array("a1", array2)
+        t.input_scalar("a2", 3)
+        t.input_scalar("a3", 1)
+        t.input_scalar("a4", 0)
+        t.call("dot")
+        t.check_scalar("a1", 124)
+        t.execute()
+
     def test_stride(self):
         t = AssemblyTest(self, "dot.s")
         array1 = t.array([1,2,3,4,5,6,7,8,9])

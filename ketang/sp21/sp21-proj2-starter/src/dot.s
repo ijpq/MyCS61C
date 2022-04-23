@@ -21,12 +21,16 @@ dot:
 
     # Prologue
     # x31 dot product of v0 and v1
+    # SETTING EXCEPTIONS THRESHOULD VAL TO X5
     add x5, x0, x0
     addi x5, x5, 1
+
+    # EXCEPTIONS CHECKING
+    blt a2, x5, exce_123
+    blt a3, x5, exce_124
+    blt a4, x5, exce_124
+
     add x31, x0, x0
-    blt a2, x5, loop_end
-    blt a3, x5, loop_end
-    blt a4, x5, loop_end
     add x6, x0, x0  #iteration i
     add x7, x0, x0
     add x5, x0, x0
@@ -50,10 +54,15 @@ loop_start:
     j loop_start
 
 loop_end:
-    add a0, x31, x0
-
-
     # Epilogue
-
-    
+    add a0, x31, x0
     ret
+
+exce_123:
+    li a1, 123
+    ecall
+
+exce_124:
+    li a1, 124
+    ecall
+    
