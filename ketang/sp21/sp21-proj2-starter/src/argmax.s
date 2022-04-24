@@ -19,6 +19,8 @@ argmax:
     # Prologue
     mv t0, a0
     mv t1, a1
+    li t6, 1
+    blt t1, t6, exce_120
     li t2, 0
     li t3, 0 # current element
     li t4, 0 # max element
@@ -39,10 +41,12 @@ loop_continue:
 
 
 loop_end:
-    mv a0, t5
-    
-
     # Epilogue
+    mv a0, t5
+    ret
 
-
+exce_120:
+    li a1, 120
+    li a0, 17
+    ecall
     ret

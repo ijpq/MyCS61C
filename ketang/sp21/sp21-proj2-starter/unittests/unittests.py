@@ -74,6 +74,14 @@ class TestArgmax(TestCase):
         # generate the `assembly/TestArgmax_test_simple.s` file and run it through venus
         t.execute()
 
+    def test_exce(self):
+        t = AssemblyTest(self, "argmax.s")
+        array0 = t.array([1, 2, 3, 4, 5])
+        t.input_array("a0", array0)
+        t.input_scalar("a1", 0)
+        t.call("argmax")
+        t.execute(code=120)
+
     @classmethod
     def tearDownClass(cls):
         print_coverage("argmax.s", verbose=False)
@@ -135,8 +143,7 @@ class TestDot(TestCase):
         t.input_scalar("a3", 1)
         t.input_scalar("a4", 2)
         t.call("dot")
-        t.check_scalar("a1", 123)
-        t.execute()
+        t.execute(code=123)
 
     def test_exce124(self):
         t = AssemblyTest(self, "dot.s")
@@ -148,8 +155,7 @@ class TestDot(TestCase):
         t.input_scalar("a3", 0)
         t.input_scalar("a4", 2)
         t.call("dot")
-        t.check_scalar("a1", 124)
-        t.execute()
+        t.execute(code=124)
 
     def test_exce124_2(self):
         t = AssemblyTest(self, "dot.s")
@@ -161,8 +167,7 @@ class TestDot(TestCase):
         t.input_scalar("a3", 1)
         t.input_scalar("a4", 0)
         t.call("dot")
-        t.check_scalar("a1", 124)
-        t.execute()
+        t.execute(code=124)
 
     def test_stride(self):
         t = AssemblyTest(self, "dot.s")

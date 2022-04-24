@@ -60,9 +60,13 @@ loop_end:
 
 exce_123:
     li a1, 123
+    li a0, 17
     ecall
+    ret
 
 exce_124:
     li a1, 124
+    li a0, 17
     ecall
+    ret
     
