@@ -189,6 +189,15 @@ class TestDot(TestCase):
 
 class TestMatmul(TestCase):
 
+    m0 = [1, 3, 5, 7, 9, 11, 13, 15, 17]
+    m0_rows = 3
+    m0_cols = 3
+    m1 = [6, 15, 24]
+    m1_rows = 3
+    m1_cols = 1
+    result = [171, 441, 711]
+    code = 0
+
     def do_matmul(self, m0, m0_rows, m0_cols, m1, m1_rows, m1_cols, result, code=0):
         t = AssemblyTest(self, "matmul.s")
         # we need to include (aka import) the dot.s file since it is used by matmul.s
@@ -217,7 +226,8 @@ class TestMatmul(TestCase):
         t.call("matmul")
         # check the content of the output array
         # TODO
-        t.check_array(array_out, result)
+        if code == 0:
+            t.check_array(array_out, result)
 
 
         # generate the assembly file and run it through venus, we expect the simulation to exit with code `code`
@@ -225,11 +235,72 @@ class TestMatmul(TestCase):
 
     def test_simple(self):
         self.do_matmul(
-            [1,3,5,7,9,11,13,15,17], 3,3,
-            [6,15,24], 3,1,
-            [6,15,24]
+            m0=self.m0,
+            m0_rows=self.m0_rows,
+            m0_cols=self.m0_cols,
+            m1=self.m1,
+            m1_rows=self.m1_rows,
+            m1_cols=self.m1_cols,
+            result=self.result,
+            code=self.code
         )
 
+    def test_m0_r(self):
+        self.do_matmul(
+            m0=self.m0,
+            m0_rows=0,
+            m0_cols=self.m1_rows,
+            m1=self.m1,
+            m1_rows=self.m1_rows,
+            m1_cols=self.m1_cols,
+            result=self.result,
+            code=125
+        )
+    def test_m0_c(self):
+        self.do_matmul(
+            m0=self.m0,
+            m0_rows=1,
+            m0_cols=0,
+            m1=self.m1,
+            m1_rows=self.m1_rows,
+            m1_cols=self.m1_cols,
+            result=self.result,
+            code=125
+        )
+    def test_m1_r(self):
+        self.do_matmul(
+            m0=self.m0,
+            m0_rows=1,
+            m0_cols=1,
+            m1=self.m1,
+            m1_rows=0,
+            m1_cols=self.m1_cols,
+            result=self.result,
+            code=126
+        )
+    def test_m1_c(self):
+        self.do_matmul(
+            m0=self.m0,
+            m0_rows=1,
+            m0_cols=1,
+            m1=self.m1,
+            m1_rows=1,
+            m1_cols=0,
+            result=self.result,
+            code=126
+        )
+    
+    def test_match(self):
+        self.do_matmul(
+            m0=self.m0,
+            m0_rows=self.m0_rows,
+            m0_cols=1,
+            m1=self.m1,
+            m1_rows=2,
+            m1_cols=self.m1_cols,
+            result=self.result,
+            code=127
+        )
     @classmethod
     def tearDownClass(cls):
         print_coverage("matmul.s", verbose=False)

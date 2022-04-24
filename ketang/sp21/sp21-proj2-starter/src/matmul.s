@@ -30,15 +30,16 @@
 #----
 matmul:
 
-    # Error checks
-    bne a2, a4, Exit
-    addi x5, x0, 1
-    blt a1, x5, Exit
-    blt a2, x5, Exit
-    blt a4, x5, Exit
-    blt a5, x5, Exit
-
     # Prologue
+
+    # Error checks
+    addi x5, x0, 1
+    blt a1, x5, exce_125
+    blt a2, x5, exce_125
+    blt a4, x5, exce_126
+    blt a5, x5, exce_126
+    bne a2, a4, exce_127 
+
     # a# register and ra register was not saved because matmul() didnt call other function
     addi sp, sp, -20
     sw s5, 16(sp)
@@ -47,7 +48,6 @@ matmul:
     sw s1, 4(sp) # get addr in m0
     sw s2, 0(sp) # get addr in m1
     
-
     add x31, x0, x0 # global sum (rval)
     add x30, x0, x0 # local sum (temp)
     add x28, x0, x0 #element from m0
@@ -124,5 +124,22 @@ outer_loop_end:
     addi sp, sp 20
     
 Exit:
-    
     ret
+
+exce_125:
+    li a1, 125
+    li a0, 17
+    ecall
+    j Exit
+    
+exce_126:
+    li a1, 126
+    li a0, 17
+    ecall
+    j Exit
+
+exce_127:
+    li a1, 127
+    li a0, 17
+    ecall
+    j Exit
