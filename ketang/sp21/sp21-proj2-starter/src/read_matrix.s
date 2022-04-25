@@ -179,10 +179,9 @@ error_119:
     j exit
     # Epilogue
 
-exit:
+epilogue:
     # final return label
     lw t0, 28(sp)
-    bne a1, t0, error_exit # if a1 have set and not equal to ptr 
     lw a1, 28(sp)
     lw a2, 32(sp)
     sw s1, 0(a1)
@@ -195,6 +194,9 @@ exit:
     lw s5, 20(sp)
     lw ra, 24(sp)
     addi sp, sp, 36
+    bne a1, t0, error_exit # if a1 have set and not equal to ptr 
+
+ret_label:
     ret
 
 error_exit:
