@@ -340,7 +340,7 @@ class TestReadMatrix(TestCase):
     def do_read_matrix2(self, fail='', code=0):
         t = AssemblyTest(self, "read_matrix.s")
         # load address to the name of the input file into register a0
-        t.input_read_filename("a0", "inputs/simple0/bin/m0.bin")
+        t.input_read_filename("a0", "inputs/test_read_matrix/test_input1.bin")
         # t.input_read_filename("a0", "test_input.bin")
 
 
@@ -360,8 +360,10 @@ class TestReadMatrix(TestCase):
         # check the output from the function
         # TODO
         t.check_array(rows, [3])
-        t.check_array(cols, [3])
-        t.check_array_pointer("a0", [1,3,5,7,9,11,13,15,17])
+        t.check_array(cols, [4])
+        t.check_array_pointer("a0", [-1, -2, -3, -4,
+                                    5, 6, 7, 8,
+                                    9, 10, 11, 12])
 
         # generate assembly and run it through venus
         t.execute(fail=fail, code=code)
