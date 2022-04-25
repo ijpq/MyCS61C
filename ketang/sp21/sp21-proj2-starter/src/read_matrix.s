@@ -58,13 +58,12 @@ read_matrix:
     j ferror
     bne a0, x0, filestream_error
 
-
     # get rows and cols
     # malloc
     addi a0, x0, 4
     jal x1, malloc
     add x28, a0, x0 # x28 : points to height
-    beq x28, x0, error_116
+    beq x28, x0, malloc_error
 
     # fread
     add a1, x0, s3
@@ -84,7 +83,7 @@ read_matrix:
     addi a0, x0, 4
     jal x1, malloc
     add x29, a0, x0 # x29 : points to width
-    beq x29, x0, error_116
+    beq x29, x0, malloc_error
 
     # fread
     add a1, x0, s3
@@ -107,7 +106,7 @@ read_matrix:
     add a0, x0, x30
     jal x1, malloc
     add s5, a0, x0 # x31 points to the buffer
-    beq s5, x0, error_116
+    beq s5, x0, malloc_error
     
     # save matrix starter addr
     addi sp, sp, -4
@@ -160,9 +159,10 @@ filestream_error:
     li a1, 117
     j error_exit
 
-error_116:
-    addi a1, x0, 116
-    j exit
+malloc_error:
+    j epilogue
+    li a1, 116
+    j error_exit
 
 fread_error:
     add a1, x0, s3
