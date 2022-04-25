@@ -1,4 +1,135 @@
-# sp21-proj2-starter
+# proj2
+
+## objects
+
+1. 用riscv实现数值计算功能
+
+2. 用riscv调用函数
+
+3. 用riscv实现堆调用和文件操作
+
+4. 写单元测试
+
+## PartA
+
+实现 dot product/matmul/relu/argmax
+
+### advice
+
+1. 注意函数定义方法
+2. 实现参数检查，并返回正确的错误代码(注意`calling convention`)，检查错误代码时unittests需要使用execute(code=??)
+3. 测试用例覆盖率100%不代表覆盖了所有的边界情况
+4. 使用unittest见`Running Tests`
+5. 使用venus见`Debugging Test with Venus Web Interface`
+6. 多阅读utils.s，多使用utils.s中定义好的调用，最好别自己写
+
+### task0 abs
+
+### task1 relu
+
+`python3 -m unittest unittests.TestRelu -v`
+
+relu.s接受1维向量输入，对每个负数元素原地修改为0。
+
+注意看relu.s的注释
+
+### task2 argmax
+
+`python3 -m unittest unittests.TestArgmax -v`
+
+返回最大值元素的索引
+
+### task3 .1 dot product
+
+`python3 -m unittest unittests.TestDot -v`
+
+ 接收一个stride参数
+
+不需要考虑乘法溢出，所以不需要使用mulh指令
+
+如果array不改，只是把size参数改为3，并且arr`v1`的stride改为2，结果正确吗
+
+### task3.2 matrix mul
+
+`python3 -m unittest unittests.TestMatmul -v`
+
+## PartB
+
+**matrix file format**
+
+这里提供了一个二进制格式来存储矩阵的大小和数值，便于riscv读取。在二进制格式和普通文本格式之间转换：
+
+`python3 convert.py file.bin file.txt --to-ascii`
+
+`python3 convert.py file.txt file.bin --to-binary`
+
+最开始的8B表示两个int32，行列
+
+后面每4B表示一个int32元素
+
+小端表示法
+
+**plaintext format**
+
+第一行表示行数和列数
+
+后面是矩阵的数值
+
+**viewing binary**
+
+推荐使用`xxd`，可以将文件的bit数据转换为16进制表示打印出来。打印结果如下所示：
+
+![image-20220425174350296](https://tva1.sinaimg.cn/large/e6c9d24egy1h1m3y0hcibj21bi06edgr.jpg)
+
+这个输出结果4B一次，一次是8个16进制数，即两个小组。
+
+看最左侧的地址，是16进制表示的，`00000000`到`00000010`是表示包含16个地址，所以包含16字节（字节寻址）。冒号右边有8个小组，所以每个小组对应2个字节，即16位，所以这里一个数字表示4位，一个数字表示4位正好就是一个16进制数的表示。其中`0300`是`0000 0000 0000 0011`
+
+**file operations**
+
+详细讲述了fopen/fread/fwrite/fclose的调用参数和返回值，具体见网站
+
+### task1 read mat
+
+riscv只能使用a0和a1作为返回值寄存器，但是很多函数需要3个返回值：指向矩阵的指针，矩阵行数，矩阵列数。**解决方法**是传入两个int指针作为调用的参数，把行列值写入这两个指针的内存，然后返回指向矩阵的指针。
+
+`python3 -m unittest unittests.TestReadMatrix -v`
+
+### task2 write mat
+
+`python3 -m unittest unittests.TestWriteMatrix -v`
+
+### task3 putting together
+
+总目标：实现汇编代码，并且要返回正确的退出代码
+
+具体：写函数来读入mnist输入数据，并做分类，参数矩阵是课程给的，训练好的。malloc一块内存，把读到的矩阵加载进去，计算network参数。自己实现的分类七会被多次调用，并实现分类功能，所以一定要注意calling convention和注释。
+
+**command line args and filepath**
+
+输出需要通过command line指定，riscv的命令行参数和c是相似的，a0/a1分别对应argc/argv，a2决定是否需要打印出分类结果，如果a2是0的话就打印一个新行。如果不是0，就不要打印任何东西。
+
+调用的命令行： `./tools/venus <venus flags> src/main.s <M0_PATH> <M1_PATH> <INPUT_PATH> <OUTPUT_PATH>`，argv的索引是从`src/main.s`开始计算的。
+
+**the network**
+
+首先，使用read_matrix加载m0,m1,input。模型的计算过程是 输入*m0，然后relu，之后再乘m1。然后就使用分数最高的索引作为预测的输出(argmax)，可以参考伪代码:
+
+```python3
+hidden_layer = matmul(m0, input)
+relu(hidden_layer) # Recall that relu is performed in-place
+scores = matmul(m1, hidden_layer)
+```
+
+其次，最终输出的矩阵需要保存到特定的文件去。
+
+**测试**
+
+所有测试使用的输入都放在inputs文件夹中
+
+`python3 -m unittest unittests.TestMain -v`
+
+## sp21-proj2-starter
 
 ```
 .
@@ -6,18 +137,18 @@
 ├── outputs (some test outputs)
 ├── README.md
 ├── src
-│   ├── argmax.s (partA)
-│   ├── classify.s (partB)
-│   ├── dot.s (partA)
-│   ├── main.s (do not modify)
-│   ├── matmul.s (partA)
-│   ├── read_matrix.s (partB)
-│   ├── relu.s (partA)
-│   ├── utils.s (do not modify)
-│   └── write_matrix.s (partB)
+│   ├── argmax.s (partA)
+│   ├── classify.s (partB)
+│   ├── dot.s (partA)
+│   ├── main.s (do not modify)
+│   ├── matmul.s (partA)
+│   ├── read_matrix.s (partB)
+│   ├── relu.s (partA)
+│   ├── utils.s (do not modify)
+│   └── write_matrix.s (partB)
 ├── tools
-│   ├── convert.py (convert matrix files for partB)
-│   └── venus (RISC-V simulator)
+│   ├── convert.py (convert matrix files for partB)
+│   └── venus (RISC-V simulator)
 └── unittests
     ├── assembly (contains outputs from unittests.py)
     ├── framework.py (do not modify)
