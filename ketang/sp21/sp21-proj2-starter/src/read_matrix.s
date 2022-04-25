@@ -53,12 +53,11 @@ read_matrix:
     jal x1, fopen
     add s3, a0, x0 # get return val
     
-    add t0, x0, s3
-    addi t0, t0, 1
-    beq t0, x0, error_117
-    add t0, x0, x0 # reset
+    # check file stream
+    mv a1, s3
+    j ferror
+    bne a0, x0, filestream_error
 
-    addi s4, x0, 1 # fread retval
 
     # get rows and cols
     # malloc
@@ -156,12 +155,13 @@ read_loop_end:
 
     j exit
 
+filestream_error:
+    j epilogue
+    li a1, 117
+    j error_exit
+
 error_116:
     addi a1, x0, 116
-    j exit
-
-error_117:
-    addi a1, x0, 117
     j exit
 
 fread_error:
