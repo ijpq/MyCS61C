@@ -129,6 +129,36 @@ scores = matmul(m1, hidden_layer)
 
 `python3 -m unittest unittests.TestMain -v`
 
+## FAQ
+
+**检查返回代码**
+
+`t.execute(code=???)`
+
+**coverage怎么测的**
+
+计算指令执行的次数。一个单独的测试项目不需要cover代码中的所有指令。所以为了得到更高的coverage分数，需要将测试项目能够运行到代码中的所有指令。
+
+**如何看没有cover到的指令**
+
+使用`print_coverage`，verbose设置为True
+
+**如何正确使用退出代码**
+
+看一下`exit2`函数
+
+**把一个temp register入栈，在函数调用结束后再从栈恢复是否可以**
+
+根据calling convention，temp寄存器在经过函数调用后可能会包含任意值。
+
+**malloc failed**
+
+返回0
+
+**fopen failed**
+
+a0返回-1
+
 ## sp21-proj2-starter
 
 ```
