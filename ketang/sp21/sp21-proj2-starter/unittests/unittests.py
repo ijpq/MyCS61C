@@ -373,17 +373,17 @@ class TestReadMatrix(TestCase):
     def test_read_Main(self):
         self.do_read_matrix2()
 
-    def test_malloc(self):
-        self.do_read_matrix(fail='malloc', code=116)
+    # def test_malloc(self):
+    #     self.do_read_matrix(fail='malloc', code=116)
 
     def test_fopen(self):
         self.do_read_matrix(fail='fopen', code=117)
 
-    def test_fread(self):
-        self.do_read_matrix(fail='fread', code=118)
+    # def test_fread(self):
+    #     self.do_read_matrix(fail='fread', code=118)
 
-    def test_fclose(self):
-        self.do_read_matrix(fail='fclose', code=119)
+    # def test_fclose(self):
+    #     self.do_read_matrix(fail='fclose', code=119)
 
     @classmethod
     def tearDownClass(cls):

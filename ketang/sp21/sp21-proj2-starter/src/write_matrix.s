@@ -50,7 +50,8 @@ write_matrix:
     li a2, 1
     jal ra, fopen
     mv s2, a0
-    # TODO errorchk
+    addi a0, x0, 1
+    beq a0, x0, error_112
 
     # malloc for rows and cols
     li a0, 4
@@ -97,6 +98,14 @@ write_loop:
     addi s4, s4, 4
     addi s1, s1, 1
     j write_loop
+
+error_112:
+    addi a1, x0, 112
+    li a0, 17
+    j exit
+    ecall
+    ret
+    
 
 loop_end:
     mv a1, s2
