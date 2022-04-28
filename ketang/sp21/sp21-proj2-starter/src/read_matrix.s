@@ -59,7 +59,7 @@ read_matrix:
     
     # check fopen
     li t0, -1
-    beq a0, t0, fopen_error
+    beq s3, t0, fopen_error
 
     # malloc for read row and col
     li a0, 4
@@ -169,25 +169,23 @@ fclose_label:
     ret
 
 fopen_error:
-    jal x1, error_epilogue
     li a1, 117
-    li a0, 17
-    ecall
-    ret
+    jal x1, error_epilogue
+    j error_exit
 
 malloc_error:
-    jal x1, error_epilogue
     li a1, 116
+    jal x1, error_epilogue
     j error_exit
 
 fread_error:
-    jal x1, error_epilogue
     li a1, 118
+    jal x1, error_epilogue
     j error_exit
 
 fclose_error:
-    jal x1, error_epilogue
     li a1, 119
+    jal x1, error_epilogue
     j error_exit
 
 error_epilogue:
@@ -200,7 +198,9 @@ error_epilogue:
     lw s6, 24(sp) 
     lw s7, 28(sp)
     lw ra, 32(sp)
-    # drop a1, a2
+    # a1 and a2 should not be restore
+    # lw a1, 36(sp)
+    # lw a2, 40(sp)
     addi sp, sp, 44
 
 error_exit:
