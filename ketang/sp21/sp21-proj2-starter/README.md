@@ -95,6 +95,125 @@ riscv只能使用a0和a1作为返回值寄存器，但是很多函数需要3个�
 
 `python3 -m unittest unittests.TestReadMatrix -v`
 
+> 问题：
+>
+> ```assembly
+> fopen_error:
+>     jal x1, error_epilogue
+>     li a1, 117
+>     j error_exit
+> 
+> malloc_error:
+>     jal x1, error_epilogue
+>     li a1, 116
+>     j error_exit
+> 
+> fread_error:
+>     jal x1, error_epilogue
+>     li a1, 118
+>     j error_exit
+> 
+> fclose_error:
+>     jal x1, error_epilogue
+>     li a1, 119
+>     j error_exit
+> ```
+>
+> 
+>
+> 先error_epilogue后`li x1, code`如上面代码，就不对，报exit code不正确，但是改为如下的顺序，就对了，为什么？
+>
+> ```assembly
+> fopen_error:
+>     li a1, 117
+>     jal x1, error_epilogue
+>     j error_exit
+> 
+> malloc_error:
+>     li a1, 116
+>     jal x1, error_epilogue
+>     j error_exit
+> 
+> fread_error:
+>     li a1, 118
+>     jal x1, error_epilogue
+>     j error_exit
+> 
+> fclose_error:
+>     li a1, 119
+>     jal x1, error_epilogue
+>     j error_exit
+> ```
+>
+> 怀疑是ra(x1)地址错误导致，在第一段code中，进入error_epilogue调用前设置了ra的值，但是调用中从stack设置了ra的值。因此从error_epilogue返回时，地址是错误的。尝试改为如下，从error_epilogue返回后，再设置一次ra
+>
+> ```assembly
+> fopen_error:
+>     jal x1, error_epilogue
+>     li a1, 117
+>     lw ra, 32(sp)
+>     addi sp, sp, 44
+>     j error_exit
+> error_epilogue:
+>     lw s0, 0(sp)
+>     lw s1, 4(sp)
+>     lw s2, 8(sp)
+>     lw s3, 12(sp)
+>     lw s4, 16(sp)
+>     lw s5, 20(sp)
+>     lw s6, 24(sp) 
+>     lw s7, 28(sp)
+>     lw ra, 32(sp)
+>     # a1 and a2 should not be restore
+>     # lw a1, 36(sp)
+>     # lw a2, 40(sp)
+> ```
+>
+> 结果仍然是fopen不对
+>
+> ![image-20220428223541172](https://tva1.sinaimg.cn/large/e6c9d24ely1h1pt8k68vqj20ky056752.jpg)
+>
+> 也是，如果ra错误的话，那么其他几种异常的调用顺序也应该错误。例如fclose，先设置ra位pc+4，再进入error_epilogue设置ra，也不应该能测试通过。所以这说明在调用中设置ra的值，不会影响`jal x1, label`中的ra(x1)，也就是说jal x1中的x1一定是pc+4，肯定能返回来。
+>
+> 换一个角度来看，jal进入一个调用过程以后，本来就应该save restore一遍，error_epilogue这个操作就不符合calling convention。
+>
+> 符合calling convention的error_epilogue如下(或者说，这没有jal，只是j 所以不需要calling convention了)
+>
+> ```assembly
+> fopen_error:
+>     li a1, 117
+>     j error_epilogue
+> 
+> malloc_error:
+>     li a1, 116
+>     j error_epilogue
+> 
+> fread_error:
+>     li a1, 118
+>     j error_epilogue
+> 
+> fclose_error:
+>     li a1, 119
+>     j error_epilogue
+> 
+> error_epilogue:
+>     lw s0, 0(sp)
+>     lw s1, 4(sp)
+>     lw s2, 8(sp)
+>     lw s3, 12(sp)
+>     lw s4, 16(sp)
+>     lw s5, 20(sp)
+>     lw s6, 24(sp) 
+>     lw s7, 28(sp)
+>     lw ra, 32(sp)
+>     # a1 and a2 should not be restore
+>     # lw a1, 36(sp)
+>     # lw a2, 40(sp)
+>     j error_exit
+> ```
+>
+> 
+
 ### task2 write mat
 
 `python3 -m unittest unittests.TestWriteMatrix -v`

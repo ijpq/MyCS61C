@@ -617,10 +617,6 @@ _venus_path	ketang/sp21/sp21-proj2-starter/unittests/framework.py	/^_venus_path 
 a0_eq_0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_zero.s	/^    a0_eq_0:$/;"	l
 a0_eq_1	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_minus_one.s	/^    a0_eq_1:$/;"	l
 a0_eq_1	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_one.s	/^    a0_eq_1:$/;"	l
-a0_eq_22	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple3.s	/^    a0_eq_22:$/;"	l
-a0_eq_285	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple.s	/^    a0_eq_285:$/;"	l
-a0_eq_5	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_simple.s	/^    a0_eq_5:$/;"	l
-a0_eq_50	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_stride.s	/^    a0_eq_50:$/;"	l
 a_regs	Chrunge/proj2-sp21-starter-master/unittests/framework.py	/^a_regs = {f"a{i}" for i in range(8)}$/;"	v
 a_regs	ketang/fa20/fa20-proj2-starter/unittests/framework.py	/^a_regs = {f"a{i}" for i in range(8)}$/;"	v
 a_regs	ketang/sp21/sp21-proj2-starter/unittests/framework.py	/^a_regs = {f"a{i}" for i in range(8)}$/;"	v
@@ -722,7 +718,6 @@ all_lines	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_b
 all_lines	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^all_lines = []$/;"	v
 all_lines	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^all_lines = []$/;"	v
 all_lines	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^all_lines = []$/;"	v
-all_lines	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^all_lines = []$/;"	v
 all_lines	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^all_lines = []$/;"	v
 alloc_fail_test	ketang/fa20/fa20-proj4-starter/mat_test.c	/^void alloc_fail_test(void) {$/;"	f
 alloc_fail_test	ketang/sp21/sp21-proj4-starter/tests/mat_test.c	/^void alloc_fail_test(void) {$/;"	f
@@ -802,7 +797,6 @@ b	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^
 b	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    b = infile.read(1)$/;"	v
 b	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    b = infile.read(1)$/;"	v
 b	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^    b = infile.read(1)$/;"	v
-b	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    b = infile.read(1)$/;"	v
 b	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    b = infile.read(1)$/;"	v
 bad_vector_new	Chrunge/lab-fa20-starter-master/lab02/vector.c	/^vector_t *bad_vector_new() {$/;"	f
 bad_vector_new	Chrunge/lab-sp21-starter-master/lab02/vector.c	/^vector_t *bad_vector_new() {$/;"	f
@@ -961,19 +955,16 @@ byte_header	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to
 byte_header	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^byte_header = bytearray(header_arr)$/;"	v
 byte_header	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^byte_header = bytearray(header_arr)$/;"	v
 byte_header	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^byte_header = bytearray(header_arr)$/;"	v
-byte_header	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^byte_header = bytearray(header_arr)$/;"	v
 byte_header	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^byte_header = bytearray(header_arr)$/;"	v
 bytes0	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
 bytes0	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
 bytes0	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
 bytes0	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
-bytes0	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
 bytes0	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes0 = bytearray([0, 0, 0, 0])$/;"	v
 bytes128	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
 bytes128	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
 bytes128	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
 bytes128	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
-bytes128	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
 bytes128	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^bytes128 = bytearray([128, 0, 0, 0])$/;"	v
 c_atoi	Chrunge/proj2-sp21-starter-master/src/utils.s	/^#define c_atoi 5$/;"	d
 c_atoi	ketang/fa20/fa20-proj2-starter/src/utils.s	/^#define c_atoi 5$/;"	d
@@ -1073,7 +1064,6 @@ classified_as	Chrunge/proj2-sp21-starter-master/inputs/mnist/txt/print_mnist.py	
 classified_as	ketang/fa20/fa20-proj2-starter/inputs/mnist/txt/print_mnist.py	/^classified_as = open(".\/labels\/label" + sys.argv[1] + ".txt", "r")$/;"	v
 classified_as	ketang/sp21/sp21-proj2-starter/inputs/mnist/txt/print_mnist.py	/^classified_as = open(".\/labels\/label" + sys.argv[1] + ".txt", "r")$/;"	v
 classified_as	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^classified_as = open(".\/labels\/label" + sys.argv[1] + ".txt", "r")$/;"	v
-classified_as	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^classified_as = open(".\/labels\/label" + sys.argv[1] + ".txt", "r")$/;"	v
 classified_as	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^classified_as = open(".\/labels\/label" + sys.argv[1] + ".txt", "r")$/;"	v
 classify	Chrunge/proj2-sp21-starter-master/src/1classify.s	/^classify:$/;"	l
 classify	Chrunge/proj2-sp21-starter-master/src/2classify.s	/^classify:$/;"	l
@@ -1222,11 +1212,10 @@ end_msg	Chrunge/lab-fa20-starter-master/lab04/megalistmanips.s	/^end_msg:    .as
 end_msg	Chrunge/lab-sp21-starter-master/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
 end_msg	ketang/fa20/fa20-lab-starter-master/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
 end_msg	ketang/sp21/sp21-lab-starter/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
-eof_error	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^eof_error:$/;"	l
-epilogue	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^epilogue:$/;"	l
 error	ketang/sp21/sp21-proj2-starter/src/classify.s	/^error:$/;"	l
 error_112	ketang/sp21/sp21-proj2-starter/src/write_matrix.s	/^error_112:$/;"	l
 error_89	Chrunge/proj2-sp21-starter-master/src/classify.s	/^error_89:$/;"	l
+error_epilogue	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^error_epilogue:$/;"	l
 error_exit	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^error_exit:$/;"	l
 error_string	Chrunge/proj2-sp21-starter-master/src/utils.s	/^error_string: .string "This library file should not be directly called!"$/;"	l
 error_string	ketang/fa20/fa20-proj2-starter/src/utils.s	/^error_string: .string "This library file should not be directly called!"$/;"	l
@@ -1309,13 +1298,11 @@ ff_ba	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.p
 ff_ba	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_ba = bytearray([int(ff_byte, 16)])$/;"	v
 ff_ba	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_ba = bytearray([int(ff_byte, 16)])$/;"	v
 ff_ba	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_ba = bytearray([int(ff_byte, 16)])$/;"	v
-ff_ba	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_ba = bytearray([int(ff_byte, 16)])$/;"	v
 ff_ba	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_ba = bytearray([int(ff_byte, 16)])$/;"	v
 ff_byte	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
 ff_byte	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
 ff_byte	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
 ff_byte	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
-ff_byte	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
 ff_byte	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^ff_byte = '0xFF'$/;"	v
 fflush	Chrunge/proj2-sp21-starter-master/src/utils.s	/^fflush:$/;"	l
 fflush	ketang/fa20/fa20-proj2-starter/src/utils.s	/^fflush:$/;"	l
@@ -1328,13 +1315,11 @@ file	Chrunge/proj2-sp21-starter-master/inputs/mnist/txt/print_mnist.py	/^file = 
 file	ketang/fa20/fa20-proj2-starter/inputs/mnist/txt/print_mnist.py	/^file = open("inputs\/mnist_input" + sys.argv[1] + ".txt", "r")$/;"	v
 file	ketang/sp21/sp21-proj2-starter/inputs/mnist/txt/print_mnist.py	/^file = open("inputs\/mnist_input" + sys.argv[1] + ".txt", "r")$/;"	v
 file	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^file = open("inputs\/mnist_input" + sys.argv[1] + ".txt", "r")$/;"	v
-file	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^file = open("inputs\/mnist_input" + sys.argv[1] + ".txt", "r")$/;"	v
 file	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^file = open("inputs\/mnist_input" + sys.argv[1] + ".txt", "r")$/;"	v
 file_locations	Chrunge/lab-fa20-starter-master/lab05/testing/test.py	/^file_locations = os.getcwd()$/;"	v
 file_locations	ketang/fa20/fa20-lab-starter-master/lab05/testing/test.py	/^file_locations = os.getcwd()$/;"	v
 files	Chrunge/lab-fa20-starter-master/lab11/textImporter/Importer.java	/^  static long files = 0;$/;"	f	class:Importer
 files	ketang/fa20/fa20-lab-starter-master/lab11/textImporter/Importer.java	/^  static long files = 0;$/;"	f	class:Importer
-filestream_error	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^filestream_error:$/;"	l
 fillArray	Chrunge/lab-fa20-starter-master/lab04/megalistmanips.s	/^fillArray: lw t0, 0(a1) #t0 gets array element$/;"	l
 fillArray	Chrunge/lab-sp21-starter-master/lab04/megalistmanips.s	/^fillArray: lw t0, 0(a1) #t0 gets array element$/;"	l
 fillArray	ketang/fa20/fa20-lab-starter-master/lab04/megalistmanips.s	/^fillArray: lw t0, 0(a1) #t0 gets array element$/;"	l
@@ -1345,13 +1330,11 @@ final_arr	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_b
 final_arr	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_arr = []$/;"	v
 final_arr	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_arr = []$/;"	v
 final_arr	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_arr = []$/;"	v
-final_arr	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_arr = []$/;"	v
 final_arr	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_arr = []$/;"	v
 final_lines	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
 final_lines	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
 final_lines	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
 final_lines	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
-final_lines	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
 final_lines	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^final_lines = []$/;"	v
 findData	ketang/sp21/sp21-proj1-starter/src/hashtable.c	/^void *findData(HashTable *table, void *key) {$/;"	f
 finish	Chrunge/lab-fa20-starter-master/lab03/ex1.s	/^finish:$/;"	l
@@ -1392,7 +1375,8 @@ fread	Chrunge/proj2-sp21-starter-master/src/utils.s	/^fread:$/;"	l
 fread	ketang/fa20/fa20-proj2-starter/src/utils.s	/^fread:$/;"	l
 fread	ketang/sp21/sp21-proj2-starter/src/utils.s	/^fread:$/;"	l
 freadException	Chrunge/proj2-sp21-starter-master/src/read_matrix.s	/^freadException:$/;"	l
-fread_exce	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^fread_exce:$/;"	l
+fread_error	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^fread_error:$/;"	l
+fread_error_inloop	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^fread_error_inloop:$/;"	l
 free	Chrunge/proj2-sp21-starter-master/src/utils.s	/^free:$/;"	l
 free	ketang/fa20/fa20-proj2-starter/src/utils.s	/^free:$/;"	l
 free	ketang/sp21/sp21-proj2-starter/src/utils.s	/^free:$/;"	l
@@ -1417,7 +1401,6 @@ g	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^
 g	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    g = infile.read(1)$/;"	v
 g	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    g = infile.read(1)$/;"	v
 g	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^    g = infile.read(1)$/;"	v
-g	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    g = infile.read(1)$/;"	v
 g	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    g = infile.read(1)$/;"	v
 gen_array	Chrunge/lab-fa20-starter-master/lab10/omp_apps.c	/^double* gen_array(int n) {$/;"	f
 gen_array	Chrunge/lab-sp21-starter-master/lab10/omp_apps.c	/^double* gen_array(int n) {$/;"	f
@@ -1487,7 +1470,6 @@ header_arr	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_
 header_arr	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^header_arr = [16, 3, 0, 0, 1, 0, 0, 0]$/;"	v
 header_arr	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^header_arr = [16, 3, 0, 0, 1, 0, 0, 0]$/;"	v
 header_arr	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^header_arr = [16, 3, 0, 0, 1, 0, 0, 0]$/;"	v
-header_arr	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^header_arr = [16, 3, 0, 0, 1, 0, 0, 0]$/;"	v
 header_arr	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^header_arr = [16, 3, 0, 0, 1, 0, 0, 0]$/;"	v
 header_tag_left	Chrunge/lab-fa20-starter-master/lab10/server_utils.c	/^char *header_tag_left = "<center><h1>";$/;"	v
 header_tag_left	Chrunge/lab-sp21-starter-master/lab10/server_utils.c	/^char *header_tag_left = "<center><h1>";$/;"	v
@@ -1629,12 +1611,6 @@ index	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.
 index	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^index = 0$/;"	v
 index	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^    index = index + 1$/;"	v
 index	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^index = 0$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^        index = index - 1$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    index = 27$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    index = index + 1$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^index = 0$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^    index = index + 1$/;"	v
-index	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^index = 0$/;"	v
 index	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^        index = index - 1$/;"	v
 index	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    index = 27$/;"	v
 index	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    index = index + 1$/;"	v
@@ -1645,7 +1621,6 @@ infile	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.
 infile	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^infile = open(sys.argv[1] + ".bmp", "rb")$/;"	v
 infile	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^infile = open(sys.argv[1] + ".bmp", "rb")$/;"	v
 infile	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^infile = open(sys.argv[1] + ".bmp", "rb")$/;"	v
-infile	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^infile = open(sys.argv[1] + ".bmp", "rb")$/;"	v
 infile	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^infile = open(sys.argv[1] + ".bmp", "rb")$/;"	v
 initCalendar	ketang/sp21/sp21-lab-starter/lab05/Lab 5 - CS 61C_files/main.js	/^function initCalendar() {$/;"	f
 initCalendar	ketang/sp21/sp21-lab-starter/lab06/Lab 6 - CS 61C_files/main.js	/^function initCalendar() {$/;"	f
@@ -1755,8 +1730,6 @@ line	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^
 line	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^line = []$/;"	v
 line	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line = []$/;"	v
 line	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^line = []$/;"	v
-line	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line = []$/;"	v
-line	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^line = []$/;"	v
 line	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line = []$/;"	v
 line	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^line = []$/;"	v
 line_str	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line_str = all_lines[i][index] + line_str$/;"	v
@@ -1767,15 +1740,12 @@ line_str	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.p
 line_str	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    line_str = ""$/;"	v
 line_str	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line_str = all_lines[i][index] + line_str$/;"	v
 line_str	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^    line_str = ""$/;"	v
-line_str	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line_str = all_lines[i][index] + line_str$/;"	v
-line_str	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    line_str = ""$/;"	v
 line_str	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^        line_str = all_lines[i][index] + line_str$/;"	v
 line_str	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    line_str = ""$/;"	v
 lines	Chrunge/proj2-sp21-starter-master/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
 lines	ketang/fa20/fa20-proj2-starter/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
 lines	ketang/sp21/sp21-proj2-starter/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
 lines	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
-lines	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
 lines	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^lines = []$/;"	v
 ll_has_cycle	Chrunge/lab-fa20-starter-master/lab01/ll_cycle.c	/^int ll_has_cycle(node *head) {$/;"	f
 ll_has_cycle	Chrunge/lab-sp21-starter-master/lab01/ll_cycle.c	/^int ll_has_cycle(node *head) {$/;"	f
@@ -1864,28 +1834,13 @@ m0	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_frea
 m0	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_malloc_exception.s	/^m0: .word -1$/;"	l
 m0	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_simple.s	/^m0: .word -1$/;"	l
 m0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^m0: .word 1 -2 3 -4 5 -6 7 -8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_exce.s	/^m0: .word 1 2 3 4 5$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_simple.s	/^m0: .word 1 -2 3 -4 5 100 100 -8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce123.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124_2.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple2.s	/^m0: .word 1 -2 3 -4 5 -6 7 -8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple3.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_stride.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_c.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_r.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_c.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_r.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_match.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^m0: .word 1 3 5 7 9 11 13 15 17$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_malloc.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^m0: .word -1$/;"	l
-m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
+m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^m0: .word 1 -2 3 -4 5 -6 7 -8 9$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0 = [1, 3, 5, 7, 9, 11, 13, 15, 17]$/;"	v	class:TestMatmul
 m0_cols	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0_cols = 3$/;"	v	class:TestMatmul
 m0_rows	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0_rows = 3$/;"	v	class:TestMatmul
@@ -1896,25 +1851,13 @@ m1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_frea
 m1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_malloc_exception.s	/^m1: .word -1$/;"	l
 m1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_simple.s	/^m1: .word -1$/;"	l
 m1	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^m1: .word 1 0 3 0 5 0 7 0 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce123.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124_2.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple2.s	/^m1: .word -1 2 -3 4 -5 6 -7 8 -9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple3.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_stride.s	/^m1: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_c.s	/^m1: .word 6 15 24$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_r.s	/^m1: .word 6 15 24$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_c.s	/^m1: .word 6 15 24$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_r.s	/^m1: .word 6 15 24$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_match.s	/^m1: .word 6 15 24$/;"	l
-m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^m1: .word 6 15 24$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^m1: .word -1$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^m1: .word -1$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^m1: .word -1$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_malloc.s	/^m1: .word -1$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^m1: .word -1$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^m1: .word -1$/;"	l
+m1	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^m1: .word 1 0 3 0 5 0 7 0 9$/;"	l
 m1	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m1 = [6, 15, 24]$/;"	v	class:TestMatmul
 m1_cols	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m1_cols = 1$/;"	v	class:TestMatmul
 m1_rows	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m1_rows = 3$/;"	v	class:TestMatmul
@@ -1924,12 +1867,6 @@ m2	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fope
 m2	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fread_exception.s	/^m2: .word 1 2 3 4 5 6 7 8 9$/;"	l
 m2	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_malloc_exception.s	/^m2: .word 1 2 3 4 5 6 7 8 9$/;"	l
 m2	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_simple.s	/^m2: .word 1 2 3 4 5 6 7 8 9$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_c.s	/^m2: .word 0 0 0$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_r.s	/^m2: .word 0 0 0$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_c.s	/^m2: .word 0 0 0$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_r.s	/^m2: .word 0 0 0$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_match.s	/^m2: .word 0 0 0$/;"	l
-m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^m2: .word 0 0 0$/;"	l
 m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^m2: .word 2$/;"	l
 m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^m2: .word 2$/;"	l
 m2	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^m2: .word 2$/;"	l
@@ -1942,7 +1879,6 @@ m3	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fope
 m3	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fread_exception.s	/^m3: .word 3$/;"	l
 m3	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_malloc_exception.s	/^m3: .word 3$/;"	l
 m3	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_simple.s	/^m3: .word 3$/;"	l
-m3	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^m3: .word 171 441 711$/;"	l
 m3	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^m3: .word 4$/;"	l
 m3	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^m3: .word 4$/;"	l
 m3	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^m3: .word 4$/;"	l
@@ -2100,7 +2036,6 @@ main	ketang/sp21/sp21-proj2-starter/src/main.s	/^main:$/;"	l
 main	ketang/sp21/sp21-proj2-starter/src/matmul.cpp	/^int main(void) {$/;"	f
 main	ketang/sp21/sp21-proj2-starter/src/utils.s	/^main:$/;"	l
 main	ketang/sp21/sp21-proj2-starter/tools/convert.py	/^def main():$/;"	f
-main	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/test_read_matrix/readmat.cpp	/^int main(void) {$/;"	f
 main	ketang/sp21/sp21-proj2-starter/unittests/inputs/test_read_matrix/readmat.cpp	/^int main(void) {$/;"	f
 main	ketang/sp21/sp21-proj4-starter/setup.py	/^def main():$/;"	f
 main	ketang/sp21/sp21-proj4-starter/tests/mat_test.c	/^int main (void)$/;"	f
@@ -2123,31 +2058,13 @@ main_test	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_minus_o
 main_test	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_one.s	/^main_test:$/;"	l
 main_test	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_zero.s	/^main_test:$/;"	l
 main_test	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_exce.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_simple.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestClassify_test_simple0_input0.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce123.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_exce124_2.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple2.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple3.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_stride.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMain_test0.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMain_test1.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_c.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m0_r.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_c.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_m1_r.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_match.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_malloc.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^main_test:$/;"	l
-main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^main_test:$/;"	l
+main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^main_test:$/;"	l
 make_test	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
 make_test	ketang/fa20/fa20-proj2-starter/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
 make_test	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
@@ -2243,19 +2160,13 @@ msg0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_minus_one.s	
 msg0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_one.s	/^msg0: .asciiz "expected a0 to be 1 not: "$/;"	l
 msg0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestAbs_test_zero.s	/^msg0: .asciiz "expected a0 to be 0 not: "$/;"	l
 msg0	ketang/fa20/fa20-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^msg0: .asciiz "expected m0 to be:\\n1 0 3 0 5 0 7 0 9\\nInstead it is:\\n"$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestArgmax_test_simple.s	/^msg0: .asciiz "expected a0 to be 5 not: "$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple.s	/^msg0: .asciiz "expected a0 to be 285 not: "$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple2.s	/^msg0: .asciiz "expected a0 to be -285 not: "$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_simple3.s	/^msg0: .asciiz "expected a0 to be 22 not: "$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestDot_test_stride.s	/^msg0: .asciiz "expected a0 to be 50 not: "$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestMatmul_test_simple.s	/^msg0: .asciiz "expected m2 to be:\\n171 441 711\\nInstead it is:\\n"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fclose.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fopen.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_fread.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_malloc.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input1.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
-msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^msg0: .asciiz "outputs\/test_write_matrix\/student.bin"$/;"	l
+msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^msg0: .asciiz "expected m0 to be:\\n1 0 3 0 5 0 7 0 9\\nInstead it is:\\n"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_diff_rows_cols.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9 10 11 12\\nInstead it is:\\n"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fclose_exception.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9\\nInstead it is:\\n"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fopen_exception.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9\\nInstead it is:\\n"$/;"	l
@@ -2386,7 +2297,6 @@ node	ketang/fa20/fa20-lab-starter-master/lab01/ll_cycle.h	/^typedef struct node 
 node	ketang/fa20/fa20-lab-starter-master/lab01/ll_cycle.h	/^} node;$/;"	t	typeref:struct:node
 node	ketang/sp21/sp21-lab-starter/lab01/ll_cycle.h	/^typedef struct node {$/;"	s
 node	ketang/sp21/sp21-lab-starter/lab01/ll_cycle.h	/^} node;$/;"	t	typeref:struct:node
-normal_exit	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^normal_exit:$/;"	l
 not_print	Chrunge/proj2-sp21-starter-master/src/2classify.s	/^not_print:$/;"	l
 np	ketang/fa20/fa20-proj4-starter/unittests/utils.py	/^import numpy as np$/;"	i
 np	ketang/sp21/sp21-proj4-starter/tests/unittests/utils.py	/^import numpy as np$/;"	i
@@ -2399,7 +2309,6 @@ number_classified	Chrunge/proj2-sp21-starter-master/inputs/mnist/txt/print_mnist
 number_classified	ketang/fa20/fa20-proj2-starter/inputs/mnist/txt/print_mnist.py	/^number_classified = str(classified_as.read())$/;"	v
 number_classified	ketang/sp21/sp21-proj2-starter/inputs/mnist/txt/print_mnist.py	/^number_classified = str(classified_as.read())$/;"	v
 number_classified	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^number_classified = str(classified_as.read())$/;"	v
-number_classified	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^number_classified = str(classified_as.read())$/;"	v
 number_classified	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^number_classified = str(classified_as.read())$/;"	v
 numcmodule	ketang/fa20/fa20-proj4-starter/numc.c	/^struct PyModuleDef numcmodule = {$/;"	v	typeref:struct:PyModuleDef
 numcmodule	ketang/sp21/sp21-proj4-starter/src/numc.c	/^static struct PyModuleDef numcmodule = {$/;"	v	typeref:struct:PyModuleDef	file:
@@ -2453,7 +2362,6 @@ outfile	Chrunge/proj2-sp21-starter-master/inputs/mnist/student_inputs/bmp_to_bin
 outfile	ketang/fa20/fa20-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^outfile = open(sys.argv[1] + ".bin", "wb+")$/;"	v
 outfile	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^outfile = open(sys.argv[1] + ".bin", "wb+")$/;"	v
 outfile	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^outfile = open(sys.argv[1] + ".bin", "wb+")$/;"	v
-outfile	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^outfile = open(sys.argv[1] + ".bin", "wb+")$/;"	v
 outfile	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^outfile = open(sys.argv[1] + ".bin", "wb+")$/;"	v
 output	Chrunge/lab-fa20-starter-master/lab04/discrete_fn.s	/^output: .word   6, 61, 17, -38, 19, 42, 5$/;"	l
 output	Chrunge/lab-sp21-starter-master/lab04/discrete_fn.s	/^output: .word   6, 61, 17, -38, 19, 42, 5$/;"	l
@@ -2621,7 +2529,6 @@ r	ketang/sp21/sp21-lab-starter/lab09/Lab 9 - CS 61C_files/tocbot.js	/^!function(
 r	ketang/sp21/sp21-lab-starter/lab10/Lab 10 - CS 61C_files/tocbot.js	/^!function(e){var t={};function n(o){if(t[o])return t[o].exports;var l=t[o]={i:o,l:!1,exports:{}};return e[o].call(l.exports,l,l.exports,n),l.l=!0,l.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var l in e)n.d(o,l,function(t){return e[t]}.bind(null,l));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){(function(o){var l,r,i,s;s=void 0!==o?o:this.window||this.global,r=[],l=function(e){"use strict";var t,o,l,r=n(2),i={},s={},c=n(3),a=n(4),u=n(5),d=!!(e&&e.document&&e.document.querySelector&&e.addEventListener);if("undefined"!=typeof window||d){var f=Object.prototype.hasOwnProperty;return s.destroy=function(){if(!i.skipRendering)try{document.querySelector(i.tocSelector).innerHTML=""}catch(e){console.warn("Element not found: "+i.tocSelector)}i.scrollContainer&&document.querySelector(i.scrollContainer)?(document.querySelector(i.scrollContainer).removeEventListener("scroll",this._scrollListener,!1),document.querySelector(i.scrollContainer).removeEventListener("resize",this._scrollListener,!1),t&&document.querySelector(i.scrollContainer).removeEventListener("click",this._clickListener,!1)):(document.removeEventListener("scroll",this._scrollListener,!1),document.removeEventListener("resize",this._scrollListener,!1),t&&document.removeEventListener("click",this._clickListener,!1))},s.init=function(e){if(d&&(i=function(){for(var e={},t=0;t<arguments.length;t++){var n=arguments[t];for(var o in n)f.call(n,o)&&(e[o]=n[o])}return e}(r,e||{}),this.options=i,this.state={},i.scrollSmooth&&(i.duration=i.scrollSmoothDuration,i.offset=i.scrollSmoothOffset,s.scrollSmooth=n(6).initSmoothScrolling(i)),t=c(i),o=a(i),this._buildHtml=t,this._parseContent=o,s.destroy(),null!==(l=o.selectHeadings(i.contentSelector,i.headingSelector)))){var h=o.nestHeadingsArray(l).nest;i.skipRendering||t.render(i.tocSelector,h),this._scrollListener=m((function(e){t.updateToc(l),!i.disableTocScrollSync&&u(i);var n=e&&e.target&&e.target.scrollingElement&&0===e.target.scrollingElement.scrollTop;(e&&(0===e.eventPhase||null===e.currentTarget)||n)&&(t.updateToc(l),i.scrollEndCallback&&i.scrollEndCallback(e))}),i.throttleTimeout),this._scrollListener(),i.scrollContainer&&document.querySelector(i.scrollContainer)?(document.querySelector(i.scrollContainer).addEventListener("scroll",this._scrollListener,!1),document.querySelector(i.scrollContainer).addEventListener("resize",this._scrollListener,!1)):(document.addEventListener("scroll",this._scrollListener,!1),document.addEventListener("resize",this._scrollListener,!1));var p=null;return this._clickListener=m((function(e){i.scrollSmooth&&t.disableTocAnimation(e),t.updateToc(l),p&&clearTimeout(p),p=setTimeout((function(){t.enableTocAnimation()}),i.scrollSmoothDuration)}),i.throttleTimeout),i.scrollContainer&&document.querySelector(i.scrollContainer)?document.querySelector(i.scrollContainer).addEventListener("click",this._clickListener,!1):document.addEventListener("click",this._clickListener,!1),this}},s.refresh=function(e){s.destroy(),s.init(e||this.options)},e.tocbot=s,s}function m(e,t,n){var o,l;return t||(t=250),function(){var r=n||this,i=+new Date,s=arguments;o&&i<o+t?(clearTimeout(l),l=setTimeout((function(){o=i,e.apply(r,s)}),t)):(o=i,e.apply(r,s))}}}(s),void 0===(i="function"==typeof l?l.apply(t,r):l)||(e.exports=i)}).call(this,n(1))},function(e,t){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(e){"object"==typeof window&&(n=window)}e.exports=n},function(e,t){e.exports={tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",ignoreSelector:".js-toc-ignore",hasInnerContainers:!1,linkClass:"toc-link",extraLinkClasses:"",activeLinkClass:"is-active-link",listClass:"toc-list",extraListClasses:"",isCollapsedClass:"is-collapsed",collapsibleClass:"is-collapsible",listItemClass:"toc-list-item",activeListItemClass:"is-active-li",collapseDepth:0,scrollSmooth:!0,scrollSmoothDuration:420,scrollSmoothOffset:0,scrollEndCallback:function(e){},headingsOffset:1,throttleTimeout:50,positionFixedSelector:null,positionFixedClass:"is-position-fixed",fixedSidebarOffset:"auto",includeHtml:!1,onClick:function(e){},orderedList:!0,scrollContainer:null,skipRendering:!1,headingLabelCallback:!1,ignoreHiddenElements:!1,headingObjectCallback:null,basePath:"",disableTocScrollSync:!1}},function(e,t){e.exports=function(e){var t=[].forEach,n=[].some,o=document.body,l=!0;function r(n,o){var l=o.appendChild(function(n){var o=document.createElement("li"),l=document.createElement("a");e.listItemClass&&o.setAttribute("class",e.listItemClass);e.onClick&&(l.onclick=e.onClick);e.includeHtml&&n.childNodes.length?t.call(n.childNodes,(function(e){l.appendChild(e.cloneNode(!0))})):l.textContent=n.textContent;return l.setAttribute("href",e.basePath+"#"+n.id),l.setAttribute("class",e.linkClass+" node-name--"+n.nodeName+" "+e.extraLinkClasses),o.appendChild(l),o}(n));if(n.children.length){var s=i(n.isCollapsed);n.children.forEach((function(e){r(e,s)})),l.appendChild(s)}}function i(t){var n=e.orderedList?"ol":"ul",o=document.createElement(n),l=e.listClass+" "+e.extraListClasses;return t&&(l+=" "+e.collapsibleClass,l+=" "+e.isCollapsedClass),o.setAttribute("class",l),o}return{enableTocAnimation:function(){l=!0},disableTocAnimation:function(t){var n=t.target||t.srcElement;"string"==typeof n.className&&-1!==n.className.indexOf(e.linkClass)&&(l=!1)},render:function(e,t){var n=i(!1);t.forEach((function(e){r(e,n)}));var o=document.querySelector(e);if(null!==o)return o.firstChild&&o.removeChild(o.firstChild),0===t.length?o:o.appendChild(n)},updateToc:function(r){var i;i=e.scrollContainer&&document.querySelector(e.scrollContainer)?document.querySelector(e.scrollContainer).scrollTop:document.documentElement.scrollTop||o.scrollTop,e.positionFixedSelector&&function(){var t;t=e.scrollContainer&&document.querySelector(e.scrollContainer)?document.querySelector(e.scrollContainer).scrollTop:document.documentElement.scrollTop||o.scrollTop;var n=document.querySelector(e.positionFixedSelector);"auto"===e.fixedSidebarOffset&&(e.fixedSidebarOffset=document.querySelector(e.tocSelector).offsetTop),t>e.fixedSidebarOffset?-1===n.className.indexOf(e.positionFixedClass)&&(n.className+=" "+e.positionFixedClass):n.className=n.className.split(" "+e.positionFixedClass).join("")}();var s,c=r;if(l&&null!==document.querySelector(e.tocSelector)&&c.length>0){n.call(c,(function(t,n){return function t(n){var o=0;return n!==document.querySelector(e.contentSelector&&null!=n)&&(o=n.offsetTop,e.hasInnerContainers&&(o+=t(n.offsetParent))),o}(t)>i+e.headingsOffset+10?(s=c[0===n?n:n-1],!0):n===c.length-1?(s=c[c.length-1],!0):void 0}));var a=document.querySelector(e.tocSelector).querySelectorAll("."+e.linkClass);t.call(a,(function(t){t.className=t.className.split(" "+e.activeLinkClass).join("")}));var u=document.querySelector(e.tocSelector).querySelectorAll("."+e.listItemClass);t.call(u,(function(t){t.className=t.className.split(" "+e.activeListItemClass).join("")}));var d=document.querySelector(e.tocSelector).querySelector("."+e.linkClass+".node-name--"+s.nodeName+'[href="'+e.basePath+"#"+s.id.replace(\/([ #;&,.+*~':"!^$[\\]()=>|\/@])\/g,"\\\\$1")+'"]');-1===d.className.indexOf(e.activeLinkClass)&&(d.className+=" "+e.activeLinkClass);var f=d.parentNode;f&&-1===f.className.indexOf(e.activeListItemClass)&&(f.className+=" "+e.activeListItemClass);var m=document.querySelector(e.tocSelector).querySelectorAll("."+e.listClass+"."+e.collapsibleClass);t.call(m,(function(t){-1===t.className.indexOf(e.isCollapsedClass)&&(t.className+=" "+e.isCollapsedClass)})),d.nextSibling&&-1!==d.nextSibling.className.indexOf(e.isCollapsedClass)&&(d.nextSibling.className=d.nextSibling.className.split(" "+e.isCollapsedClass).join("")),function t(n){if(-1!==n.className.indexOf(e.collapsibleClass)&&-1!==n.className.indexOf(e.isCollapsedClass))return n.className=n.className.split(" "+e.isCollapsedClass).join(""),t(n.parentNode.parentNode);return n}(d.parentNode.parentNode)}}}}},function(e,t){e.exports=function(e){var t=[].reduce;function n(e){return e[e.length-1]}function o(e){return+e.nodeName.split("H").join("")}function l(t){if(!(t instanceof window.HTMLElement))return t;if(e.ignoreHiddenElements&&(!t.offsetHeight||!t.offsetParent))return null;var n={id:t.id,children:[],nodeName:t.nodeName,headingLevel:o(t),textContent:e.headingLabelCallback?String(e.headingLabelCallback(t.textContent)):t.textContent.trim()};return e.includeHtml&&(n.childNodes=t.childNodes),e.headingObjectCallback?e.headingObjectCallback(n,t):n}return{nestHeadingsArray:function(o){return t.call(o,(function(t,o){var r=l(o);return r&&function(t,o){for(var r=l(t),i=r.headingLevel,s=o,c=n(s),a=i-(c?c.headingLevel:0);a>0;)(c=n(s))&&void 0!==c.children&&(s=c.children),a--;i>=e.collapseDepth&&(r.isCollapsed=!0),s.push(r)}(r,t.nest),t}),{nest:[]})},selectHeadings:function(t,n){var o=n;e.ignoreSelector&&(o=n.split(",").map((function(t){return t.trim()+":not("+e.ignoreSelector+")"})));try{return document.querySelector(t).querySelectorAll(o)}catch(e){return console.warn("Element not found: "+t),null}}}}},function(e,t){e.exports=function(e){var t=document.querySelector(e.tocSelector);if(t&&t.scrollHeight>t.clientHeight){var n=t.querySelector("."+e.activeListItemClass);n&&(t.scrollTop=n.offsetTop)}}},function(e,t){t.initSmoothScrolling=function(e){document.documentElement.style;var t=e.duration,n=e.offset,o=location.hash?l(location.href):location.href;function l(e){return e.slice(0,e.lastIndexOf("#"))}document.body.addEventListener("click",(function(r){var i;"a"!==(i=r.target).tagName.toLowerCase()||!(i.hash.length>0||"#"===i.href.charAt(i.href.length-1))||l(i.href)!==o&&l(i.href)+"#"!==o||r.target.className.indexOf("no-smooth-scroll")>-1||"#"===r.target.href.charAt(r.target.href.length-2)&&"!"===r.target.href.charAt(r.target.href.length-1)||-1===r.target.className.indexOf(e.linkClass)||function(e,t){var n,o,l=window.pageYOffset,r={duration:t.duration,offset:t.offset||0,callback:t.callback,easing:t.easing||function(e,t,n,o){return(e\/=o\/2)<1?n\/2*e*e+t:(e--,-n\/2*(e*(e-2)-1)+t)}},i=document.querySelector('[id="'+decodeURI(e).split("#").join("")+'"]'),s="string"==typeof e?r.offset+(e?i&&i.getBoundingClientRect().top||0:-(document.documentElement.scrollTop||document.body.scrollTop)):e,c="function"==typeof r.duration?r.duration(s):r.duration;function a(e){o=e-n,window.scrollTo(0,r.easing(o,l,s,c)),o<c?requestAnimationFrame(a):(window.scrollTo(0,l+s),"function"==typeof r.callback&&r.callback())}requestAnimationFrame((function(e){n=e,a(e)}))}(r.target.hash,{duration:t,offset:n,callback:function(){var e,t;e=r.target.hash,(t=document.getElementById(e.substring(1)))&&(\/^(?:a|select|input|button|textarea)$\/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}})}),!1)}}]);/;"	f
 r	ketang/sp21/sp21-proj2-starter/inputs/mnist/student_inputs/bmp_to_bin.py	/^    r = infile.read(1)$/;"	v
 r	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py	/^    r = infile.read(1)$/;"	v
-r	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^    r = infile.read(1)$/;"	v
 r	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^    r = infile.read(1)$/;"	v
 rand_double	ketang/fa20/fa20-proj4-starter/matrix.c	/^double rand_double(double low, double high) {$/;"	f
 rand_double	ketang/sp21/sp21-proj4-starter/src/matrix.c	/^double rand_double(double low, double high) {$/;"	f
@@ -2654,7 +2561,6 @@ readData	Chrunge/proj1-fa20-starter/imageloader.c	/^Image *readData(char *filena
 readData	ketang/fa20/fa20-proj1-starter/imageloader.c	/^Image *readData(char *filename) $/;"	f
 readDictionary	ketang/sp21/sp21-proj1-starter/src/philphix.c	/^void readDictionary(char *dictName) {$/;"	f
 read_loop	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^read_loop:$/;"	l
-read_loop_end	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^read_loop_end:$/;"	l
 read_matrix	Chrunge/proj2-sp21-starter-master/src/read_matrix.s	/^read_matrix:$/;"	l
 read_matrix	ketang/fa20/fa20-proj2-starter/src/read_matrix.s	/^read_matrix:$/;"	l
 read_matrix	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^read_matrix:$/;"	l
@@ -2929,8 +2835,6 @@ sys	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/student_inputs/bmp_to_bin.py
 sys	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^import sys$/;"	i
 sys	ketang/sp21/sp21-proj2-starter/tools/convert.py	/^import sys$/;"	i
 sys	ketang/sp21/sp21-proj2-starter/tools/loader.py	/^import sys$/;"	i
-sys	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^import sys$/;"	i
-sys	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^import sys$/;"	i
 sys	ketang/sp21/sp21-proj2-starter/unittests/framework.py	/^import os, subprocess, unittest, tempfile, sys$/;"	i
 sys	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^import sys$/;"	i
 sys	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^import sys$/;"	i
@@ -3172,11 +3076,6 @@ toprint	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^   
 toprint	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + "*"$/;"	v
 toprint	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + "\\n"$/;"	v
 toprint	ketang/sp21/sp21-proj2-starter/src/inputs/mnist/txt/print_mnist.py	/^toprint = ""$/;"	v
-toprint	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/student_inputs/bmp_to_bin.py	/^toprint = ""$/;"	v
-toprint	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + " "$/;"	v
-toprint	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + "*"$/;"	v
-toprint	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + "\\n"$/;"	v
-toprint	ketang/sp21/sp21-proj2-starter/unittests/assembly/inputs/mnist/txt/print_mnist.py	/^toprint = ""$/;"	v
 toprint	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/student_inputs/bmp_to_bin.py	/^toprint = ""$/;"	v
 toprint	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + " "$/;"	v
 toprint	ketang/sp21/sp21-proj2-starter/unittests/inputs/mnist/txt/print_mnist.py	/^        toprint = toprint + "*"$/;"	v

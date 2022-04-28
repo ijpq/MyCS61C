@@ -170,24 +170,21 @@ fclose_label:
 
 fopen_error:
     li a1, 117
-    jal x1, error_epilogue
-    j error_exit
+    j error_epilogue
 
 malloc_error:
     li a1, 116
-    jal x1, error_epilogue
-    j error_exit
+    j error_epilogue
 
 fread_error:
     li a1, 118
-    jal x1, error_epilogue
-    j error_exit
+    j error_epilogue
 
 fclose_error:
     li a1, 119
-    jal x1, error_epilogue
-    j error_exit
+    j error_epilogue
 
+# pay attention to CALLING CONVENTION
 error_epilogue:
     lw s0, 0(sp)
     lw s1, 4(sp)
@@ -201,7 +198,7 @@ error_epilogue:
     # a1 and a2 should not be restore
     # lw a1, 36(sp)
     # lw a2, 40(sp)
-    addi sp, sp, 44
-
+    j error_exit
+    
 error_exit:
     j exit2
