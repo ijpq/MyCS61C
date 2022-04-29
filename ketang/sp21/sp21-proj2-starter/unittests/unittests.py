@@ -289,7 +289,7 @@ class TestMatmul(TestCase):
             result=self.result,
             code=126
         )
-    
+
     def test_match(self):
         self.do_matmul(
             m0=self.m0,
@@ -367,6 +367,7 @@ class TestReadMatrix(TestCase):
 
         # generate assembly and run it through venus
         t.execute(fail=fail, code=code)
+
     def test_simple(self):
         self.do_read_matrix()
 
@@ -411,8 +412,34 @@ class TestWriteMatrix(TestCase):
         # compare the output file against the reference
         t.check_file_output(outfile, "outputs/test_write_matrix/reference.bin")
 
+    def do_write_matrix_exce(self, fail='', code=0):
+        t = AssemblyTest(self, "write_matrix.s")
+        outfile = "outputs/test_write_matrix/student.bin"
+        # load output file name into a0 register
+        t.input_write_filename("a0", outfile)
+        # load input array and other arguments
+        #raise NotImplementedError("TODO")
+        arr = t.array([1,2,3])
+        t.input_array("a1", arr)
+        t.input_scalar("a2", 1)
+        t.input_scalar("a3", 3)
+        # TODO
+        # call `write_matrix` function
+        t.call("write_matrix")
+        # generate assembly and run it through venus
+        t.execute(fail=fail, code=code)
+
     def test_simple(self):
         self.do_write_matrix()
+
+    def test_fopen(self):
+        self.do_write_matrix_exce(fail='fopen', code=112)
+
+    def test_fwrite(self):
+        self.do_write_matrix_exce(fail='fwrite', code=113)
+
+    def test_fclose(self):
+        self.do_write_matrix_exce(fail='fclose', code=114)
 
     @classmethod
     def tearDownClass(cls):

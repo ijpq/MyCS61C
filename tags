@@ -1174,6 +1174,7 @@ do_read_matrix_diff_rows_cols	Chrunge/proj2-sp21-starter-master/unittests/unitte
 do_write_matrix	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def do_write_matrix(self, fail='', code=0):$/;"	m	class:TestWriteMatrix
 do_write_matrix	ketang/fa20/fa20-proj2-starter/unittests/unittests.py	/^    def do_write_matrix(self, fail='', code=0):$/;"	m	class:TestWriteMatrix
 do_write_matrix	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def do_write_matrix(self, fail='', code=0):$/;"	m	class:TestWriteMatrix
+do_write_matrix_exce	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def do_write_matrix_exce(self, fail='', code=0):$/;"	m	class:TestWriteMatrix
 done	Chrunge/lab-fa20-starter-master/lab03/list_map.s	/^done:$/;"	l
 done	Chrunge/lab-fa20-starter-master/lab04/megalistmanips.s	/^done:$/;"	l
 done	Chrunge/lab-sp21-starter-master/lab03/list_map.s	/^done:$/;"	l
@@ -1212,8 +1213,11 @@ end_msg	Chrunge/lab-fa20-starter-master/lab04/megalistmanips.s	/^end_msg:    .as
 end_msg	Chrunge/lab-sp21-starter-master/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
 end_msg	ketang/fa20/fa20-lab-starter-master/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
 end_msg	ketang/sp21/sp21-lab-starter/lab04/megalistmanips.s	/^end_msg:    .asciiz "Lists after: \\n"$/;"	l
+epilogue	ketang/sp21/sp21-proj2-starter/src/write_matrix.s	/^epilogue:$/;"	l
 error	ketang/sp21/sp21-proj2-starter/src/classify.s	/^error:$/;"	l
 error_112	ketang/sp21/sp21-proj2-starter/src/write_matrix.s	/^error_112:$/;"	l
+error_113	ketang/sp21/sp21-proj2-starter/src/write_matrix.s	/^error_113:$/;"	l
+error_114	ketang/sp21/sp21-proj2-starter/src/write_matrix.s	/^error_114:$/;"	l
 error_89	Chrunge/proj2-sp21-starter-master/src/classify.s	/^error_89:$/;"	l
 error_epilogue	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^error_epilogue:$/;"	l
 error_exit	ketang/sp21/sp21-proj2-starter/src/read_matrix.s	/^error_exit:$/;"	l
@@ -1841,6 +1845,10 @@ m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_malloc.
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^m0: .word -1$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^m0: .word 1 -2 3 -4 5 -6 7 -8 9$/;"	l
+m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fclose.s	/^m0: .word 1 2 3$/;"	l
+m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fopen.s	/^m0: .word 1 2 3$/;"	l
+m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fwrite.s	/^m0: .word 1 2 3$/;"	l
+m0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^m0: .word 1 2 3 4 5 6 7 8 9$/;"	l
 m0	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0 = [1, 3, 5, 7, 9, 11, 13, 15, 17]$/;"	v	class:TestMatmul
 m0_cols	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0_cols = 3$/;"	v	class:TestMatmul
 m0_rows	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    m0_rows = 3$/;"	v	class:TestMatmul
@@ -2065,6 +2073,10 @@ main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^main_test:$/;"	l
 main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^main_test:$/;"	l
+main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fclose.s	/^main_test:$/;"	l
+main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fopen.s	/^main_test:$/;"	l
+main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fwrite.s	/^main_test:$/;"	l
+main_test	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^main_test:$/;"	l
 make_test	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
 make_test	ketang/fa20/fa20-proj2-starter/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
 make_test	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def make_test(self):$/;"	m	class:TestClassify
@@ -2167,6 +2179,10 @@ msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_mallo
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_read_Main.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input1.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestReadMatrix_test_simple.s	/^msg0: .asciiz "inputs\/test_read_matrix\/test_input.bin"$/;"	l
 msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestRelu_test_simple.s	/^msg0: .asciiz "expected m0 to be:\\n1 0 3 0 5 0 7 0 9\\nInstead it is:\\n"$/;"	l
+msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fclose.s	/^msg0: .asciiz "outputs\/test_write_matrix\/student.bin"$/;"	l
+msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fopen.s	/^msg0: .asciiz "outputs\/test_write_matrix\/student.bin"$/;"	l
+msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_fwrite.s	/^msg0: .asciiz "outputs\/test_write_matrix\/student.bin"$/;"	l
+msg0	ketang/sp21/sp21-proj2-starter/unittests/assembly/TestWriteMatrix_test_simple.s	/^msg0: .asciiz "outputs\/test_write_matrix\/student.bin"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_diff_rows_cols.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9 10 11 12\\nInstead it is:\\n"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fclose_exception.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9\\nInstead it is:\\n"$/;"	l
 msg1	Chrunge/proj2-sp21-starter-master/unittests/assembly/TestReadMatrix_test_fopen_exception.s	/^msg1: .asciiz "expected array pointed to by a0 to be:\\n1 2 3 4 5 6 7 8 9\\nInstead it is:\\n"$/;"	l
@@ -2908,6 +2924,7 @@ test_exce124	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def tes
 test_exce124_2	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_exce124_2(self):$/;"	m	class:TestDot
 test_fail_malloc	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fail_malloc(self): $/;"	m	class:TestClassify
 test_fclose	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fclose(self):$/;"	m	class:TestReadMatrix
+test_fclose	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fclose(self):$/;"	m	class:TestWriteMatrix
 test_fclose_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fclose_exception(self):$/;"	m	class:TestReadMatrix
 test_fclose_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fclose_exception(self):$/;"	m	class:TestWriteMatrix
 test_flip_bit	Chrunge/lab-fa20-starter-master/lab02/test_bit_ops.c	/^void test_flip_bit(unsigned x,$/;"	f
@@ -2915,10 +2932,12 @@ test_flip_bit	Chrunge/lab-sp21-starter-master/lab02/test_bit_ops.c	/^void test_f
 test_flip_bit	ketang/fa20/fa20-lab-starter-master/lab02/test_bit_ops.c	/^void test_flip_bit(unsigned x,$/;"	f
 test_flip_bit	ketang/sp21/sp21-lab-starter/lab02/test_bit_ops.c	/^void test_flip_bit(unsigned x,$/;"	f
 test_fopen	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fopen(self):$/;"	m	class:TestReadMatrix
+test_fopen	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fopen(self):$/;"	m	class:TestWriteMatrix
 test_fopen_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fopen_exception(self): $/;"	m	class:TestReadMatrix
 test_fopen_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fopen_exception(self):$/;"	m	class:TestWriteMatrix
 test_fread	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fread(self):$/;"	m	class:TestReadMatrix
 test_fread_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fread_exception(self):$/;"	m	class:TestReadMatrix
+test_fwrite	ketang/sp21/sp21-proj2-starter/unittests/unittests.py	/^    def test_fwrite(self):$/;"	m	class:TestWriteMatrix
 test_fwrite_exception	Chrunge/proj2-sp21-starter-master/unittests/unittests.py	/^    def test_fwrite_exception(self):$/;"	m	class:TestWriteMatrix
 test_get	ketang/fa20/fa20-proj4-starter/unittests/unittests.py	/^    def test_get(self):$/;"	m	class:TestGet
 test_get	ketang/sp21/sp21-proj4-starter/tests/unittests/unittests.py	/^    def test_get(self):$/;"	m	class:TestGet
