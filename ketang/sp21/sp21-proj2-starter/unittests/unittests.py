@@ -48,6 +48,14 @@ class TestRelu(TestCase):
         # generate the `assembly/TestRelu_test_simple.s` file and run it through venus
         t.execute()
 
+    def test_error(self):
+        t = AssemblyTest(self, "relu.s")
+        array0 = t.array([1, -2])
+        t.input_array("a0", array0)
+        t.input_scalar("a1", 0)
+        t.call("relu")
+        t.execute(code=78)
+
     @classmethod
     def tearDownClass(cls):
         print_coverage("relu.s", verbose=False)
@@ -400,9 +408,9 @@ class TestWriteMatrix(TestCase):
         t.input_write_filename("a0", outfile)
         # load input array and other arguments
         #raise NotImplementedError("TODO")
-        arr = t.array([1,2,3,4,5,6,7,8,9])
+        arr = t.array([1,2,3,4,5,6])
         t.input_array("a1", arr)
-        t.input_scalar("a2", 3)
+        t.input_scalar("a2", 2)
         t.input_scalar("a3", 3)
         # TODO
         # call `write_matrix` function
@@ -410,7 +418,7 @@ class TestWriteMatrix(TestCase):
         # generate assembly and run it through venus
         t.execute(fail=fail, code=code)
         # compare the output file against the reference
-        t.check_file_output(outfile, "outputs/test_write_matrix/reference.bin")
+        t.check_file_output(outfile, "outputs/test_write_matrix/reference2.bin")
 
     def do_write_matrix_exce(self, fail='', code=0):
         t = AssemblyTest(self, "write_matrix.s")
@@ -458,29 +466,143 @@ class TestClassify(TestCase):
         t.include("write_matrix.s")
         return t
 
-    def test_simple0_input0(self):
+    def do_test(self, out_file=None, ref_file=None, args=None, print_out=None, stdout=None, fail="", code=0):
         t = self.make_test()
+        out_file = out_file
+        ref_file = ref_file
+        args = args
+        t.input_scalar("a2", print_out)
+        t.call("classify")
+        t.execute(args=args, fail=fail, code=code)
+        if fail != "" and len(args) == 5:
+            t.check_file_output(out_file, ref_file)
+            if stdout != None:
+                t.check_stdout(stdout)
+        
+        
+    def test_simple0_input0(self):
         out_file = "outputs/test_basic_main/student0.bin"
         ref_file = "outputs/test_basic_main/reference0.bin"
         args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin",
                 "inputs/simple0/bin/inputs/input0.bin", out_file]
-        # call classify function
-        t.input_scalar("a2", 0) # printout
-        t.call("classify")
-        # generate assembly and pass program arguments directly to venus
-        t.execute(args=args)
+        print_out=0
+        stdout="2"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
 
-        # compare the output file and
-        #raise NotImplementedError("TODO")
+    def test_simple0_input1(self):
+        out_file = "outputs/test_basic_main/student1.bin"
+        ref_file = "outputs/test_basic_main/reference1.bin"
+        args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin", 
+                "inputs/simple0/bin/inputs/input1.bin", out_file]
+        print_out=0
+        stdout="2"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
 
-        # TODO
-        # compare the classification output with `check_stdout`
-        t.check_file_output(out_file, ref_file)
-        t.check_stdout("4")
+    def test_simple0_input2(self):
+        out_file = "outputs/test_basic_main/student2.bin"
+        ref_file = "outputs/test_basic_main/reference2.bin"
+        args = ["inputs/simple0/bin/m0.bin", "inputs/simple0/bin/m1.bin", 
+                "inputs/simple0/bin/inputs/input2.bin", out_file]
+        print_out=0
+        stdout="2"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
 
+    def test_simple1_input0(self):
+        out_file = "outputs/test_basic_main/student10.bin"
+        ref_file = "outputs/test_basic_main/reference10.bin"
+        args = ["inputs/simple1/bin/m0.bin", "inputs/simple1/bin/m1.bin", 
+                "inputs/simple1/bin/inputs/input0.bin", out_file]
+        print_out=0
+        stdout="1"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_simple1_input1(self):
+        out_file = "outputs/test_basic_main/student11.bin"
+        ref_file = "outputs/test_basic_main/reference11.bin"
+        args = ["inputs/simple1/bin/m0.bin", "inputs/simple1/bin/m1.bin", 
+                "inputs/simple1/bin/inputs/input1.bin", out_file]
+        print_out=0
+        stdout="4"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_simple1_input2(self):
+        out_file = "outputs/test_basic_main/student12.bin"
+        ref_file = "outputs/test_basic_main/reference12.bin"
+        args = ["inputs/simple1/bin/m0.bin", "inputs/simple1/bin/m1.bin", 
+                "inputs/simple1/bin/inputs/input2.bin", out_file]
+        print_out=0
+        stdout="1"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_simple2_input0(self):
+        out_file = "outputs/test_basic_main/student20.bin"
+        ref_file = "outputs/test_basic_main/reference20.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input0.bin", out_file]
+        print_out=0
+        stdout="7"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_simple2_input1(self):
+        out_file = "outputs/test_basic_main/student21.bin"
+        ref_file = "outputs/test_basic_main/reference21.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input1.bin", out_file]
+        print_out=0
+        stdout="4"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_simple2_input2(self):
+        out_file = "outputs/test_basic_main/student22.bin"
+        ref_file = "outputs/test_basic_main/reference22.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input2.bin", out_file]
+        print_out=0
+        stdout="10"
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+
+    def test_noprint(self):
+        out_file = "outputs/test_basic_main/student22.bin"
+        ref_file = "outputs/test_basic_main/reference22.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input2.bin", out_file]
+        print_out=1
+        stdout=""
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout)
+        
+    def test_argc_error(self):
+        out_file = "outputs/test_basic_main/student22.bin"
+        ref_file = "outputs/test_basic_main/reference22.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input2.bin", out_file, out_file]
+        print_out=1
+        stdout=""
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout, code=121)
+
+    def test_malloc_error(self):
+        out_file = "outputs/test_basic_main/student22.bin"
+        ref_file = "outputs/test_basic_main/reference22.bin"
+        args = ["inputs/simple2/bin/m0.bin", "inputs/simple2/bin/m1.bin", 
+                "inputs/simple2/bin/inputs/input2.bin", out_file]
+        print_out=1
+        stdout=""
+        self.do_test(out_file=out_file, ref_file=ref_file, args=args, print_out=print_out, stdout=stdout, fail="malloc", code=116)
     @classmethod
     def tearDownClass(cls):
         print_coverage("classify.s", verbose=False)
+
+class TestTest(TestCase):
+    def make_test(self):
+        t = AssemblyTest(self, "test.s")
+        t.include("utils.s")
+        return t
+
+    def test(self):
+        t = self.make_test()
+        t.call("test")
+        
+        t.execute()
+        t.check_stdout("100")
 
 
 # The following are some simple sanity checks:

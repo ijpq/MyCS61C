@@ -95,28 +95,28 @@ riscv只能使用a0和a1作为返回值寄存器，但是很多函数需要3个�
 
 `python3 -m unittest unittests.TestReadMatrix -v`
 
-> 问题：
+> 问题1：
 >
 > ```assembly
 > fopen_error:
->     jal x1, error_epilogue
->     li a1, 117
->     j error_exit
+>  jal x1, error_epilogue
+>  li a1, 117
+>  j error_exit
 > 
 > malloc_error:
->     jal x1, error_epilogue
->     li a1, 116
->     j error_exit
+>  jal x1, error_epilogue
+>  li a1, 116
+>  j error_exit
 > 
 > fread_error:
->     jal x1, error_epilogue
->     li a1, 118
->     j error_exit
+>  jal x1, error_epilogue
+>  li a1, 118
+>  j error_exit
 > 
 > fclose_error:
->     jal x1, error_epilogue
->     li a1, 119
->     j error_exit
+>  jal x1, error_epilogue
+>  li a1, 119
+>  j error_exit
 > ```
 >
 > 
@@ -125,48 +125,48 @@ riscv只能使用a0和a1作为返回值寄存器，但是很多函数需要3个�
 >
 > ```assembly
 > fopen_error:
->     li a1, 117
->     jal x1, error_epilogue
->     j error_exit
+>  li a1, 117
+>  jal x1, error_epilogue
+>  j error_exit
 > 
 > malloc_error:
->     li a1, 116
->     jal x1, error_epilogue
->     j error_exit
+>  li a1, 116
+>  jal x1, error_epilogue
+>  j error_exit
 > 
 > fread_error:
->     li a1, 118
->     jal x1, error_epilogue
->     j error_exit
+>  li a1, 118
+>  jal x1, error_epilogue
+>  j error_exit
 > 
 > fclose_error:
->     li a1, 119
->     jal x1, error_epilogue
->     j error_exit
+>  li a1, 119
+>  jal x1, error_epilogue
+>  j error_exit
 > ```
 >
 > 怀疑是ra(x1)地址错误导致，在第一段code中，进入error_epilogue调用前设置了ra的值，但是调用中从stack设置了ra的值。因此从error_epilogue返回时，地址是错误的。尝试改为如下，从error_epilogue返回后，再设置一次ra
 >
 > ```assembly
 > fopen_error:
->     jal x1, error_epilogue
->     li a1, 117
->     lw ra, 32(sp)
->     addi sp, sp, 44
->     j error_exit
+>  jal x1, error_epilogue
+>  li a1, 117
+>  lw ra, 32(sp)
+>  addi sp, sp, 44
+>  j error_exit
 > error_epilogue:
->     lw s0, 0(sp)
->     lw s1, 4(sp)
->     lw s2, 8(sp)
->     lw s3, 12(sp)
->     lw s4, 16(sp)
->     lw s5, 20(sp)
->     lw s6, 24(sp) 
->     lw s7, 28(sp)
->     lw ra, 32(sp)
->     # a1 and a2 should not be restore
->     # lw a1, 36(sp)
->     # lw a2, 40(sp)
+>  lw s0, 0(sp)
+>  lw s1, 4(sp)
+>  lw s2, 8(sp)
+>  lw s3, 12(sp)
+>  lw s4, 16(sp)
+>  lw s5, 20(sp)
+>  lw s6, 24(sp) 
+>  lw s7, 28(sp)
+>  lw ra, 32(sp)
+>  # a1 and a2 should not be restore
+>  # lw a1, 36(sp)
+>  # lw a2, 40(sp)
 > ```
 >
 > 结果仍然是fopen不对
@@ -179,40 +179,48 @@ riscv只能使用a0和a1作为返回值寄存器，但是很多函数需要3个�
 >
 > 符合calling convention的error_epilogue如下(或者说，这没有jal，只是j 所以不需要calling convention了)
 >
+> **所以，如何写一个符合calling convention的epilogue给exception用，有待考虑**
+>
 > ```assembly
 > fopen_error:
->     li a1, 117
->     j error_epilogue
+>  li a1, 117
+>  j error_epilogue
 > 
 > malloc_error:
->     li a1, 116
->     j error_epilogue
+>  li a1, 116
+>  j error_epilogue
 > 
 > fread_error:
->     li a1, 118
->     j error_epilogue
+>  li a1, 118
+>  j error_epilogue
 > 
 > fclose_error:
->     li a1, 119
->     j error_epilogue
+>  li a1, 119
+>  j error_epilogue
 > 
 > error_epilogue:
->     lw s0, 0(sp)
->     lw s1, 4(sp)
->     lw s2, 8(sp)
->     lw s3, 12(sp)
->     lw s4, 16(sp)
->     lw s5, 20(sp)
->     lw s6, 24(sp) 
->     lw s7, 28(sp)
->     lw ra, 32(sp)
->     # a1 and a2 should not be restore
->     # lw a1, 36(sp)
->     # lw a2, 40(sp)
->     j error_exit
+>  lw s0, 0(sp)
+>  lw s1, 4(sp)
+>  lw s2, 8(sp)
+>  lw s3, 12(sp)
+>  lw s4, 16(sp)
+>  lw s5, 20(sp)
+>  lw s6, 24(sp) 
+>  lw s7, 28(sp)
+>  lw ra, 32(sp)
+>  # a1 and a2 should not be restore
+>  # lw a1, 36(sp)
+>  # lw a2, 40(sp)
+>  j error_exit
 > ```
 >
-> 
+
+> 问题2:
+>
+> 突然发现一个问题，《计算机组成与设计：硬件/软件接口》中写到riscv中的寄存器都是64bit，那么实现prologue和epilogue时，都使用的是sw/lw。虽然对高位进行了位拓展，但是感觉容易出问题，尤其是指针操作时，因为实验环境是64bit，指针地址是64bit，可能存在覆盖高32bit的问题。
+>
+> 根据https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf , **For RV32, the x registers are 32 bits wide, and for RV64, they are 64 bits wide. **因此，实验代码应该是使用的RV32指令集，
+
 
 ### task2 write mat
 
@@ -247,6 +255,48 @@ scores = matmul(m1, hidden_layer)
 所有测试使用的输入都放在inputs文件夹中
 
 `python3 -m unittest unittests.TestMain -v`
+
+**Simple**
+
+除了MNIST测试，先提供了一些示例去测试Main函数，这些示例比较容易debug
+
+可以直接使用下面的命令来测试simple0的所有输入
+
+```bash
+./tools/venus src/main.s -ms -1 inputs/simple0/bin/m0.bin inputs/simple0/bin/m1.bin inputs/simple0/bin/inputs/input0.bin  outputs/test_basic_main/student_basic_output.bin
+```
+
+为了验证正确性，可以自己用numpy先算一下结果
+
+在simple2的示例中，输出的score矩阵是大于1列的，但是argmax是将矩阵视为1D的行优先vector，输出一个整数表示argmax结果。
+
+**MNIST**
+
+输入位于inputs/mnist，包括9组inputs
+
+用下面的命令来进行测试
+
+```bash
+./tools/venus src/main.s -ms -1 inputs/mnist/bin/m0.bin inputs/mnist/bin/m1.bin inputs/mnist/bin/inputs/mnist_input0.bin  outputs/test_mnist_main/student_mnist_outputs.bin
+```
+
+`-ms -1`是因为MNIST数据量大，需要增加venus能够运行的最大指令数
+
+运行后将生成一个`student_mnist_outputs.bin`包括了对于每个手写数字的分数，同时打印出最大分数的识别数字。可以对比打印出来的数字和`inputs/mnist/txt/labels/label0.txt`
+
+每一个输入的对比都可以在`mnist/txt/labels`找到
+
+此外，`inputs/mnist/txt/print_mnist.py`脚本提供了可视化输入数据对应手写数字的功能
+
+例如，可以在`inputs/mnist/txt`路径下，运行`python3 print_mnist.py 8`可以打印出来实际图像，展示的是ascii风格的mnist_input8
+
+并不是所有的输入都被预测正确，mnist_input2和mnist_input7会被分类为9和8，其他的都能被分类正确。
+
+**Generating Your Own MNIST Inputs**
+
+1. 在一个28*28像素点的图上画一个数字，并且存成bmp，放到inputs/mnist/student_inputs
+2. 使用`bmp_to_bin.py`将bmp转成bin：`python3 bmp_to_bin.py example`
+3. 使用m0和m1参数矩阵来进行预测:`./tools/venus src/main.s -ms -1 -it inputs/mnist/bin/m0.bin inputs/mnist/bin/m1.bin inputs/mnist/student_inputs/example.bin  outputs/test_mnist_main/student_input_mnist_output.bin`
 
 ## FAQ
 

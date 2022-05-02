@@ -58,13 +58,15 @@ write_matrix:
     beq a0, t0, error_112
     mv s2, a0
 
-    # write rows to heap
-    li t0, 4
+    # allocate 4B
+    # li a0, 4
+    # jal ra, malloc
+    li a1, 4
     jal ra, sbrk
-    sw s7, 0(a0) # write rows to heap
     mv s6, a0 # ptr to 4B
 
-    # fwirte
+    # write first 4B, rows.
+    sw s7, 0(s6) # write rows to heap
     mv a1, s2
     mv a2, s6
     li a3, 1 # num of items
@@ -73,6 +75,7 @@ write_matrix:
     li t0, 1
     bne a0, t0, error_113
     
+    # write second 4B, cols.
     sw s8, 0(s6) # write cols to heap
     mv a1, s2
     mv a2, s6
@@ -82,6 +85,8 @@ write_matrix:
     li t0, 1
     # TODO: free while fwrite error
     bne a0, t0, error_113
+
+    # free 4B pointer
     mv a0, s6
     jal ra, free
     j write_loop
