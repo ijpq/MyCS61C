@@ -83,14 +83,20 @@ write_matrix:
     li a4, 4
     jal ra, fwrite
     li t0, 1
-    # TODO: free while fwrite error
     bne a0, t0, error_113
 
     # free 4B pointer
-    mv a0, s6
-    jal ra, free
+    jal ra, free_4B
     j write_loop
 
+free_4B:
+    addi sp, sp, -4
+    sw ra, 0(sp)
+    mv a0, s6
+    jal ra, free
+    lw ra, 0(sp)
+    addi sp, sp, 4
+    ret
 
 write_loop:
     beq s1, s0, loop_end
@@ -116,6 +122,7 @@ error_112:
     j epilogue
 
 error_113:
+    jal ra, free_4B
     mv a1, s2
     jal ra, fflush
     li a1, 113

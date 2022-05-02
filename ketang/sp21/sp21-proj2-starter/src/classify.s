@@ -144,7 +144,12 @@ classify:
     mv a6, s4
     jal ra, matmul # result write to a6
 
-    # TODO: free m0 and input
+    # free m0, because m0*input finished.
+    mv a0, s5
+    jal ra, free
+    # free input, because m0*input finished.
+    mv a0, s9
+    jal ra, free
 
     # 2. NONLINEAR LAYER
     # execute inplace relu
@@ -175,8 +180,12 @@ classify:
     mv a6, s11 # final mat ptr
     jal ra, matmul
 
-    # TODO: free m1
-    # TODO: free relu(m0*input)
+    # free m1, because m1*relu(...) finished
+    mv a0, s7
+    jal ra, free
+    # free relu(m0*input), because m1*relu(...) finished
+    mv a0, s4
+    jal ra, free
 
     # =====================================
     # WRITE OUTPUT
@@ -203,6 +212,10 @@ classify:
     mv a1, t0
     jal ra, argmax
     mv s0, a0
+
+    # free m1*relu(...), because argmax finished.
+    mv a0, s11
+    jal ra, free
 
     lw t0, 52(sp) # print_out args, 52 is hard coding
     beq t0, x0, print_out
