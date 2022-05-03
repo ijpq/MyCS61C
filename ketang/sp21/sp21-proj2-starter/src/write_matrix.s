@@ -61,8 +61,8 @@ write_matrix:
     # allocate 4B
     # li a0, 4
     # jal ra, malloc
-    li a1, 4
-    jal ra, sbrk
+    li a0, 4
+    jal ra, malloc
     mv s6, a0 # ptr to 4B
 
     # write first 4B, rows.
