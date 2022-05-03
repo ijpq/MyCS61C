@@ -292,6 +292,279 @@ scores = matmul(m1, hidden_layer)
 
 并不是所有的输入都被预测正确，mnist_input2和mnist_input7会被分类为9和8，其他的都能被分类正确。
 
+> inputs中的文件名和实际数字对应关系如下：
+>
+> python3 print_mnist.py 0
+>
+>
+> This is the MNIST input image:
+>
+>                   **
+>                *****
+>               *****
+>             **** *
+>            *****
+>          ******
+>         ******
+>         ****
+>        ***
+>       *** *
+>       ****
+>       **            ******
+>       ***      ***********
+>       **     *************
+>       **    ******* *****
+>       ***   **** ** ****
+>       ******** *******
+>       **************
+>        ***********
+>          *****
+>
+> The classifier matches it to the number 6
+>
+> python3 print_mnist.py 1
+>
+>
+> This is the MNIST input image:
+>
+>
+>                **
+>             *****
+>           * *****
+>            *  ****
+>          *** ** **
+>           ** *****
+>             ******
+>          ***** ***
+>           ****  **
+>                 **
+>                 *
+>                 **
+>                 **
+>                 **
+>                 **
+>                 ***
+>                 ***
+>                 ***
+>                  *
+>                  **
+>
+> The classifier matches it to the number 9
+>
+> python3 print_mnist.py 2
+>
+>
+> This is the MNIST input image:
+>
+>              * *****
+>             ********
+>              *******
+>                 **
+>                 ***
+>                ****
+>                *******
+>             **********
+>            **********
+>           *********
+>            ******
+>             ***
+>            ****
+>            ****
+>           ****
+>            ***
+>          ***
+>          ****
+>         ****
+>         ***
+>
+> The classifier matches it to the number 7
+>
+> python3 print_mnist.py 3
+>
+>
+> This is the MNIST input image:
+>
+>                ***
+>               *****
+>             *******
+>            ***** ***
+>            ****    **
+>           *****   ***
+>            ***    ***
+>                   ***
+>                  ***
+>                  ***
+>                  ***
+>            ***  ***
+>           *********
+>          *********
+>         ****  ****
+>        ****  ****
+>        ***  *******
+>        ******** ***
+>        *******   *
+>         *** *
+>
+> The classifier matches it to the number 2
+>
+>  python3 print_mnist.py 4
+>
+>
+> This is the MNIST input image:
+>
+>
+>            ******
+>           *********
+>         ****      *
+>        ** *      ***
+>        *         ***
+>       ***       ***
+>       ***      ****
+>        ***   ******
+>         ******** **
+>          ****     *
+>                  **
+>                  **
+>                  **
+>                  **
+>                  **
+>                  ***
+>                  ***
+>                  ***
+>                  **
+>                  **
+>
+> The classifier matches it to the number 9
+>
+> python3 print_mnist.py 5
+>
+>
+> This is the MNIST input image:
+>
+>            ***     **
+>           ****   ***
+>          ****    ***
+>         ****     ***
+>         ***       **
+>        ***       ***
+>        ***      ****
+>        ***      **
+>        ***      **
+>         **   ** ***
+>        ***  *******
+>         ****** ****
+>          ****  ***
+>                ***
+>                 **
+>                ***
+>                ***
+>                **
+>               ****
+>               ***
+>
+> The classifier matches it to the number 4
+>
+> python3 print_mnist.py 6
+>
+>
+> This is the MNIST input image:
+>
+>
+>               *      **
+>              ***   ****
+>             ****   ****
+>            *****   ****
+>            ****   ***
+>          *****    ****
+>          ***     *****
+>        ***************
+>        ****************
+>        ***************
+>        ************
+>          **  *****
+>             ****
+>            ******
+>            *****
+>           *****
+>          *****
+>          *****
+>          ***
+>           ***
+>
+> The classifier matches it to the number 4
+>
+> python3 print_mnist.py 7
+>
+>
+> This is the MNIST input image:
+>
+>
+>            ********
+>           **********
+>         ************
+>       * *************
+>      ********  * ****
+>      ********   ****
+>      *********  ****
+>      ********   *****
+>      **** *      ****
+>      ****       *****
+>                *****
+>              *******    *
+>             *************
+>            **************
+>           ***************
+>         ***************
+>        *********
+>        ********
+>        *******
+>        *****
+>
+> The classifier matches it to the number 2
+>
+> python3 print_mnist.py 8
+>
+>
+> This is the MNIST input image:
+>
+>                *****
+>            **********
+>         *************
+>        **************
+>      *********   ***
+>      *******    ****
+>     ******      ****
+>     *****       ****
+>     ****       *****
+>                ****
+>               *****
+>               *****
+>               ****
+>              *****
+>              *****
+>             *****
+>              ****
+>             ****
+>             ****
+>              ***
+>
+>
+> The classifier matches it to the number 7
+
+
+
+> 问题：在write_matrix中读取行列的4B，使用sbrk就会报如下错误:
+>
+> ![image-20220503095634422](https://tva1.sinaimg.cn/large/e6c9d24ely1h1uze922xsj20dc03i0sr.jpg)
+>
+> ![image-20220503095557307](https://tva1.sinaimg.cn/large/e6c9d24ely1h1uzdnju2pj20t007275g.jpg)
+>
+> 而改为malloc，就不会报错
+>
+> ![image-20220503095617378](https://tva1.sinaimg.cn/large/e6c9d24ely1h1uzdyontvj20ss01zjrt.jpg)
+>
+> **究竟sbrk和malloc区别是?**
+
 **Generating Your Own MNIST Inputs**
 
 1. 在一个28*28像素点的图上画一个数字，并且存成bmp，放到inputs/mnist/student_inputs
