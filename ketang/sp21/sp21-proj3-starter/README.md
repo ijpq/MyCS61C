@@ -258,3 +258,50 @@ branch单元的输入输出表如下
 | WRITE_DATA      | 32        | This output is used to provide write data to data memory.    |
 | WRITE_ENABLE    | 4         | This output is used to provide the write enable mask to data memory. |
 | PROGRAM_COUNTER | 32        | This output is used to select which instruction is presented to the processor on the INSTRUCTION input. |
+
+### info:Control Logic
+
+control-logic.circ还没有实现，这个内容的实现是partB中最难的
+
+对于partA，可以为每一个控制信号设置一个常数，因为partA只要实现addi指令，对应的控制信号是固定的
+
+**在这个文件中可以增加更多的input/output pin**，以实现控制逻辑
+
+### 单级CPU: A Guide
+
+回顾一下cpu的五个stage，下面每个stage提出一些问题，能够帮助理解问题！
+
+**Stage1: IF**
+
+主要的问题是，我们如何取得当前的指令？根据教材，指令是从指令内存中取出来的，每一条指令可以根据给定的内存地址来获取
+
+1. 哪一个.circ包含了指令内存？如何连接到cpu.circ?
+
+   `INSTRUCTION MEMORY`在run.circ中，把`PROGRAM_COUNTER`输入到`INSTRUCTION MEMORY`，并且输出到`INSTRCUTION`中
+
+   输出`PROGRAM_COUNTER`到tunnel
+
+   ![image-20220507150753619](https://tva1.sinaimg.cn/large/e6c9d24ely1h1zuvgf3a8j20jo08g755.jpg)
+
+   `PROGRAM_COUNTER`输出到`INSTRUCTION MEMORY`
+
+   ![image-20220507150833938](https://tva1.sinaimg.cn/large/e6c9d24ely1h1zuw4do1mj20si0ab40o.jpg)
+
+   `INSTRUCTION MEMORY`输出`INSTRUCTION`到cpu
+
+   ![image-20220507150915309](https://tva1.sinaimg.cn/large/e6c9d24ely1h1zuwu2o3sj20s90a7jti.jpg)
+
+2. 在这个cpu中，更改了pc后，是如何影响指令输入的？
+
+   更改pc后，从`INSTRUCTION MEMORY`取出不同的指令给cpu
+
+3. 你怎么知道pc应该是什么值
+
+   `答案`:`PROGRAM_COUNTER` is the address of the current instruction being executed, so it is saved in the PC register. For this project, your PC will start at 0, as that is the default value for a register.
+
+4. 对于没有跳转和条件指令的程序，执行过程中pc是如何变化的
+
+   直接+4
+
+**Stage2: Instruction Decode**
+
