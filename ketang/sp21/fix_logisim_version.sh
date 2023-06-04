@@ -10,5 +10,5 @@
 
 #!/bin/bash
 
-find . -name '*.circ' -exec sed -i '' -E 's/(source="3\.4\.3)-[^"]*/\1/g' {} \; -exec echo "Modified file: {}" \;
+find . -name '*.circ' -exec sed -i '' -E 's/(source="[0-9]\.[0-9]\.[0-9])-[^"]*/\1/g' {} \; -exec echo "Modified file: {}" \;
 
