@@ -39,12 +39,12 @@
       <a name="font" val="SansSerif plain 12"/>
     </tool>
   </lib>
-  <lib desc="file#csr.circ" name="6"/>
-  <lib desc="file#regfile.circ" name="7"/>
-  <lib desc="file#branch-comp.circ" name="8"/>
-  <lib desc="file#alu.circ" name="9"/>
+  <lib desc="file#regfile.circ" name="6"/>
+  <lib desc="file#alu.circ" name="7"/>
+  <lib desc="file#imm-gen.circ" name="8"/>
+  <lib desc="file#csr.circ" name="9"/>
   <lib desc="file#control-logic.circ" name="10"/>
-  <lib desc="file#imm-gen.circ" name="11"/>
+  <lib desc="file#branch-comp.circ" name="11"/>
   <main name="cpu"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -622,7 +622,7 @@
       <a name="width" val="4"/>
     </comp>
     <comp lib="10" loc="(540,1010)" name="control_logic"/>
-    <comp lib="11" loc="(610,880)" name="imm_gen"/>
+    <comp lib="11" loc="(400,460)" name="branch_comp"/>
     <comp lib="2" loc="(1470,590)" name="Multiplexer">
       <a name="select" val="2"/>
       <a name="width" val="32"/>
@@ -692,10 +692,10 @@
       <a name="font" val="SansSerif plain 22"/>
       <a name="text" val="It is OK to move the PC, RegFile, ALU, MEM, Branch Comp, Imm Gen, and Control Logic to wherever is most convenient for you when constructing your CPU, and to delete this text"/>
     </comp>
-    <comp lib="6" loc="(1450,890)" name="csr"/>
-    <comp lib="7" loc="(720,590)" name="regfile"/>
-    <comp lib="8" loc="(400,460)" name="branch_comp"/>
-    <comp lib="9" loc="(1010,630)" name="alu"/>
+    <comp lib="6" loc="(720,590)" name="regfile"/>
+    <comp lib="7" loc="(1010,630)" name="alu"/>
+    <comp lib="8" loc="(610,880)" name="imm_gen"/>
+    <comp lib="9" loc="(1450,890)" name="csr"/>
     <wire from="(100,450)" to="(150,450)"/>
     <wire from="(100,490)" to="(120,490)"/>
     <wire from="(1000,950)" to="(1000,1010)"/>
