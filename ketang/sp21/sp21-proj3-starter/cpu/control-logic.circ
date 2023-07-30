@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="3.8.0-61c.07e32fb" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.07e32fb(https://github.com/61c-teach/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -30,11 +30,7 @@
       <a name="width" val="8"/>
     </tool>
   </lib>
-  <lib desc="#Gates" name="1">
-    <tool name="AND Gate">
-      <a name="size" val="30"/>
-    </tool>
-  </lib>
+  <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
   <lib desc="#Memory" name="4"/>
@@ -99,21 +95,21 @@
       <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="159" y="250">inst</text>
       <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="355" y="250">BrEq</text>
       <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="388" y="250">BrLt</text>
-      <circ-anchor facing="east" x="220" y="230"/>
-      <circ-port dir="in" pin="130,210" x="170" y="230"/>
-      <circ-port dir="in" pin="200,210" x="370" y="230"/>
-      <circ-port dir="in" pin="250,210" x="400" y="230"/>
-      <circ-port dir="out" pin="1010,210" x="730" y="230"/>
-      <circ-port dir="out" pin="350,210" x="220" y="230"/>
-      <circ-port dir="out" pin="420,210" x="270" y="230"/>
-      <circ-port dir="out" pin="500,210" x="320" y="230"/>
-      <circ-port dir="out" pin="570,210" x="430" y="230"/>
-      <circ-port dir="out" pin="620,210" x="460" y="230"/>
-      <circ-port dir="out" pin="670,210" x="490" y="230"/>
-      <circ-port dir="out" pin="730,210" x="530" y="230"/>
-      <circ-port dir="out" pin="810,210" x="580" y="230"/>
-      <circ-port dir="out" pin="880,210" x="630" y="230"/>
-      <circ-port dir="out" pin="940,210" x="680" y="230"/>
+      <circ-anchor facing="east" height="6" width="6" x="217" y="227"/>
+      <circ-port height="10" pin="1010,210" width="10" x="725" y="225"/>
+      <circ-port height="10" pin="350,210" width="10" x="215" y="225"/>
+      <circ-port height="10" pin="420,210" width="10" x="265" y="225"/>
+      <circ-port height="10" pin="500,210" width="10" x="315" y="225"/>
+      <circ-port height="10" pin="570,210" width="10" x="425" y="225"/>
+      <circ-port height="10" pin="620,210" width="10" x="455" y="225"/>
+      <circ-port height="10" pin="670,210" width="10" x="485" y="225"/>
+      <circ-port height="10" pin="730,210" width="10" x="525" y="225"/>
+      <circ-port height="10" pin="810,210" width="10" x="575" y="225"/>
+      <circ-port height="10" pin="880,210" width="10" x="625" y="225"/>
+      <circ-port height="10" pin="940,210" width="10" x="675" y="225"/>
+      <circ-port height="8" pin="130,210" width="8" x="166" y="226"/>
+      <circ-port height="8" pin="200,210" width="8" x="366" y="226"/>
+      <circ-port height="8" pin="250,210" width="8" x="396" y="226"/>
     </appear>
     <comp lib="0" loc="(1000,850)" name="Tunnel">
       <a name="label" val="is_SB_or_is_jalr"/>
@@ -1530,71 +1526,18 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="PCSel"/>
     </comp>
-    <comp lib="5" loc="(135,1115)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="I-type: 000,0011"/>
-    </comp>
-    <comp lib="5" loc="(140,1140)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="U-type: 001,0111"/>
-    </comp>
-    <comp lib="5" loc="(140,1165)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="S-type: 010,0011"/>
-    </comp>
-    <comp lib="5" loc="(140,1185)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="R-type: 011,0011; no imm"/>
-    </comp>
-    <comp lib="5" loc="(140,1205)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="SB-type: 110,0011"/>
-    </comp>
-    <comp lib="5" loc="(140,1225)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="UJ-type: 110,1111"/>
-    </comp>
     <comp lib="5" loc="(1570,790)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="BrUn"/>
     </comp>
-    <comp lib="5" loc="(170,90)" name="Text">
+    <comp lib="5" loc="(174,93)" name="Text">
       <a name="text" val="INPUTS to your circuit"/>
     </comp>
-    <comp lib="5" loc="(385,1090)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="ImmSel generator logic"/>
-    </comp>
-    <comp lib="5" loc="(465,1120)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="while writting ImmSel, Rtype does not contain imm, so Rtype would not be included."/>
-    </comp>
-    <comp lib="5" loc="(480,1225)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="there is another way to design this circuit, refer to cnblogs: 16225150 "/>
-    </comp>
-    <comp lib="5" loc="(560,1170)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="the highest(leftest) bits shows a regularity. Itype-&gt; 000, Utype-&gt;001, Stype-&gt;010, SBType-&gt; 110, UJType-&gt;110"/>
-    </comp>
-    <comp lib="5" loc="(560,40)" name="Text">
+    <comp lib="5" loc="(562,43)" name="Text">
       <a name="text" val="DON'T CHANGE THE LOCATIONS OF THE INPUTS AND OUTPUTS!"/>
     </comp>
-    <comp lib="5" loc="(605,140)" name="Text">
+    <comp lib="5" loc="(606,143)" name="Text">
       <a name="text" val="OUTPUT from your circuit"/>
-    </comp>
-    <comp lib="5" loc="(610,1145)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="the rightest 2 bit always be 1 in these instruction, so this 2 bit would not be contained. becasue this 2 bit cannot identify instrcut type"/>
-    </comp>
-    <comp lib="5" loc="(730,1190)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="these 3bits cannot distinct UJ/SB type only, but the 3rd bit is 1 only in UJType. so we can make OR between highest 3bits and extended 3rd bit, to produce a regularity 3bits"/>
-    </comp>
-    <comp lib="5" loc="(930,310)" name="Text">
-      <a name="color" val="#d90018"/>
-      <a name="font" val="SansSerif plain 26"/>
-      <a name="text" val="THIS CONTROL LOGIC CONTAINS HARD-WIRTED CIRCUIT(ONLY PART OF INSTRUCTIONS WORKS), BECAUSE THIS PROJECT TEST FEW OF INSTRUCTIOS ONLY"/>
     </comp>
     <wire from="(1010,210)" to="(1010,230)"/>
     <wire from="(1020,1790)" to="(1040,1790)"/>
@@ -1842,7 +1785,6 @@
     <wire from="(380,920)" to="(440,920)"/>
     <wire from="(420,210)" to="(420,230)"/>
     <wire from="(440,230)" to="(480,230)"/>
-    <wire from="(50,800)" to="(50,1260)"/>
     <wire from="(500,210)" to="(500,230)"/>
     <wire from="(520,230)" to="(550,230)"/>
     <wire from="(530,390)" to="(530,710)"/>
@@ -2032,7 +1974,6 @@
     <wire from="(740,3570)" to="(760,3570)"/>
     <wire from="(740,3690)" to="(740,3850)"/>
     <wire from="(740,3690)" to="(760,3690)"/>
-    <wire from="(740,800)" to="(740,1260)"/>
     <wire from="(750,230)" to="(790,230)"/>
     <wire from="(750,3370)" to="(750,3560)"/>
     <wire from="(750,3560)" to="(760,3560)"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="3.8.0-61c.07e32fb" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0-61c.07e32fb(https://github.com/61c-teach/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -203,7 +203,6 @@
     <comp lib="0" loc="(250,520)" name="Bit Extender">
       <a name="in_width" val="12"/>
       <a name="out_width" val="32"/>
-      <a name="type" val="zero"/>
     </comp>
     <comp lib="0" loc="(250,620)" name="Splitter">
       <a name="appear" val="center"/>
@@ -274,7 +273,6 @@
     <comp lib="0" loc="(400,590)" name="Bit Extender">
       <a name="in_width" val="12"/>
       <a name="out_width" val="32"/>
-      <a name="type" val="zero"/>
     </comp>
     <comp lib="0" loc="(420,590)" name="Tunnel">
       <a name="label" val="I_type"/>
@@ -283,7 +281,6 @@
     <comp lib="0" loc="(450,500)" name="Bit Extender">
       <a name="in_width" val="13"/>
       <a name="out_width" val="32"/>
-      <a name="type" val="zero"/>
     </comp>
     <comp lib="0" loc="(460,500)" name="Tunnel">
       <a name="label" val="SB_type"/>
@@ -295,7 +292,6 @@
     <comp lib="0" loc="(650,550)" name="Bit Extender">
       <a name="in_width" val="1"/>
       <a name="out_width" val="12"/>
-      <a name="type" val="zero"/>
     </comp>
     <comp lib="0" loc="(720,640)" name="Splitter">
       <a name="appear" val="center"/>
