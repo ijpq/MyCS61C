@@ -14,8 +14,8 @@ ketang,Chrunge : done 🏁 ,  lay aside 📎, processing ⏳
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |week1||lec1|lec2|lab0 🏁 |hw1 🏁|
 |week2|lec3|lec4|lec5|lab1 🏁|<li>proj1</li> 📎 <li>hw2</li> 🏁|
-|week3|NULL|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> ⏳ |
-|week4|lec8|lec9|lec10|lab3 🏁 |NULL|
+|week3|NULL|lec6|lec7|lab2 🏁 | <li>hw3</li> <li>hw4</li> <li>proj2</li> 🏁 |
+|week4|lec8|lec9|lec10|lab3 🏁 |proj3🏁|
 |week5|lec11|lec12|lec13|<li>lab4</li> <li>discussion4</li>|NULL|
 
 ---
