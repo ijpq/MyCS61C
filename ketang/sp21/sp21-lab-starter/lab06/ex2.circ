@@ -96,6 +96,22 @@
       <a name="locked" val="true"/>
       <a name="width" val="8"/>
     </comp>
+    <comp lib="0" loc="(320,80)" name="Probe">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(450,80)" name="Probe">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(550,90)" name="Probe">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(600,260)" name="Probe">
+      <a name="appearance" val="classic"/>
+      <a name="radix" val="16"/>
+    </comp>
     <comp lib="0" loc="(810,130)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -119,17 +135,29 @@
     <wire from="(190,130)" to="(190,150)"/>
     <wire from="(190,130)" to="(250,130)"/>
     <wire from="(190,90)" to="(190,110)"/>
-    <wire from="(290,120)" to="(380,120)"/>
+    <wire from="(290,120)" to="(350,120)"/>
+    <wire from="(320,80)" to="(350,80)"/>
+    <wire from="(350,120)" to="(380,120)"/>
+    <wire from="(350,80)" to="(350,120)"/>
     <wire from="(370,160)" to="(370,210)"/>
     <wire from="(370,160)" to="(380,160)"/>
     <wire from="(370,210)" to="(570,210)"/>
-    <wire from="(440,120)" to="(500,120)"/>
+    <wire from="(440,120)" to="(470,120)"/>
+    <wire from="(450,80)" to="(470,80)"/>
+    <wire from="(470,120)" to="(500,120)"/>
     <wire from="(470,140)" to="(470,230)"/>
     <wire from="(470,140)" to="(500,140)"/>
-    <wire from="(470,230)" to="(680,230)"/>
-    <wire from="(540,130)" to="(580,130)"/>
+    <wire from="(470,230)" to="(630,230)"/>
+    <wire from="(470,80)" to="(470,120)"/>
+    <wire from="(540,130)" to="(570,130)"/>
+    <wire from="(550,90)" to="(570,90)"/>
+    <wire from="(570,130)" to="(580,130)"/>
     <wire from="(570,170)" to="(570,210)"/>
     <wire from="(570,170)" to="(580,170)"/>
+    <wire from="(570,90)" to="(570,130)"/>
+    <wire from="(600,260)" to="(630,260)"/>
+    <wire from="(630,230)" to="(630,260)"/>
+    <wire from="(630,230)" to="(680,230)"/>
     <wire from="(640,130)" to="(680,130)"/>
     <wire from="(680,130)" to="(680,230)"/>
     <wire from="(680,130)" to="(810,130)"/>
